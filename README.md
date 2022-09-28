@@ -1,5 +1,7 @@
 # **E-Commerce de Skates** 🛹🏁
 
+xxxxx es una empresa de origen Argentino cuyo labor es diseñar , elaborar y comercializar skates e indumentaria para todos los amantes de la cultura del Skateboard.
+
 ## Productos Ofrecidos 
 
 * Skates 
@@ -15,3 +17,4 @@
 * Cultura del Skateboard
 
 * Unisex
+
