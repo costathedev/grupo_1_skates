@@ -31,3 +31,7 @@ Tengo 19 años , soy programador , y me gusta emprender e innovar constantemente
 ### Florencia Lafuente
 
 Tengo 24 años, soy publicista y si tuviera la posibilidad viviría pegada a mi bicicleta. Trabajo en una agencia creativa de publicidad y me gusta todo aquello relacionado a la creatividad, la comunicación y la imagen visual. Tuve la posibilidad de estudiar programación en la secundaria (C#, PHP, CSS, HTML, Java en Android) y siempre me quedó la curiosidad de dominar alguno de ellos. Hoy mi primer objetivo es la programación web full stack, y por qué no algún día trabajar de ello. 
+
+### Fabian Velazquez 
+
+Tengo 26 años, trabajo en ventas, en la secundaria estudie informática, conocí lenguajes como pascal y visualbasic, me gustaba la programación pero la deje bastante tiempo.Este año comencé a estudiar sistemas en la universidad y me recomendaron hacer el curso Full Stack de Diguital House, aspiro a trabajar como desarrollador web, me gusta la tencnologia en si, programar y resolver problemas. Como hobbie hacer snow, jugar pádel, tenis de mesa, leer y pasear con mi perro es lo que mas disfruto.
