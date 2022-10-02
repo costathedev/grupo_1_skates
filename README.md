@@ -18,6 +18,12 @@ Saints of Bath es una empresa de origen Argentino cuyo labor es diseñar, elabor
 
 * Unisex
 
+## Páginas de Referencia
+
+* https://www.element.com.ar/ : Por ser una página del mismo rubro, una de las principales del sector y con buena estética y funcionalidad.
+* (otra)
+* (otra)
+
 ## Team Members
 
 ### Carolina Bubenik
