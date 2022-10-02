@@ -27,3 +27,7 @@ Tengo 37 años y soy Ingeniera en Sistemas y mamá de dos hermosas niñas. Traba
 ### Ramiro Costa R
 
 Tengo 19 años , soy programador , y me gusta emprender e innovar constantemente. Ahora mismo me estoy perfeccionando en web development en la academia de digital house , ya que mi mayor aspiración es Poder trabajar de ello. También soy amante de estudiar ingles y mejorar día a día.
+
+### Florencia Lafuente
+
+Tengo 24 años, soy publicista y si tuviera la posibilidad viviría pegada a mi bicicleta. Trabajo en una agencia creativa de publicidad y me gusta todo aquello relacionado a la creatividad, la comunicación y la imagen visual. Tuve la posibilidad de estudiar programación en la secundaria (C#, PHP, CSS, HTML, Java en Android) y siempre me quedó la curiosidad de dominar alguno de ellos. Hoy mi primer objetivo es la programación web full stack, y por qué no algún día trabajar de ello. 
