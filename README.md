@@ -35,3 +35,13 @@ Tengo 24 años, soy publicista y si tuviera la posibilidad viviría pegada a mi 
 ### Fabian Velazquez 
 
 Tengo 26 años, trabajo en ventas, en la secundaria estudie informática, conocí lenguajes como pascal y visualbasic, me gustaba la programación pero la deje bastante tiempo.Este año comencé a estudiar sistemas en la universidad y me recomendaron hacer el curso Full Stack de Diguital House, aspiro a trabajar como desarrollador web, me gusta la tencnologia en si, programar y resolver problemas. Como hobbie hacer snow, jugar pádel, tenis de mesa, leer y pasear con mi perro es lo que mas disfruto.
+
+## Páginas de Referencia
+
+* https://www.labskateboarding.com/
+* https://culturaurbanashop.es/
+* https://www.element.com.ar/
+* https://www.cristobalcolon.com/
+* https://shop.ccs.com/
+* http://www.kalimaboards.com/
+* https://www.dcshoes.com.ar/
