@@ -45,3 +45,5 @@ Tengo 26 años, trabajo en ventas, en la secundaria estudie informática, conoc�
 * https://shop.ccs.com/
 * http://www.kalimaboards.com/
 * https://www.dcshoes.com.ar/
+
+Tomando como punto de partida las páginas de referencia elegidas, pudimos definir los elementos del header y el footer que consideramos destacables y pertinentes para la categoría que estamos trabajando. También tomamos de ellas recursos útiles para darle más vida a nuestra web (detalles estéticos, icons, botones, variaciones en los tamaños de tipografías dependiendo de su ubicación, entre otros). Haciendo una comparación entre todas ellas le dimos forma al body de nuestro e-commerce, disponiendo de todos los elementos necesarios en el orden que más nos convenció.
