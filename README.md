@@ -1,4 +1,4 @@
-# ** Saints of Bath • E-Commerce de Skates** 🛹🏁
+# **Saints of Bath • E-Commerce de Skates** 🛹🏁
 
 Saints of Bath es una empresa de origen Argentino cuyo labor es diseñar, elaborar y comercializar skates e indumentaria para todos los amantes de la cultura del Skateboard.
 
