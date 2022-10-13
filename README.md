@@ -47,3 +47,9 @@ Tengo 26 años, trabajo en ventas, en la secundaria estudie informática, conoc�
 * https://www.dcshoes.com.ar/
 
 Tomando como punto de partida las páginas de referencia elegidas, pudimos definir los elementos del header y el footer que consideramos destacables y pertinentes para la categoría que estamos trabajando. También tomamos de ellas recursos útiles para darle más vida a nuestra web (detalles estéticos, icons, botones, variaciones en los tamaños de tipografías dependiendo de su ubicación, entre otros). Haciendo una comparación entre todas ellas le dimos forma al body de nuestro e-commerce, disponiendo de todos los elementos necesarios en el orden que más nos convenció.
+
+## Tablero Kanban
+
+El desarrollo del e-commerce fue dividido en sprints, cada uno de los cuales detalla en tareas el trabajo a realizar. Para organizaarlo visualmenmente implementamos un tablero Kanban en la plataforma Trello:
+
+https://trello.com/b/3L13NHDF/sprints
