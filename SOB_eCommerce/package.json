@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/costathedev/grupo_1_skates/issues"
   },
-  "homepage": "https://github.com/costathedev/grupo_1_skates#readme"
+  "homepage": "https://github.com/costathedev/grupo_1_skates#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
