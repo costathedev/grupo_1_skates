@@ -2,15 +2,60 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* border: solid 1px red;  PARA TESTING!*/
 }
 
 header {
-    border: solid 1px darkgray;
+    border: dashed 1px rgba(128,128,128,0.2);/* prueba */
     width: 100%;
-    /* height: 100px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
-.hd-container {
-    display: flex;
-    justify-content: space-around;
+.head-item {
+    margin: 5px;
 }
+
+header img {
+    width: 30%;
+}
+
+.header-buscador {
+    flex-grow: 1;
+}
+
+.buscador input {
+    width: 100%;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-item {
+    width: 100%;
+    margin: 10px;
+}
+
+.footer-novedades {
+    text-transform: uppercase;
+    text-align: left;
+    width: 90%;
+    margin: auto;
+}
+
+footer i{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+footer input {
+    width: 90%;
+    margin: auto;
+}
+

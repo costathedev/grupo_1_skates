@@ -17,3 +17,19 @@ app.listen(puerto, () => console.log('Servidor corriendo en ' + url + ':' + puer
 app.get('/', (req, res) => 
     res.sendFile(path.resolve(__dirname, 'views/index.html'))
 )
+
+app.get('/refund-policy', (req, res) => 
+    res.sendFile(path.resolve(__dirname, 'views/refund-policy.html'))
+)
+
+app.get('/faq', (req, res) => 
+    res.sendFile(path.resolve(__dirname, 'views/faq.html'))
+)
+
+app.get('/contact', (req, res) => 
+    res.sendFile(path.resolve(__dirname, 'views/contact.html'))
+)
+
+app.get('/about-us', (req, res) => 
+    res.sendFile(path.resolve(__dirname, 'views/about-us.html'))
+)
