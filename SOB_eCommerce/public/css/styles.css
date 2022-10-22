@@ -1,20 +1,37 @@
+/* -------------- GENERALES -------------- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* border: solid 1px red;  PARA TESTING!*/
+    font-family: 'Rajdhani', sans-serif;
 }
 
+body {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+
+.linea {
+    border-top: solid 1px darkgray;
+}
+
+/* -------------- HEADER -------------- */
 header {
-    border: dashed 1px rgba(128,128,128,0.2);/* prueba */
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    position: sticky;
+    top:0px;
+    z-index: 100;
+    height: 10vh;
+
+    /* background-color: white; */
+    background-image: linear-gradient(to bottom, white 80%, rgba(255,255,255,0.6) 20%);
 }
 
-.head-item {
+.header-item {
     margin: 5px;
 }
 
@@ -26,11 +43,17 @@ header img {
     flex-grow: 1;
 }
 
-.buscador input {
+.header-buscador input {
     width: 100%;
 }
 
+/* -------------- FOOTER -------------- */
 footer {
+    position: absolute;
+    bottom: 0px;
+    height: 21rem;
+}
+.footer-content{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -39,23 +62,47 @@ footer {
 
 .footer-item {
     width: 100%;
-    margin: 10px;
+    line-height: 2.5rem ;
 }
 
 .footer-novedades {
     text-transform: uppercase;
     text-align: left;
-    width: 90%;
-    margin: auto;
+    line-height: 0.7rem !important;
 }
 
-footer i{
+footer i {
     margin-left: 15px;
     margin-right: 15px;
 }
 
 footer input {
-    width: 90%;
-    margin: auto;
+    width: 100%;
 }
 
+.footer-developer {
+    font-size: smaller;
+}
+
+.floating-whatsapp {
+    position: fixed;
+    font-size: 3.5rem;
+    bottom: 2rem;
+    right: 0px;
+    z-index: 90;
+    background-color: white;
+}
+
+/* -------------- MAIN -------------- */
+.page-container{
+    position: relative;
+    min-height: 90vh;
+}
+
+.main-content{
+    padding-bottom: 23.5rem;
+}
+
+main {
+    padding-top: 20px;
+}
