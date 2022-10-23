@@ -17,25 +17,25 @@ body {
 }
 
 /* -------------- HEADER -------------- */
-header {
+.header-main {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
     position: sticky;
-    top:0px;
+    top: 0px;
     z-index: 100;
     height: 10vh;
 
     /* background-color: white; */
-    background-image: linear-gradient(to bottom, white 80%, rgba(255,255,255,0.6) 20%);
+    background-image: linear-gradient(to bottom, white 80%, rgba(255, 255, 255, 0.6) 20%);
 }
 
 .header-item {
     margin: 5px;
 }
 
-header img {
+.header-main img {
     width: 30%;
 }
 
@@ -45,6 +45,32 @@ header img {
 
 .header-buscador input {
     width: 100%;
+}
+
+.hamburguer-icon {
+    /*Es pisado por una clase del ícono, pero no importa ya que lo que 
+     se necesita es ocultarlo en resolución web */
+    display: block;
+}
+
+.header-secondary {
+    display: none;
+    /* En mobile no se muestra, sólo tablet o web */
+    text-align: center;
+}
+
+.header-secondary strong {
+    line-height: 2rem;
+}
+
+.header-categories {
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.header-category {
+    flex-grow: 1;
+    text-transform: uppercase;
 }
 
 /* -------------- FLOATING MENU -------------- */
@@ -58,8 +84,9 @@ header img {
     height: 100vh;
     top: 0px;
     right: 0px;
-   
-    padding-top: 12vh;  /*header height, más un poquito para separar más */
+
+    padding-top: 12vh;
+    /*header height, más un poquito para separar más */
     background-color: white;
     z-index: 95;
 
@@ -93,17 +120,23 @@ footer {
     position: absolute;
     bottom: 0px;
     height: 21rem;
+    width: 100%;
 }
-.footer-content{
+
+.footer-content {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     text-align: center;
 }
 
+.footer-novedades-links-group {
+    width: 100%;
+}
+
 .footer-item {
     width: 100%;
-    line-height: 2.5rem ;
+    line-height: 2.5rem;
 }
 
 .footer-novedades {
@@ -112,13 +145,20 @@ footer {
     line-height: 0.7rem !important;
 }
 
+footer input {
+    width: 100%;
+}
+
 footer i {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-footer input {
+.footer-links {
+    display: flex;
+    flex-direction: column;/* En tablet o web se coloca horizontal */
     width: 100%;
+    justify-content: center;
 }
 
 .footer-developer {
@@ -135,12 +175,12 @@ footer input {
 }
 
 /* -------------- MAIN -------------- */
-.page-container{
+.page-container {
     position: relative;
     min-height: 90vh;
 }
 
-.main-content{
+.main-content {
     padding-bottom: 23.5rem;
 }
 
@@ -150,11 +190,59 @@ main {
 
 
 
-/* MediaQueries */
-
+/* -------------- MEDIA QUERIES -------------- */
+/* Tablet */
 @media (min-width: 768px) {
+    .header-secondary {
+        display: block;
+        /* En mobile no se muestra, sólo tablet o web */
+    }
+
     .floating-menu {
         display: none;
     }
+
+    .hamburguer-icon {
+        /* Es necesario el "important" para que no se pise por una clase del ícono! */
+        display: none !important;
+    }
+
+    .footer-links {
+        justify-content: space-around;
+        flex-direction: row;/* En mobile se coloca vertical */
+    }
+
+    .linea {
+        margin-top: 10px;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+
+    .footer-links a {
+        width: auto;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .footer-novedades-links-group {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content:space-around;
+        align-items: center;
+    }
+
+    .footer-novedades-group {
+        width: 35%;
+    }
     
+    .footer-novedades {
+        line-height: 1.9rem !important;
+    }
+
+    .footer-links-group {
+        flex-grow: 1;
+        width: 100%;
+    }
 }
