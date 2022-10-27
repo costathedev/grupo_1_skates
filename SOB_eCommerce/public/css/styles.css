@@ -1,3 +1,8 @@
+/* -------------- PALETA DE COLROES -------------- */
+/* Verdes: #12b43b, #23a539 
+Gris: #ebebeb */
+
+
 /* -------------- GENERALES -------------- */
 * {
     box-sizing: border-box;
@@ -16,6 +21,31 @@ body {
     border-top: solid 1px darkgray;
 }
 
+a i {
+    color: black;
+}
+
+.btn-submit {
+    background-image: linear-gradient(#12b43b, #23a539 );
+    font-size: 1.2rem;
+}
+
+.btn-submit:hover {
+    background-image: linear-gradient( #23a539 , #156423);
+    font-size: 1.2rem;
+    color:white;
+}
+
+.btn-reset {
+    background-image: linear-gradient(#ebebeb, darkgray );
+    font-size: 1.2rem;
+}
+
+.btn-reset:hover {
+    background-image: linear-gradient( darkgray , darkslategray);
+    color: white;
+}
+
 /* -------------- HEADER -------------- */
 .header-main {
     display: flex;
@@ -25,7 +55,9 @@ body {
     position: sticky;
     top: 0px;
     z-index: 100;
-    height: 10vh;
+
+    /* Si se cambia el height, hay que cambiar en page-container */
+    height: 10vh; 
 
     /* background-color: white; */
     background-image: linear-gradient(to bottom, white 80%, rgba(255, 255, 255, 0.6) 20%);
@@ -35,8 +67,12 @@ body {
     margin: 5px;
 }
 
-.header-main img {
+.header-logo-container {
     width: 30%;
+}
+
+.header-logo {
+    width: 100%;
 }
 
 .header-buscador {
@@ -51,6 +87,15 @@ body {
     /*Es pisado por una clase del ícono, pero no importa ya que lo que 
      se necesita es ocultarlo en resolución web */
     display: block;
+}
+
+.hamburguer-icon:hover .floating-menu {
+    display: flex;
+}
+
+.main:hover .floating-menu,
+.body:hover .floating-menu {
+    display: none;
 }
 
 .header-secondary {
@@ -159,6 +204,7 @@ footer i {
     flex-direction: column;/* En tablet o web se coloca horizontal */
     width: 100%;
     justify-content: center;
+    color: black !important;
 }
 
 .footer-developer {
@@ -166,13 +212,20 @@ footer i {
 }
 
 .floating-whatsapp {
+    width: 50px;
     position: fixed;
     font-size: 3.5rem;
     bottom: 2rem;
-    right: 0px;
+    right: 1rem;
     z-index: 90;
-    background-color: white;
+    background-color: transparent;  
 }
+
+.floating-whatsapp:hover {
+    box-shadow: 0px 0px 20px rgb(100, 100, 100);
+    border-radius: 50%;
+}
+
 
 /* -------------- MAIN -------------- */
 
@@ -265,16 +318,10 @@ footer i {
 
 
 
-
-
-
-
-
-
-
-
 .page-container {
     position: relative;
+
+    /* El min-height debe ser el 100 menos el height del header-main. Si ése cambia, cambiar acá */
     min-height: 90vh;
 }
 
@@ -290,9 +337,80 @@ article img {
     width: 100%;
 }
 
+
+/* ------------------ LOGIN ------------------  */
+.login-container {
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    padding: 40px;
+    border: 1px #ebebeb solid;
+    border-radius: 10%;
+}
+
+.login-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.login-form  label {
+    text-align: center;
+}
+
+.login-register-link {
+    width: 100%;
+    color:#12b43b;
+    text-align: center;
+}
+
+
+/* ------------------ REGISTER ------------------  */
+.reg-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.reg-form-item {
+    width: 100%;
+    margin-top: 20px;
+    /* border: 0px; */
+    padding: 7px;
+    /* border-radius: 10%; */
+}
+
+.reg-label {
+    font-weight: bold;
+}
+
+
+
 /* -------------- MEDIA QUERIES -------------- */
 /* Tablet */
 @media (min-width: 768px) {
+    .btn-submit {
+        width: 200px;
+    }
+
+    .reg-form {
+        width: 60%;
+    }
+
+    .login-container {
+        width: 50%;
+    }
+    
+    .btn-reset {
+        width: 200px;
+        /* margin-top:40px; */
+        margin-left: 20px;    
+    }
+
     .header-secondary {
         display: block;
         /* En mobile no se muestra, sólo tablet o web */
@@ -302,9 +420,17 @@ article img {
         display: none;
     }
 
+    .floating-whatsapp {
+        width: 60px;
+    }
+    
     .hamburguer-icon {
         /* Es necesario el "important" para que no se pise por una clase del ícono! */
         display: none !important;
+    }
+
+    footer {
+        height: 13rem;
     }
 
     .footer-links {
@@ -358,6 +484,14 @@ article img {
 }
 
 @media (min-width: 1200px) {
+    
+    .floating-whatsapp {
+        width: 80px;
+    }
+
+    footer {
+        height: 10rem;
+    }
 
     .footer-novedades-links-group {
         display: flex;
