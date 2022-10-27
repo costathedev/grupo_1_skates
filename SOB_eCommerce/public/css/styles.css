@@ -175,6 +175,51 @@ footer i {
 }
 
 /* -------------- MAIN -------------- */
+
+.homemain {
+    padding-top: 0px;      /* -------------- Lo agrege para no modificar el otro -------------- */
+}
+
+.homeh1-measure {
+    font-size: 100%;
+    margin: 0.1em;
+    padding: 0.5em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0.9em;
+    background-color: #ebebeb;
+    color:#12b43b;   
+}
+
+.homecontenedor-section {
+     display: flex;
+     flex-wrap: wrap;
+     padding: 1em;
+     justify-content: space-between;
+}
+
+.homearticle-1{
+    width: 100%;
+    padding: 1em;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .page-container {
     position: relative;
     min-height: 90vh;
@@ -224,6 +269,21 @@ article img {
         width: auto;
     }
 
+
+    .homecontenedor-section {
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 1em;
+        justify-content: space-between;
+    }
+
+    .homearticle-1{
+        width: 33%;
+        padding: 1em;
+    
+    }
+    
+
 }
 
 @media (min-width: 1200px) {
@@ -247,4 +307,24 @@ article img {
         flex-grow: 1;
         width: 100%;
     }
+
+    .homecontenedor-section {
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 1em;
+        justify-content: space-between;
+    }
+
+    .homearticle-1{
+        width: 33%;
+        padding: 1em;
+    
+    }
+
+    
+    
 }
+
+
+
+
