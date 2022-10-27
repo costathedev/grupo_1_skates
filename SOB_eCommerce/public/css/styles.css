@@ -177,8 +177,11 @@ footer i {
 /* -------------- MAIN -------------- */
 
 .homemain {
-    padding-top: 0px;      /* -------------- Lo agrege para no modificar el otro -------------- */
+    padding-top: 0px;     
+    align-items: center; /* -------------- Lo agrege para no modificar el otro -------------- */
+    justify-content: center;
 }
+
 
 .homeh1-measure {
     font-size: 100%;
@@ -204,11 +207,61 @@ footer i {
 
 }
 
+.homecontenedor-section2 {
+    margin-top: 3em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.home-tamañorelasub {
+
+    font-size: 100%;
+    line-height: 1.5em;
+    padding: 12%;
+}
+
+.homeh2-measure { 
+    justify-content: center;
+    font-size: 2em;
+    width: 100%;
+    line-height: 1.5em;
+    padding: 10%;
+    text-align: center;
+}
+
+.homecontenedor-section3 {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.homedetalle-producto{
+    border-top: 1px solid #ebebeb;
+    padding: 1em;
+    margin: 1.5em;
+    align-items: flex-end;
+}
 
 
 
+.hometitulo{
+    font-size: 1em;
+    margin-bottom: 0.4em;
+    color: black;
+    line-height: 0.4rem;
+}
 
-
+.homesubtitulo {
+    color: #23a539;
+    line-height: 1em;
+}
 
 
 
@@ -282,6 +335,24 @@ article img {
         padding: 1em;
     
     }
+
+    
+    .homecontenedor-section2 {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .home-tamañorelasub {
+        padding: 2%;
+    }
+
+
+    
+    .art-imganddesc{
+        width: 45%;
+        
+    }
+    
     
 
 }
@@ -312,7 +383,7 @@ article img {
         display: flex;
         flex-wrap: nowrap;
         padding: 1em;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .homearticle-1{
@@ -320,9 +391,21 @@ article img {
         padding: 1em;
     
     }
+    
+       
+    .homecontenedor-section2 {
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
 
-    
-    
+    .home-tamañorelasub {
+        padding: 4%;
+    }
+
+    .art-imganddesc{
+        width: 24%;
+        
+    }
 }
 
 

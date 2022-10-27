@@ -4,7 +4,7 @@ const path = require('path');
 
 // Constantes y Variables
 const app = express(); // Para administrar el servidor web
-const puerto = 3000; // Puerto a utilizar para el servidor web
+const puerto = 3050; // Puerto a utilizar para el servidor web
 const url = 'http://localhost'; // Url a utilizar para el servidor web
 
 // Definir como públicos los recursos
