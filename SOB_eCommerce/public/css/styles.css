@@ -52,7 +52,8 @@ a i {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-    position: sticky;
+    position: fixed;
+    /* position: sticky; */
     top: 0px;
     z-index: 100;
 
@@ -326,6 +327,7 @@ footer i {
 }
 
 .main-content {
+    /* Este padding sirve para dejar el espacio al Footer. En App lleva este valor, en tablet y desktop otros menores. */
     padding-bottom: 23.5rem;
 }
 
@@ -448,6 +450,11 @@ article img {
         width: auto;
     }
 
+    .main-content {
+        /* Este padding sirve para dejar el espacio al Footer. En App lleva un valor mayor, en tablet éste, y desktop otro menor. */
+        padding-bottom: 13rem;
+    }
+
 
     .homecontenedor-section {
         display: flex;
@@ -483,8 +490,10 @@ article img {
 
 }
 
+/* Desktop */
 @media (min-width: 1200px) {
     
+
     .floating-whatsapp {
         width: 80px;
     }
@@ -512,6 +521,12 @@ article img {
         flex-grow: 1;
         width: 100%;
     }
+
+    .main-content {
+        /* Este padding sirve para dejar el espacio al Footer. En App lleva un valor mayor, en tablet éste, y desktop otro menor. */
+        padding-bottom: 8rem;
+    }
+
 
     .homecontenedor-section {
         display: flex;
