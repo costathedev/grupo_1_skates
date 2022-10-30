@@ -33,3 +33,8 @@ app.get('/contact', (req, res) =>
 app.get('/about-us', (req, res) => 
     res.sendFile(path.resolve(__dirname, 'views/about-us.html'))
 )
+
+app.get('/producto', (req, res) => 
+    res.sendFile(path.resolve(__dirname, 'views/producto.html'))
+)
+

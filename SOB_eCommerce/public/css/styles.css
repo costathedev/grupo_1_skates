@@ -290,6 +290,183 @@ article img {
     width: 100%;
 }
 
+/*-------------- DETALLE DE PRODUCTO -------------- */
+.detalle-producto-main {
+	padding-top: 0px;     
+    align-items: center; 
+    justify-content: center;
+}
+
+.foto-producto-web{
+	text-align: center;
+}
+
+.remera {
+	padding: 1em;
+	max-width: 55%;
+	position:relative; 
+	z-index:1;
+}
+
+.fa-solid {
+	position:absolute; 
+	z-index: 2;
+	right:90%; 
+	
+}
+
+.titulo-producto {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-left: 5%;
+}
+
+.precio-producto {
+	font-size: 1em;
+	font-weight: bold;
+	margin-left: 5%;
+}
+
+.cuotas {
+	margin-left: 5%;
+}
+
+.texto-cuotas {
+	display: inline-block;
+	
+}
+
+.link-detalles {
+	margin-top: 0%;
+	font-size: 0.6em;  	
+	margin-left: 5%;
+	text-decoration: none;
+	color: black;
+}
+
+.elegir-color{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	width: 40%;
+	
+}
+
+.elegir-talle{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	width: 40%;
+	margin-left: 10%;
+}
+
+.elegir-cantidad {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	width: 40%;
+	margin-top: 4%;
+}
+
+.formulario {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-top: 1em;
+	margin-left: 5%;
+}
+
+.link-tabla-talles { 
+	font-size: 0.5em;
+	font-style: italic;
+	margin-top: 1em;
+}
+
+.form-color{
+	padding: 5% 0;
+}
+
+.form-talle{
+	padding: 5% 0;
+}
+
+.form-cantidad {
+	padding: 5% 0;
+	width:225%;
+}
+
+.boton-agregar{
+	margin-top: 2em;
+	width: 86%;
+	text-align: center;
+	/*background-color: #12b43b;*/
+	border-radius: 25px;
+	border: 1px solid #12b43b;
+	height: 2.5em;
+	margin-left: 5%;
+	cursor: pointer;
+}
+
+.boton-agregar:hover {
+	background: linearGradient (#12b43b, #23a539);
+}
+
+.texto-envio-gratis {
+	font-size: 0.8em;
+	color:grey;
+	margin-left: 5%;
+}
+
+.section-codigo-postal{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 5%;
+}
+
+#cod-postal{
+	color:grey;
+	font-size: 0.8em;
+	
+}
+
+.btn-codigo-postal{
+	margin-left: 20%;
+	text-decoration: none;
+	color: black;
+	font-size: 0.8em;
+}
+
+.section-caracteristicas-producto {
+	margin-left: 5%;
+}
+
+.recomendados {
+	margin-left: 5%;
+	margin-top: 2%;;
+	border-top: 0.1em solid #ebebeb;
+}
+
+.titulo-recomendados {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 1em;	
+}
+
+.fotos-recomendados {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;	
+}
+
+.recomendado1 {
+	max-width: 40%;
+}
+
+.recomendado2 {
+	max-width: 40%;
+}
+
+
 /* -------------- MEDIA QUERIES -------------- */
 /* Tablet */
 @media (min-width: 768px) {
@@ -345,14 +522,99 @@ article img {
     .home-tamañorelasub {
         padding: 2%;
     }
-
-
     
     .art-imganddesc{
         width: 45%;
         
     }
-    
+
+    /*-------DETALLE DE PRODUCTO--------*/
+    .detalle-producto-main{
+		display: flex;
+		flex-direction: row-reverse;
+		
+	}
+
+	.foto-producto-web {
+		max-width: 350px;
+		right: 40%;
+		border: 1px solid black;
+		align-items: flex-end;
+	}
+
+	.detalles-caracteristicas{
+		padding: 5%;
+		align-items: center;
+		
+	}
+
+	.titulo-caracteristicas{
+		font-style: normal;
+		font-size: 1em;
+	}
+
+	.texto-caracteristicas{
+		font-size: 0.8em;
+		margin: auto;
+	}
+
+	.div-caracteristicas-producto{
+		align-items: left;
+	}
+
+	.titulo-producto {
+		font-size: 1.5em;
+		font-weight: bold;
+		margin: auto;
+		margin-left: 5%;
+		margin-top: 15%;
+	}
+	
+	.precio-producto {
+		font-size: 1.2em;
+	}
+	
+	.cuotas {
+		font-size: 0.7em;
+	}
+	
+	.texto-cuotas {
+		display: inline-block;		
+	}
+	
+	.link-detalles {
+		margin-top: 0%;
+		font-size: 0.8em;  	
+		margin-left: 5%;
+	}
+
+	.formulario {
+		margin-top: 1.5em;
+	}
+
+	.elegir-cantidad{
+		margin-top: 0.2em;
+	}
+
+	.form-cantidad {
+		width: 100%;
+	}
+
+	.boton-agregar{
+		width: 40%;
+		text-align: center;
+		border: none;
+		cursor: pointer;
+		border: 1px solid #12b43b;
+	}
+
+	.fa-solid {
+		visibility:hidden;
+	}
+
+	.recomendados {
+		display:none;
+	}   
     
 
 }

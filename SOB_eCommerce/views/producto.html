@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Saints of Bath</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
+    <script src='app.js'></script>
+
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/f3208bf673.js" crossorigin="anonymous"></script>
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
+    <!-- Otra fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&family=PT+Sans+Narrow&display=swap"
+        rel="stylesheet">
+    <!-- Otra -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+    <!-- Otra -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+	<!--Vinculación con fontAwesome-->
+	<script src="https://kit.fontawesome.com/6ce7ce9833.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<!-- HEADER: No tocar -->
+    <header>
+        <div class="header-main">
+            <img src="/img/Logo 1920.png">
+            <form class="header-buscador header-item">
+                <input type="text" placeholder="Buscar">
+            </form>
+
+            <i class="fa-solid fa-bag-shopping header-item"></i>
+            <i class="fa-solid fa-user header-item"></i>
+            <i class="fa-solid fa-bars header-item hamburguer-icon"></i>
+        </div>
+        <div class="header-secondary">
+            <strong>Promociones, financiación y envíos</strong>
+            <form>
+                <div class="header-categories">
+                    <select class="header-category">
+                        <option selected>Skates</option>
+                        <option>Skates A</option>
+                        <option>Skates B</option>
+                        <option>Skates C</option>
+                    </select>
+                    <select class="header-category">
+                        <option selected>Longboards</option>
+                        <option>Longboards A</option>
+                        <option>Longboards B</option>
+                        <option>Longboards C</option>
+                    </select>
+                    <select class="header-category">
+                        <option selected>Cascos</option>
+                        <option>Cascos A</option>
+                        <option>Cascos B</option>
+                        <option>Cascos C</option>
+                    </select>
+                    <select class="header-category">
+                        <option selected>Indumentaria</option>
+                        <option>Indumentaria A</option>
+                        <option>Indumentaria B</option>
+                        <option>Indumentaria C</option>
+                    </select>
+                    <select class="header-category">
+                        <option selected>Otros</option>
+                        <option>Otros A</option>
+                        <option>Otros B</option>
+                        <option>Otros C</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+    </header>
+	<div class="floating-menu">
+        <i class="fa-solid fa-xmark floating-menu-item"></i>
+        <div class="linea floating-menu-item"></div>
+        <div class="floating-menu-item floating-menu-category">
+            <p>Skates</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="floating-menu-item floating-menu-category">
+            <p>Longboards</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="floating-menu-item floating-menu-category">
+            <p>Cascos</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="floating-menu-item floating-menu-category">
+            <p>Indumentaria</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="floating-menu-item floating-menu-category">
+            <p>Otros</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </div>
+
+    <div class="page-container">
+
+        <div class="main-content">
+            <!-- No tocar hasta acá -->
+    
+	<main class="detalle-producto-main">
+		
+		<div class="foto-producto-web">
+			<i class="fa-solid fa-magnifying-glass-plus"></i>
+			<section class="foto-producto">
+				<div>
+					<img src="img/remera.jpg" class="remera" alt="">
+				</div>
+		</div>
+		
+		<div class="detalles-caracteristicas">
+   			<div class="detalles">
+        		<h2 class="titulo-producto">Remera Sk-8</h2>
+        		<span class="precio-producto">$$$$</span>
+				<div class="cuotas">
+					<i class="fa-regular fa-credit-card"></i>
+					<p class="texto-cuotas">xx cuotas sin interés</p>
+				</div>
+				<a href ="#" class="link-detalles">Ver más detalles</a>
+			
+				<section class="formulario">
+					<form action="/color" method="GET" class="elegir-color">
+						<label>Color</label>
+						<select name="color" class="form-color">
+							<option value="Negro">Negro</option>
+							<option value="Blanco">Blanco</option> 
+							<option value="Marrón">Marrón</option>
+						</select>
+					</form>
+			
+					<form action="/size" method="GET" class="elegir-talle">
+							<label class="label-talle">Talle</label>						
+						<select name="talle" class="form-talle">
+							<option value="XS">XS</option>
+							<option value="S">S</option> 
+							<option value="M">M</option>
+							<option value="L">L</option>
+						</select>
+						<a href ="#" class="link-tabla-talles">Ver tabla de talles</a>
+					</form>
+
+					<form action="/quant" method="GET" class="elegir-cantidad">
+						<label>Cantidad</label>
+						<select name="cantidad" class="form-cantidad">
+							<option value="1">1</option>
+							<option value="2">2</option> 
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</form>
+				</section>
+
+				<button class="boton-agregar">Agregar al carrito</button>
+
+				<p class="texto-envio-gratis">Envío gratis superando los $10.000</p>
+
+				<section class="section-codigo-postal">
+					<form action="contact" method="POST">
+						<label for="cod-postal"></label>
+						<textarea name="cod-postal" id="cod-postal">Tu código postal</textarea>
+					</form>
+					<p><a href = "#" class="btn-codigo-postal">Calcular</a></p>
+				</section>
+			</div>
+
+			<div class="div-caracteristicas-producto">
+				<section class="section-caracteristicas-producto">
+					<p class="titulo-caracteristicas">Caracteristicas:</p>
+					<p class="texto-caracteristicas">
+					Remera diseñada por nuestros artistas exclusivos. Tejido: Jersey 30/1. Algodón Sustentable.
+					</p>
+				</section>
+			</div>
+	
+			<div class="recomendados">
+				<h2 class="titulo-recomendados">Recomendados para vos</h2>
+				<article class="fotos-recomendados">
+					<img src="img/recomendado1.jpg" class="recomendado1" alt="">
+					<img src="img/recomendado2.jpg" class="recomendado2" alt="">
+				</article>
+			</div>
+		</div>
+	</main>
+
+</div>
+
+
+<!-- FOOTER: No tocar -->
+<footer>
+	<div class="footer-content">
+		<div class="footer-novedades-links-group">
+			<div class="footer-novedades-group">
+				<p class="footer-novedades footer-item">Recibí nuestras novedades!</p>
+				<form action="/" method="POST" class="footer-item">
+					<input type="email" placeholder="correo electrónico">
+				</form>
+			</div>
+
+			<div class="footer-links-group">
+				<div class="footer-item">
+					<a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+					<a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+					<a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+					<a href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+				</div>
+				<div class="footer-links">
+					<a href="/" class="footer-item">Inicio</a>
+					<a href="/about-us" class="footer-item">Sobre Nosotros</a>
+					<a href="/refund-policy" class="footer-item">Políticas de Reembolso</a>
+					<a href="/faq" class="footer-item">FAQ</a>
+					<a href="/contact" class="footer-item">Contacto</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="footer-item linea"></div>
+		<p class="footer-item footer-developer">Saints of Bath 2022</p>
+	</div>
+
+	<i class="fa-brands fa-whatsapp floating-whatsapp"></i>
+
+</footer>
+<!-- No tocar hasta acá -->
+</div>
+
+</body>
+</html>
+
+<!--Recursos comentados-->
+<!-- 
+		Boton de talle en forma de circulos
+
+	        <p class="product-sub-heading">Talle</p>
+
+        	<input type="radio" name="size" value="s" checked hidden id="s-size">
+        	<label for="s-size" class="size-radio-btn check">s</label>
+        	<input type="radio" name="size" value="m" hidden id="m-size">
+        	<label for="m-size" class="size-radio-btn">m</label>
+        	<input type="radio" name="size" value="l" hidden id="l-size">
+        	<label for="l-size" class="size-radio-btn">l</label>
+        	<input type="radio" name="size" value="xl" hidden id="xl-size">
+        	<label for="xl-size" class="size-radio-btn">xl</label>
+        	<input type="radio" name="size" value="xxl" hidden id="xxl-size">
+        	<label for="xxl-size" class="size-radio-btn">xxl</label>
+
+        	<button class="btn cart-btn">Agregar al carrito</button>
+        	<button class="btn">Agregar a mi lista</button>
+    	
+
+		Imagen de producto para hacerlo con movimiento
+
+			<p class="product-short-des">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> 
+        	<span class="product-actual-price">$200</span>
+        	<span class="product-discount">( 50% off )</span>
+
+		Foto producto 
+	
+			<section class="product-details">
+				<div class="image-slider">
+				<div class="product-images">
+				<img src="img/remera.jpg" class="active" alt="">
+				</div>
+				</div>
+			</section>	
+-->
+
+
+
+
+
