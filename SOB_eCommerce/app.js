@@ -42,26 +42,11 @@ app.get('/about-us', (req, res) =>
     res.sendFile(path.resolve(__dirname, 'views/about-us.html'))
 )
 
-<<<<<<< HEAD
 app.get('/producto', (req, res) => 
     res.sendFile(path.resolve(__dirname, 'views/producto.html'))
-)
-
-=======
-app.get('/shopping-cart', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/carrodecompras.html'))
 )
 
 app.get('/basic', (req, res) => 
     res.sendFile(path.resolve(__dirname, 'views/basic.html'))
 )
 
-// POSTs
-app.post('/login', (req, res) => 
-    res.redirect('/')
-)
-
-app.post('/register', (req, res) => 
-    res.redirect('/')
-)
->>>>>>> 5dc4004e2612cb763c4efe6a2dae1cc83584c7b2

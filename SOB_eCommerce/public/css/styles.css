@@ -17,6 +17,10 @@ body {
     margin: auto;
 }
 
+main {
+    padding-top: 20px;
+}
+
 .linea {
     border-top: solid 1px darkgray;
 }
@@ -26,42 +30,64 @@ a i {
 }
 
 .btn-submit {
-    background-image: linear-gradient(#12b43b, #23a539 );
+    background-image: linear-gradient(#12b43b, #23a539);
     font-size: 1.2rem;
 }
 
 .btn-submit:hover {
-    background-image: linear-gradient( #23a539 , #156423);
+    background-image: linear-gradient(#23a539, #156423);
     font-size: 1.2rem;
-    color:white;
+    color: white;
 }
 
 .btn-reset {
-    background-image: linear-gradient(#ebebeb, darkgray );
+    background-image: linear-gradient(#ebebeb, darkgray);
     font-size: 1.2rem;
 }
 
 .btn-reset:hover {
-    background-image: linear-gradient( darkgray , darkslategray);
+    background-image: linear-gradient(darkgray, darkslategray);
     color: white;
 }
 
 /* -------------- HEADER -------------- */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+
+    /* Si se cambia el height, hay que cambiar en page-container */
+    height: 18vh; 
+
+    /* background-color: white; */
+    background-image: linear-gradient(to bottom, white 80%, rgba(255, 255, 255, 0.6) 20%);
+
+}
+
 .header-main {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-    position: fixed;
+
+    /* --------- Esto creo que debe ir en el hader no en .header-main, lo muevo */
+    /* position: fixed; */
     /* position: sticky; */
-    top: 0px;
-    z-index: 100;
+    /* top: 0px; */
+    /* z-index: 100; */
 
     /* Si se cambia el height, hay que cambiar en page-container */
-    height: 10vh; 
+    /* height: 10vh;  */
 
     /* background-color: white; */
     background-image: linear-gradient(to bottom, white 80%, rgba(255, 255, 255, 0.6) 20%);
+    /* --------- Hasta aca */
+
+    width: 100%;
+
+
 }
 
 .header-item {
@@ -103,6 +129,7 @@ a i {
     display: none;
     /* En mobile no se muestra, sólo tablet o web */
     text-align: center;
+    width: 100%;
 }
 
 .header-secondary strong {
@@ -202,7 +229,8 @@ footer i {
 
 .footer-links {
     display: flex;
-    flex-direction: column;/* En tablet o web se coloca horizontal */
+    flex-direction: column;
+    /* En tablet o web se coloca horizontal */
     width: 100%;
     justify-content: center;
     color: black !important;
@@ -219,7 +247,7 @@ footer i {
     bottom: 2rem;
     right: 1rem;
     z-index: 90;
-    background-color: transparent;  
+    background-color: transparent;
 }
 
 .floating-whatsapp:hover {
@@ -231,8 +259,9 @@ footer i {
 /* -------------- MAIN -------------- */
 
 .homemain {
-    padding-top: 0px;     
-    align-items: center; /* -------------- Lo agrege para no modificar el otro -------------- */
+    padding-top: 0px;
+    align-items: center;
+    /* -------------- Lo ag|e para no modificar el otro -------------- */
     justify-content: center;
 }
 
@@ -245,17 +274,17 @@ footer i {
     text-align: center;
     line-height: 0.9em;
     background-color: #ebebeb;
-    color:#12b43b;   
+    color: #12b43b;
 }
 
 .homecontenedor-section {
-     display: flex;
-     flex-wrap: wrap;
-     padding: 1em;
-     justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    justify-content: space-between;
 }
 
-.homearticle-1{
+.homearticle-1 {
     width: 100%;
     padding: 1em;
 
@@ -278,7 +307,7 @@ footer i {
     padding: 12%;
 }
 
-.homeh2-measure { 
+.homeh2-measure {
     justify-content: center;
     font-size: 2em;
     width: 100%;
@@ -296,7 +325,7 @@ footer i {
     text-align: center;
 }
 
-.homedetalle-producto{
+.homedetalle-producto {
     border-top: 1px solid #ebebeb;
     padding: 1em;
     margin: 1.5em;
@@ -305,7 +334,7 @@ footer i {
 
 
 
-.hometitulo{
+.hometitulo {
     font-size: 1em;
     margin-bottom: 0.4em;
     color: black;
@@ -323,7 +352,10 @@ footer i {
     position: relative;
 
     /* El min-height debe ser el 100 menos el height del header-main. Si ése cambia, cambiar acá */
-    min-height: 90vh;
+    min-height: 100vh;
+
+    /* El height del header */
+    margin-top: 18vh;
 }
 
 .main-content {
@@ -331,193 +363,9 @@ footer i {
     padding-bottom: 23.5rem;
 }
 
-main {
-    padding-top: 20px;
-}
-
 article img {
     width: 100%;
 }
-
-<<<<<<< HEAD
-/*-------------- DETALLE DE PRODUCTO -------------- */
-.detalle-producto-main {
-	padding-top: 0px;     
-    align-items: center; 
-    justify-content: center;
-}
-
-.foto-producto-web{
-	text-align: center;
-}
-
-.remera {
-	padding: 1em;
-	max-width: 55%;
-	position:relative; 
-	z-index:1;
-}
-
-.fa-solid {
-	position:absolute; 
-	z-index: 2;
-	right:90%; 
-	
-}
-
-.titulo-producto {
-	font-size: 1.5em;
-	font-weight: bold;
-	margin-left: 5%;
-}
-
-.precio-producto {
-	font-size: 1em;
-	font-weight: bold;
-	margin-left: 5%;
-}
-
-.cuotas {
-	margin-left: 5%;
-}
-
-.texto-cuotas {
-	display: inline-block;
-	
-}
-
-.link-detalles {
-	margin-top: 0%;
-	font-size: 0.6em;  	
-	margin-left: 5%;
-	text-decoration: none;
-	color: black;
-}
-
-.elegir-color{
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	width: 40%;
-	
-}
-
-.elegir-talle{
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	width: 40%;
-	margin-left: 10%;
-}
-
-.elegir-cantidad {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	width: 40%;
-	margin-top: 4%;
-}
-
-.formulario {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	margin-top: 1em;
-	margin-left: 5%;
-}
-
-.link-tabla-talles { 
-	font-size: 0.5em;
-	font-style: italic;
-	margin-top: 1em;
-}
-
-.form-color{
-	padding: 5% 0;
-}
-
-.form-talle{
-	padding: 5% 0;
-}
-
-.form-cantidad {
-	padding: 5% 0;
-	width:225%;
-}
-
-.boton-agregar{
-	margin-top: 2em;
-	width: 86%;
-	text-align: center;
-	/*background-color: #12b43b;*/
-	border-radius: 25px;
-	border: 1px solid #12b43b;
-	height: 2.5em;
-	margin-left: 5%;
-	cursor: pointer;
-}
-
-.boton-agregar:hover {
-	background: linearGradient (#12b43b, #23a539);
-}
-
-.texto-envio-gratis {
-	font-size: 0.8em;
-	color:grey;
-	margin-left: 5%;
-}
-
-.section-codigo-postal{
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: 5%;
-}
-
-#cod-postal{
-	color:grey;
-	font-size: 0.8em;
-	
-}
-
-.btn-codigo-postal{
-	margin-left: 20%;
-	text-decoration: none;
-	color: black;
-	font-size: 0.8em;
-}
-
-.section-caracteristicas-producto {
-	margin-left: 5%;
-}
-
-.recomendados {
-	margin-left: 5%;
-	margin-top: 2%;;
-	border-top: 0.1em solid #ebebeb;
-}
-
-.titulo-recomendados {
-	font-size: 1.5em;
-	font-weight: bold;
-	margin-bottom: 1em;	
-}
-
-.fotos-recomendados {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;	
-}
-
-.recomendado1 {
-	max-width: 40%;
-}
-
-.recomendado2 {
-	max-width: 40%;
-}
-
-
-=======
 
 /* ------------------ LOGIN ------------------  */
 .login-container {
@@ -570,8 +418,184 @@ article img {
 }
 
 
+/*-------------- DETALLE DE PRODUCTO -------------- */
+.detalle-producto-main {
+    padding-top: 0px;
+    align-items: center;
+    justify-content: center;
+}
 
->>>>>>> 5dc4004e2612cb763c4efe6a2dae1cc83584c7b2
+.foto-producto-web {
+    text-align: center;
+}
+
+.remera {
+    padding: 1em;
+    max-width: 55%;
+    position: relative;
+    z-index: 1;
+}
+
+/* .fa-solid {
+	position:absolute; 
+	z-index: 2;
+	right:90%; 
+	
+} */
+
+.titulo-producto {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.precio-producto {
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.cuotas {
+    margin-left: 5%;
+}
+
+.texto-cuotas {
+    display: inline-block;
+
+}
+
+.link-detalles {
+    margin-top: 0%;
+    font-size: 0.6em;
+    margin-left: 5%;
+    text-decoration: none;
+    color: black;
+}
+
+.elegir-color {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 40%;
+
+}
+
+.elegir-talle {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 10%;
+}
+
+.elegir-cantidad {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 40%;
+    margin-top: 4%;
+}
+
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 1em;
+    margin-left: 5%;
+}
+
+.link-tabla-talles {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-top: 1em;
+}
+
+.form-color {
+    padding: 5% 0;
+}
+
+.form-talle {
+    padding: 5% 0;
+}
+
+.form-cantidad {
+    padding: 5% 0;
+    width: 225%;
+}
+
+.boton-agregar {
+    margin-top: 2em;
+    width: 86%;
+    text-align: center;
+    /*background-color: #12b43b;*/
+    border-radius: 25px;
+    border: 1px solid #12b43b;
+    height: 2.5em;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.boton-agregar:hover {
+    background: linearGradient (#12b43b, #23a539);
+}
+
+.texto-envio-gratis {
+    font-size: 0.8em;
+    color: grey;
+    margin-left: 5%;
+}
+
+.section-codigo-postal {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5%;
+}
+
+#cod-postal {
+    color: grey;
+    font-size: 0.8em;
+
+}
+
+.btn-codigo-postal {
+    margin-left: 20%;
+    text-decoration: none;
+    color: black;
+    font-size: 0.8em;
+}
+
+.section-caracteristicas-producto {
+    margin-left: 5%;
+}
+
+.recomendados {
+    margin-left: 5%;
+    margin-top: 2%;
+    ;
+    border-top: 0.1em solid #ebebeb;
+}
+
+.titulo-recomendados {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.fotos-recomendados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recomendado1 {
+    max-width: 40%;
+}
+
+.recomendado2 {
+    max-width: 40%;
+}
+
+
 /* -------------- MEDIA QUERIES -------------- */
 /* Tablet */
 @media (min-width: 768px) {
@@ -586,11 +610,11 @@ article img {
     .login-container {
         width: 50%;
     }
-    
+
     .btn-reset {
         width: 200px;
         /* margin-top:40px; */
-        margin-left: 20px;    
+        margin-left: 20px;
     }
 
     .header-secondary {
@@ -605,7 +629,7 @@ article img {
     .floating-whatsapp {
         width: 60px;
     }
-    
+
     .hamburguer-icon {
         /* Es necesario el "important" para que no se pise por una clase del ícono! */
         display: none !important;
@@ -617,7 +641,8 @@ article img {
 
     .footer-links {
         justify-content: space-around;
-        flex-direction: row;/* En mobile se coloca vertical */
+        flex-direction: row;
+        /* En mobile se coloca vertical */
     }
 
     .linea {
@@ -643,13 +668,13 @@ article img {
         justify-content: space-between;
     }
 
-    .homearticle-1{
+    .homearticle-1 {
         width: 33%;
         padding: 1em;
-    
+
     }
 
-    
+
     .homecontenedor-section2 {
         flex-wrap: nowrap;
         justify-content: space-between;
@@ -658,106 +683,106 @@ article img {
     .home-tamañorelasub {
         padding: 2%;
     }
-    
-    .art-imganddesc{
+
+    .art-imganddesc {
         width: 45%;
-        
+
     }
 
     /*-------DETALLE DE PRODUCTO--------*/
-    .detalle-producto-main{
-		display: flex;
-		flex-direction: row-reverse;
-		
-	}
+    .detalle-producto-main {
+        display: flex;
+        flex-direction: row-reverse;
 
-	.foto-producto-web {
-		max-width: 350px;
-		right: 40%;
-		border: 1px solid black;
-		align-items: flex-end;
-	}
+    }
 
-	.detalles-caracteristicas{
-		padding: 5%;
-		align-items: center;
-		
-	}
+    .foto-producto-web {
+        max-width: 350px;
+        right: 40%;
+        border: 1px solid black;
+        align-items: flex-end;
+    }
 
-	.titulo-caracteristicas{
-		font-style: normal;
-		font-size: 1em;
-	}
+    .detalles-caracteristicas {
+        padding: 5%;
+        align-items: center;
 
-	.texto-caracteristicas{
-		font-size: 0.8em;
-		margin: auto;
-	}
+    }
 
-	.div-caracteristicas-producto{
-		align-items: left;
-	}
+    .titulo-caracteristicas {
+        font-style: normal;
+        font-size: 1em;
+    }
 
-	.titulo-producto {
-		font-size: 1.5em;
-		font-weight: bold;
-		margin: auto;
-		margin-left: 5%;
-		margin-top: 15%;
-	}
-	
-	.precio-producto {
-		font-size: 1.2em;
-	}
-	
-	.cuotas {
-		font-size: 0.7em;
-	}
-	
-	.texto-cuotas {
-		display: inline-block;		
-	}
-	
-	.link-detalles {
-		margin-top: 0%;
-		font-size: 0.8em;  	
-		margin-left: 5%;
-	}
+    .texto-caracteristicas {
+        font-size: 0.8em;
+        margin: auto;
+    }
 
-	.formulario {
-		margin-top: 1.5em;
-	}
+    .div-caracteristicas-producto {
+        align-items: left;
+    }
 
-	.elegir-cantidad{
-		margin-top: 0.2em;
-	}
+    .titulo-producto {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: auto;
+        margin-left: 5%;
+        margin-top: 15%;
+    }
 
-	.form-cantidad {
-		width: 100%;
-	}
+    .precio-producto {
+        font-size: 1.2em;
+    }
 
-	.boton-agregar{
-		width: 40%;
-		text-align: center;
-		border: none;
-		cursor: pointer;
-		border: 1px solid #12b43b;
-	}
+    .cuotas {
+        font-size: 0.7em;
+    }
 
-	.fa-solid {
+    .texto-cuotas {
+        display: inline-block;
+    }
+
+    .link-detalles {
+        margin-top: 0%;
+        font-size: 0.8em;
+        margin-left: 5%;
+    }
+
+    .formulario {
+        margin-top: 1.5em;
+    }
+
+    .elegir-cantidad {
+        margin-top: 0.2em;
+    }
+
+    .form-cantidad {
+        width: 100%;
+    }
+
+    .boton-agregar {
+        width: 40%;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        border: 1px solid #12b43b;
+    }
+
+    /* .fa-solid {
 		visibility:hidden;
-	}
+	} */
 
-	.recomendados {
-		display:none;
-	}   
-    
+    .recomendados {
+        display: none;
+    }
+
 
 }
 
 /* Desktop */
 @media (min-width: 1200px) {
-    
+
 
     .floating-whatsapp {
         width: 80px;
@@ -770,14 +795,14 @@ article img {
     .footer-novedades-links-group {
         display: flex;
         flex-direction: row-reverse;
-        justify-content:space-around;
+        justify-content: space-around;
         align-items: center;
     }
 
     .footer-novedades-group {
         width: 35%;
     }
-    
+
     .footer-novedades {
         line-height: 1.9rem !important;
     }
@@ -800,13 +825,13 @@ article img {
         justify-content: space-around;
     }
 
-    .homearticle-1{
+    .homearticle-1 {
         width: 33%;
         padding: 1em;
-    
+
     }
-    
-       
+
+
     .homecontenedor-section2 {
         flex-wrap: nowrap;
         justify-content: space-around;
@@ -816,12 +841,8 @@ article img {
         padding: 4%;
     }
 
-    .art-imganddesc{
+    .art-imganddesc {
         width: 24%;
-        
+
     }
 }
-
-
-
-
