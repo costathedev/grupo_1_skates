@@ -2,6 +2,15 @@
 /* Verdes: #12b43b, #23a539 
 Gris: #ebebeb */
 
+:root {
+    --verde-claro: #12b43b;
+    --verde-medio:#23a539;
+    --gris: #ebebeb;
+
+    --ancho-menu-colapsable: 300px;
+  }
+
+
 
 /* -------------- GENERALES -------------- */
 * {
@@ -118,6 +127,7 @@ header {
 
 .hamburguer-icon:hover .floating-menu {
     display: flex;
+    transform: translateX(-80vw);
 }
 
 .main:hover .floating-menu,
@@ -148,15 +158,18 @@ header {
 
 /* -------------- FLOATING MENU -------------- */
 .floating-menu {
-    display: none;
+    display: flex;
+    /* display: none; */
     /* display: flex; ---> para cuando se quiera mostrar */
     flex-direction: column;
 
     position: fixed;
     width: 80vw;
+    /* width: 80vw; */
     height: 100vh;
     top: 0px;
-    right: 0px;
+    /* right: 0px; */
+    right: -80vw;
 
     padding-top: 12vh;
     /*header height, más un poquito para separar más */
@@ -165,6 +178,8 @@ header {
 
     padding-left: 10px;
     padding-right: 10px;
+
+    transition: transform 400ms;
 }
 
 .floating-menu-item {
