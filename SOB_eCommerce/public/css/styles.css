@@ -263,11 +263,13 @@ footer i {
     right: 1rem;
     z-index: 90;
     background-color: transparent;
+    transition: width 200ms;
 }
 
 .floating-whatsapp:hover {
     box-shadow: 0px 0px 20px rgb(100, 100, 100);
     border-radius: 50%;
+    width: 60px;
 }
 
 
@@ -644,6 +646,10 @@ article img {
     .floating-whatsapp {
         width: 60px;
     }
+    
+    .floating-whatsapp:hover {
+        width: 70px;
+    }
 
     .hamburguer-icon {
         /* Es necesario el "important" para que no se pise por una clase del ícono! */
@@ -801,6 +807,10 @@ article img {
 
     .floating-whatsapp {
         width: 80px;
+    }
+
+    .floating-whatsapp:hover {
+        width: 90px;
     }
 
     footer {
