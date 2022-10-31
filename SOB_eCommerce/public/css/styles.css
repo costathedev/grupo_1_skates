@@ -265,6 +265,16 @@ footer i {
     z-index: 90;
     background-color: transparent;
     transition: width 200ms;
+    animation: whatsapp-parpadeo 0.5s 6 alternate;
+}
+
+@keyframes whatsapp-parpadeo {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 60px;
+    }
 }
 
 .floating-whatsapp:hover {
@@ -705,6 +715,15 @@ article img {
     .floating-whatsapp {
         width: 60px;
     }
+
+    @keyframes whatsapp-parpadeo {
+        0% {
+            width: 60px;
+        }
+        100% {
+            width: 70px;
+        }
+    }
     
     .floating-whatsapp:hover {
         width: 70px;
@@ -866,6 +885,15 @@ article img {
 
     .floating-whatsapp {
         width: 80px;
+    }
+
+    @keyframes whatsapp-parpadeo {
+        0% {
+            width: 80px;
+        }
+        100% {
+            width: 90px;
+        }
     }
 
     .floating-whatsapp:hover {
