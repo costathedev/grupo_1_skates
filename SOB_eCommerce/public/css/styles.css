@@ -127,6 +127,7 @@ header {
 
 .hamburguer-icon:hover .floating-menu {
     display: flex;
+    /* El movimiento se hace para que aparezca el menú, y debe ser igual a su ancho. */
     transform: translateX(-80vw);
 }
 
@@ -158,17 +159,17 @@ header {
 
 /* -------------- FLOATING MENU -------------- */
 .floating-menu {
+    /* Antes estaba en display:none porque no se mostraba, pero ahora se lo "mueve", por eso está siempre visible. */
     display: flex;
-    /* display: none; */
-    /* display: flex; ---> para cuando se quiera mostrar */
     flex-direction: column;
 
     position: fixed;
+    /* El valor del ancho es el que luego se mueve para esconderlo o mostrarlo. */
     width: 80vw;
-    /* width: 80vw; */
     height: 100vh;
     top: 0px;
-    /* right: 0px; */
+
+    /* Antes tenía right: 0px; pero lo cambio a negativo para que se "esconda". Debe ser el tamaño del ancho del menú. */
     right: -80vw;
 
     padding-top: 12vh;
@@ -282,6 +283,10 @@ footer i {
     justify-content: center;
 }
 
+.home-promos {
+    position: relative;
+}
+
 
 .homeh1-measure {
     font-size: 100%;
@@ -292,6 +297,60 @@ footer i {
     line-height: 0.9em;
     background-color: #ebebeb;
     color: #12b43b;
+
+    /* Para alternar */
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    animation-name: home-promociones;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+}
+
+.home-info-cuotas {
+    font-size: 100%;
+    margin: 0.1em;
+    padding: 0.5em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0.9em;
+    background-color: #ebebeb;
+    color: #12b43b;
+
+    /* Para alternar */
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    animation-name: home-promociones;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes home-promociones {
+    0% {
+        /* Mostrar */
+        /* display: flex; */
+        /* font-size: 120%; */
+        /* color:#12b43b; */
+        z-index: 100;
+    }
+    25% {
+        color:#12b43b;
+    }
+    75% {
+        color:transparent;
+    }
+    100% {
+        /* Ocultar */
+        /* display: none; */
+        /* font-size: 100%; */
+        /* color:transparent; */
+        z-index: 0;
+    }
+    
 }
 
 .homecontenedor-section {
