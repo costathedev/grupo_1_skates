@@ -46,6 +46,10 @@ app.get('/producto', (req, res) =>
     res.sendFile(path.resolve(__dirname, 'views/producto.html'))
 )
 
+app.get('/shopping-cart', (req, res) => 
+    res.sendFile(path.resolve(__dirname, 'views/carrodecompras.html'))
+)
+
 app.get('/basic', (req, res) => 
     res.sendFile(path.resolve(__dirname, 'views/basic.html'))
 )

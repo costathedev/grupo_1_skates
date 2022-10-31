@@ -70,6 +70,7 @@ header {
     /* Si se cambia el height, hay que cambiar en page-container */
     height: 18vh; 
 
+
     /* background-color: white; */
     background-image: linear-gradient(to bottom, white 80%, rgba(255, 255, 255, 0.6) 20%);
 
