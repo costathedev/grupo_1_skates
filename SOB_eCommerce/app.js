@@ -43,7 +43,7 @@ app.get('/about-us', (req, res) =>
 )
 
 app.get('/producto', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/producto.html'))
+    res.sendFile(path.resolve(__dirname, 'views/productDetail.html'))
 )
 
 app.get('/shopping-cart', (req, res) => 
