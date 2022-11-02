@@ -506,17 +506,17 @@ article img {
 
 
 /*-------------- DETALLE DE PRODUCTO -------------- */
-.detalle-producto-main {
+.prod-detalle-producto-main {
     padding-top: 0px;
     align-items: center;
     justify-content: center;
 }
 
-.foto-producto-web {
+.prod-foto-producto-web {
     text-align: center;
 }
 
-.remera {
+.prod-remera {
     padding: 1em;
     max-width: 55%;
     position: relative;
@@ -530,28 +530,28 @@ article img {
 	
 } */
 
-.titulo-producto {
+.prod-titulo-producto {
     font-size: 1.5em;
     font-weight: bold;
     margin-left: 5%;
 }
 
-.precio-producto {
+.prod-precio-producto {
     font-size: 1em;
     font-weight: bold;
     margin-left: 5%;
 }
 
-.cuotas {
+.prod-cuotas {
     margin-left: 5%;
 }
 
-.texto-cuotas {
+.prod-texto-cuotas {
     display: inline-block;
 
 }
 
-.link-detalles {
+.prod-link-detalles {
     margin-top: 0%;
     font-size: 0.6em;
     margin-left: 5%;
@@ -559,7 +559,7 @@ article img {
     color: black;
 }
 
-.elegir-color {
+.prod-elegir-color {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -567,7 +567,7 @@ article img {
 
 }
 
-.elegir-talle {
+.prod-elegir-talle {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -575,7 +575,7 @@ article img {
     margin-left: 10%;
 }
 
-.elegir-cantidad {
+.prod-elegir-cantidad {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -583,7 +583,7 @@ article img {
     margin-top: 4%;
 }
 
-.formulario {
+.prod-formulario {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -591,26 +591,26 @@ article img {
     margin-left: 5%;
 }
 
-.link-tabla-talles {
+.prod-link-tabla-talles {
     font-size: 0.5em;
     font-style: italic;
     margin-top: 1em;
 }
 
-.form-color {
+.prod-form-color {
     padding: 5% 0;
 }
 
-.form-talle {
+.prod-form-talle {
     padding: 5% 0;
 }
 
-.form-cantidad {
+.prod-form-cantidad {
     padding: 5% 0;
     width: 225%;
 }
 
-.boton-agregar {
+.prod-boton-agregar {
     margin-top: 2em;
     width: 86%;
     text-align: center;
@@ -622,63 +622,63 @@ article img {
     cursor: pointer;
 }
 
-.boton-agregar:hover {
+.prod-boton-agregar:hover {
     background: linearGradient (#12b43b, #23a539);
 }
 
-.texto-envio-gratis {
+.prod-texto-envio-gratis {
     font-size: 0.8em;
     color: grey;
     margin-left: 5%;
 }
 
-.section-codigo-postal {
+.prod-section-codigo-postal {
     display: flex;
     flex-wrap: wrap;
     margin-left: 5%;
 }
 
-#cod-postal {
+#prod-cod-postal {
     color: grey;
     font-size: 0.8em;
 
 }
 
-.btn-codigo-postal {
+.prod-btn-codigo-postal {
     margin-left: 20%;
     text-decoration: none;
     color: black;
     font-size: 0.8em;
 }
 
-.section-caracteristicas-producto {
+.prod-section-caracteristicas-producto {
     margin-left: 5%;
 }
 
-.recomendados {
+.prod-recomendados {
     margin-left: 5%;
     margin-top: 2%;
     ;
     border-top: 0.1em solid #ebebeb;
 }
 
-.titulo-recomendados {
+.prod-titulo-recomendados {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 1em;
 }
 
-.fotos-recomendados {
+.prod-fotos-recomendados {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.recomendado1 {
+.prod-recomendado1 {
     max-width: 40%;
 }
 
-.recomendado2 {
+.prod-recomendado2 {
     max-width: 40%;
 }
 
@@ -790,40 +790,40 @@ article img {
     }
 
     /*-------DETALLE DE PRODUCTO--------*/
-    .detalle-producto-main {
+    .prod-detalle-producto-main {
         display: flex;
         flex-direction: row-reverse;
 
     }
 
-    .foto-producto-web {
+    .prod-foto-producto-web {
         max-width: 350px;
         right: 40%;
         border: 1px solid black;
         align-items: flex-end;
     }
 
-    .detalles-caracteristicas {
+    .prod-detalles-caracteristicas {
         padding: 5%;
         align-items: center;
 
     }
 
-    .titulo-caracteristicas {
+    .prod-titulo-caracteristicas {
         font-style: normal;
         font-size: 1em;
     }
 
-    .texto-caracteristicas {
+    .prod-texto-caracteristicas {
         font-size: 0.8em;
         margin: auto;
     }
 
-    .div-caracteristicas-producto {
+    .prod-div-caracteristicas-producto {
         align-items: left;
     }
 
-    .titulo-producto {
+    .prod-titulo-producto {
         font-size: 1.5em;
         font-weight: bold;
         margin: auto;
@@ -831,37 +831,37 @@ article img {
         margin-top: 15%;
     }
 
-    .precio-producto {
+    .prod-precio-producto {
         font-size: 1.2em;
     }
 
-    .cuotas {
+    .prod-cuotas {
         font-size: 0.7em;
     }
 
-    .texto-cuotas {
+    .prod-texto-cuotas {
         display: inline-block;
     }
 
-    .link-detalles {
+    .prod-link-detalles {
         margin-top: 0%;
         font-size: 0.8em;
         margin-left: 5%;
     }
 
-    .formulario {
+    .prod-formulario {
         margin-top: 1.5em;
     }
 
-    .elegir-cantidad {
+    .prod-elegir-cantidad {
         margin-top: 0.2em;
     }
 
-    .form-cantidad {
+    .prod-form-cantidad {
         width: 100%;
     }
 
-    .boton-agregar {
+    .prod-boton-agregar {
         width: 40%;
         text-align: center;
         border: none;
@@ -873,7 +873,7 @@ article img {
 		visibility:hidden;
 	} */
 
-    .recomendados {
+    .prod-recomendados {
         display: none;
     }
 
