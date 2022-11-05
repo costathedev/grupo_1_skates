@@ -1,7 +1,7 @@
 // Reuire de Modulos externos 
 const express = require('express');
 const path = require('path');
-const rutasMain = require('./routes/main')
+const userRoutes = require('./routes/user')
 
 // Constantes y Variables
 const app = express(); // Para administrar el servidor web
@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use( express.static(path.resolve(__dirname, './public')));
 
 // Rutas
-app.use('/', rutasMain);
+app.use('/user', userRoutes);
 
 
 // Levantar servidor web con Express
