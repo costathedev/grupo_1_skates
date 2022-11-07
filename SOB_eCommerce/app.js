@@ -1,6 +1,7 @@
 // Reuire de Modulos externos 
 const express = require('express');
 const path = require('path');
+// RUTEO
 const userRoutes = require('./routes/user')
 
 // Constantes y Variables
@@ -15,6 +16,7 @@ app.set('view engine', 'ejs');
 // Definir como públicos los recursos
 app.use( express.static(path.resolve(__dirname, './public')));
 
+// RUTEO
 // Rutas
 app.use('/user', userRoutes);
 
@@ -24,7 +26,7 @@ app.listen(puerto, () => console.log('Servidor corriendo en ' + url + ':' + puer
 
 // GETs
 app.get('/', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/index.html'))
+    res.sendFile(path.resolve(__dirname, 'views/main/index.html'))
 )
 
 
@@ -58,12 +60,15 @@ app.get('/basic', (req, res) =>
 
 
 
-// Esto ya no va
+// RUTEO - Esto ya no va
 
-// app.get('/login', (req, res) => 
-//     res.sendFile(path.resolve(__dirname, 'views/login.html'))
+// app.get('/user/login', (req, res) => 
+//     res.sendFile(path.resolve(__dirname, 'views/users/login.html'))
+//     // res.sendFile(path.resolve(__dirname, 'views/products/productDetail.html'))
 // )
 
 // app.get('/register', (req, res) => 
 //     res.sendFile(path.resolve(__dirname, 'views/register.html'))
 // )
+
+// RUTEO - Esto ya no va HASTA ACÁ
