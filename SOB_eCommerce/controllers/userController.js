@@ -1,7 +1,6 @@
 const mainController = {
     login: function(req, res) {
-        // res.render('users/login')
-        res.sendFile(__dirname + '/login.html')
+        res.render('users/login')
     },
 
     register: function(req, res) {
