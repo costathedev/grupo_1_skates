@@ -26,7 +26,7 @@ app.listen(puerto, () => console.log('Servidor corriendo en ' + url + ':' + puer
 
 // GETs
 app.get('/', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/main/index.html'))
+    res.sendFile(path.resolve(__dirname, 'views/main/index.ejs'))
 )
 
 
