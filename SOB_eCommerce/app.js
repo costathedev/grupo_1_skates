@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 // RUTEO
 const userRoutes = require('./routes/user')
+const productRoutes = require('./routes/product')
 
 // Constantes y Variables
 const app = express(); // Para administrar el servidor web
@@ -19,6 +20,7 @@ app.use( express.static(path.resolve(__dirname, './public')));
 // RUTEO
 // Rutas
 app.use('/user', userRoutes);
+app.use('/product', productRoutes);
 
 
 // Levantar servidor web con Express
@@ -47,10 +49,6 @@ app.get('/about-us', (req, res) =>
     res.sendFile(path.resolve(__dirname, 'views/about-us.html'))
 )
 
-app.get('/producto', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/productDetail.html'))
-)
-
 app.get('/shopping-cart', (req, res) => 
     res.sendFile(path.resolve(__dirname, 'views/carrodecompras.html'))
 )
@@ -70,6 +68,10 @@ app.get('/basic', (req, res) =>
 
 // app.get('/register', (req, res) => 
 //     res.sendFile(path.resolve(__dirname, 'views/register.html'))
+// )
+
+// app.get('/producto', (req, res) => 
+// res.sendFile(path.resolve(__dirname, 'views/products/productDetail.html'))
 // )
 
 // RUTEO - Esto ya no va HASTA ACÁ
