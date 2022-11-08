@@ -1,0 +1,281 @@
+/* BODY DEL CARRITO */
+
+
+body{
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/*MAIN CONTAINER DEL CARRITO*/
+
+.CartContainer{
+	width: 70%;
+	height: 90%;
+	background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px #1687d933;
+}
+
+
+
+/* HEADER CARRITO*/
+
+
+.Header{
+	margin: auto;
+	width: 90%;
+	height: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* HEADING CARRITO */
+.Heading{
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	color: #2F3841;
+}
+
+
+/* QUITARTODO CSS */ 
+.quitartodo{
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #E44C4C;
+	cursor: pointer;
+	border-bottom: 1px solid #E44C4C;
+}
+
+
+/* ITEMS DEL CARRITO */ 
+
+
+.Cart-Items{
+	margin: auto;
+	width: 90%;
+	height: 30%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* IMAGE BOX TAMAÑO Y UN CENTER */
+
+
+.image-box{
+	width: 15%;
+	text-align: center;
+}
+
+/* ABOUT */
+
+
+.about{
+	height: 100%;
+	width: 24%;
+}
+
+/*TITULO */
+
+
+.title{
+	padding-top: 10px;
+	line-height: 10px;
+	font-size: 32px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #202020;
+}
+
+/*SUBTITULO */
+.subtitle{
+	line-height: 10px;
+	font-size: 18px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #909090;
+}
+
+/*ESTILO FUNCION SUMARESTA  */
+.sumaresta{
+	width: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+/*ESTILO DE BOTONES */
+
+
+.btn{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 900;
+	color: #202020;
+	cursor: pointer;
+}
+
+/*ESTILO DEL CONTADOR*/
+
+
+.count{
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #202020;
+}
+
+/*ESTILO DE LOS PRECIOS*/
+
+
+.prices{
+	height: 100%;
+	text-align: right;
+}
+
+
+/*ESTILO DE LA SECCIÓN CANTIDAD */
+
+
+.amount{
+	padding-top: 20px;
+	font-size: 26px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #202020;
+}
+
+/* ESTILO DEL GUARDAR EN CARRITO */
+
+
+.save{
+	padding-top: 5px;
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #909090;
+	cursor: pointer;
+}
+
+/*ESTILO DEL REMOVE */
+
+
+
+.remove{
+	padding-top: 5px;
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #E44C4C;
+	cursor: pointer;
+}
+
+/* PAD */
+
+
+.pad{
+	margin-top: 5px;
+}
+
+
+/*HR*/
+
+
+hr{
+	width: 66%;
+	float: right;
+	margin-right: 5%;
+}
+
+/* ESTILO DEL CHECKOUT¨*/
+
+
+.checkout{
+	float: right;
+	margin-right: 5%;
+	width: 28%;
+}
+
+/* ESTILO DEL TOTAL*/
+
+
+.total{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* ESTILO DEL SUBTOTAL*/
+
+
+.Subtotal{
+	font-size: 22px;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	color: #202020;
+}
+
+/* ESTILO DE LOS ITEMS */
+
+
+.items{
+	font-size: 16px;
+	font-family: 'Open Sans';
+	font-weight: 500;
+	color: #909090;
+	line-height: 10px;
+}
+
+
+/* ESTILO DEL PRECIO TOTAL TEXTO */
+
+
+.total-amount{
+	font-size: 36px;
+	font-family: 'Open Sans';
+	font-weight: 900;
+	color: #202020;
+}
+
+/* ESTILO DEL BUTTON */
+
+
+.button{
+	margin-top: 10px;
+	width: 100%;
+	height: 40px;
+	border: none;
+	background: linear-gradient(to bottom right, #12b43b, #23a539);
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 16px;
+	font-family: 'Open Sans';	
+	font-weight: 600;
+	color: #000000;
+}
+
+
+/* HOVER DEL BUTTON*/
+
+
+.button:hover{
+	background: linear-gradient(to bottom right, #23a539, #168331);
+	color: white;
+}
