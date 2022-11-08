@@ -15,8 +15,7 @@ app.set('view engine', 'ejs');
 
 
 // Definir como públicos los recursos
-// app.use( express.static(path.resolve(__dirname, './public')));
-app.use(express.static('public'));
+app.use( express.static(path.resolve(__dirname, './public')));
 
 // RUTEO
 // Rutas

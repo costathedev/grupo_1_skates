@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+    <%- include('../partials/head') %>
+
+<body>
+	<!-- No tocar -->
+
+
+	<div class="page-container">
+
+		<%- include('../partials/header') %>
+
+		<div class="main-content">
+
+			        
+			<main class="altaProducto-main">
+
+				<div class="altaProducto-div-botones">
+
+					<h2>Seleccione la acción que desea realizar</h2>
+					<button class="altaProducto-boton-nuevo">Crear nuevo producto</button>
+					<button class="altaProducto-boton-editar">Editar producto</button>
+
+				</div>
+
+				<div class="altaProducto-formulario">
+					<form>
+						<label for="name">Nombre del producto</label><br>
+						<input type="text" class="altaProducto-nombre"><br>
+					</form>
+
+					<form>
+						<label for="description">Descripción</label><br>
+						<input type="text" class="altaProducto-descripcion"><br>
+					</form>
+
+					<form>
+						<label for="myfile">Cargar imagen</label><br>
+						<input type="file" id="myfile" name="myfile"><br>
+					</form> 
+
+					<form action="/quant" method="GET" class="altaProducto-categoria">
+						<label>Categoría</label>
+						<select name="categoria" class="altaProducto-form-categoria">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</form>
+
+					<form action="/quant" method="GET" class="altaProducto-talle">
+						<label>Talle</label>
+						<select name="talle" class="altaProducto-form-talle">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</form>
+
+					<form>
+						<label for="color">Color</label><br>
+						<input type="text" class="altaProducto-color"><br>
+					</form>
+
+					<form>
+						<label for="price">Precio</label><br>
+						<input type="text" class="altaProducto-precio"><br>
+					</form>
+
+				</div>
+
+			</main>
+
+        </div>
+
+		<!-- ***** Hasta acá se puede EDITAR ***** -->
+
+
+
+		<!-- No tocar -->
+
+		<%- include('../partials/footer') %>
+
+		<!-- No tocar hasta acá -->
+	</div>
+
+</body>
+
+</html>
