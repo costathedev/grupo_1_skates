@@ -26,3 +26,38 @@
 # CONCLUSIONES
 
 Vamos bien con el trabajo en equipo! A seguir para adelante!
+
+# 08/11
+
+# Comenzar a hacer
+
+* Programar dailys semanales de forma espontanea, según las necesidades del equipo.
+* Asignanar las tareas de manera rotativa para que todos podamos hacer de todo.
+
+# Hacer más
+
+* Commits más pequeños y más frecuentes.
+* Anticipar el trabajo que sea necesario para poder trabajar a lo largo del sprint (ver clases, repasar conceptos, entender qué hay que hacer, etc)
+* Reuniones de trabajo en equipo. 
+
+# Continuar haciendo
+
+* Divir las tareas de forma equitativa y parcial.
+* Colaborar entre todos cuando algo no sale o no funciona.
+
+# Hacer menos
+
+(-)
+
+# Dejar de hacer
+
+* Trabajar en archivos independientes del proyecto ya que nos trae conflictos a la hora de ensamblar cada parte. 
+* Dejar para último momento el avance del proyecto. 
+* Dailys con horarios fijos.
+
+# CONCLUSIONES
+
+Estamos reestructurando nuestros procesos de trabajo, creciendo como equipo y tirando para adelante!
+
+
+
