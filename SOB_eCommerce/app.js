@@ -34,29 +34,24 @@ app.get('/', (req, res) =>
 
 
 app.get('/refund-policy', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/refund-policy.html'))
+    res.sendFile(path.resolve(__dirname, 'views/main/refund-policy.html'))
 )
 
 app.get('/faq', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/faq.html'))
+    res.sendFile(path.resolve(__dirname, 'views/main/faq.html'))
 )
 
 app.get('/contact', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/contact.html'))
+    res.sendFile(path.resolve(__dirname, 'views/main/contact.html'))
 )
 
 app.get('/about-us', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/about-us.html'))
+    res.sendFile(path.resolve(__dirname, 'views/main/about-us.html'))
 )
 
 app.get('/shopping-cart', (req, res) => 
     res.sendFile(path.resolve(__dirname, 'views/carrodecompras.html'))
 )
-
-app.get('/basic', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/basic.html'))
-)
-
 
 
 // RUTEO - Esto ya no va
