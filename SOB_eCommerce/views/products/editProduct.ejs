@@ -6,7 +6,7 @@
 <body>
 	<!-- No tocar -->
 
-
+	<!-- http://localhost:3050/product/altaProducto -->
 	<div class="page-container">
 
 		<%- include('../partials/header') %>
@@ -14,42 +14,48 @@
 		<div class="main-content">
 
 			        
-			<main class="altaProducto-main">
+			<main class="editProduct-main">
 
 
-				<div class="altaProducto-formulario">
+				<div class="editProduct-formulario">
+
+					<form action="/product" method = "POST" class="editProduct-form">
+						<h1 class="editProduct-h1">Editar producto</h1>
+
+						<label for="name" class="editProduct-label editProduct-item">Nombre del producto</label>
+						<input type="text" class="editProduct-item" name="nombre" placeholder="Nombre del producto" required> 
 					
-					<form action="/product" method = "POST" class="altaProducto-product-form">
-						<label for="name">Nombre del producto</label><br>
-						<input type="text" class="altaProducto-nombre"><br>
+						<label for="description" class="editProduct-label editProduct-item">Descripción</label>
+						<input type="text" class="editProduct-item" name="descripcion" placeholder="Descripción del producto" required>
+						
 					
-						<label for="description">Descripción</label><br>
-						<input type="text" class="altaProducto-descripcion"><br>
+						<label for="myfile" class="editProduct-label editProduct-item">Cargar nueva imagen</label>
+						<input type="file" id="myfile" name="myfile" class="editProduct-item" required><br>
 					
-						<label for="myfile">Cargar imagen</label><br>
-						<input type="file" id="myfile" name="myfile"><br>
-					
-						<label>Categoría</label>
-						<select name="categoria" class="altaProducto-form-categoria">
+						<label class="editProduct-label editProduct-item">Categoría</label>
+						<select name="categoria" class="editProduct-item" placeholder="Seleccione una categoría" required>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
 							<option value="4">4</option>
 						</select>
 					
-						<label>Talle</label>
-						<select name="talle" class="altaProducto-form-talle">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
+						<label class="editProduct-label editProduct-item">Talle</label>
+						<select name="talle" class="editProduct-item" placeholder="Seleccione un talle" required>
+							<option value="1">XS</option>
+							<option value="2">S</option>
+							<option value="3">M</option>
+							<option value="4">L</option>
 						</select>
 					
-						<label for="color">Color</label><br>
-						<input type="text" class="altaProducto-color"><br>
+						<label for="color" class="editProduct-label editProduct-item">Color</label>
+						<input type="text" class="editProduct-item" placeholder="Color del producto" required>
 					
-						<label for="price">Precio</label><br>
-						<input type="text" class="altaProducto-precio"><br>
+						<label for="price" class="editProduct-label editProduct-item">Precio</label>
+						<input type="text" class="editProduct-item" placeholder="Precio del producto" required>
+
+						<button type="submit" class="editProduct-item editProduct-btn-submit">Enviar</button>
+                    	<button type="reset" class="editProduct-item editProduct-btn-reset">Limpiar</button>
 
 					</form>
 
