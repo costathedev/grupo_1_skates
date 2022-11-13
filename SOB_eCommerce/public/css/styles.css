@@ -695,6 +695,15 @@ article img {
 }
 
 
+/* -------------- FAQs -------------- */
+.faq-item h2 p {
+    display: none;
+}
+.faq-item h2:hover p {
+    display: block;
+}
+
+
 /* -------------- MEDIA QUERIES -------------- */
 /* Tablet */
 @media (min-width: 768px) {
