@@ -4,11 +4,11 @@ Gris: #ebebeb */
 
 :root {
     --verde-claro: #12b43b;
-    --verde-medio:#23a539;
+    --verde-medio: #23a539;
     --gris: #ebebeb;
 
     --ancho-menu-colapsable: 300px;
-  }
+}
 
 
 
@@ -68,7 +68,7 @@ header {
     z-index: 100;
 
     /* Si se cambia el height, hay que cambiar en page-container */
-    height: 18vh; 
+    height: 18vh;
 
 
     /* background-color: white; */
@@ -137,19 +137,27 @@ header {
     display: none;
 }
 
+
+/* Voy a borrar esto, lo muevo a header-categories
 .header-secondary {
     display: none;
-    /* En mobile no se muestra, sólo tablet o web */
+    En mobile no se muestra, sólo tablet o web
     text-align: center;
     width: 100%;
 }
 
 .header-secondary strong {
     line-height: 2rem;
-}
+} */
 
 .header-categories {
-    display: flex;
+    /* Traído de header-secondary */
+    display: none;
+    /* En mobile no se muestra, sólo tablet o web */
+    text-align: center;
+    width: 100%;
+
+    /* display: flex; */
     /* justify-content: space-around; */
 }
 
@@ -273,6 +281,7 @@ footer i {
     0% {
         width: 50px;
     }
+
     100% {
         width: 60px;
     }
@@ -348,12 +357,15 @@ footer i {
         /* color:#12b43b; */
         z-index: 100;
     }
+
     25% {
-        color:#12b43b;
+        color: #12b43b;
     }
+
     75% {
-        color:transparent;
+        color: transparent;
     }
+
     100% {
         /* Ocultar */
         /* display: none; */
@@ -361,7 +373,7 @@ footer i {
         /* color:transparent; */
         z-index: 0;
     }
-    
+
 }
 
 .homecontenedor-section {
@@ -472,13 +484,13 @@ article img {
     margin-top: 10px;
 }
 
-.login-form  label {
+.login-form label {
     text-align: center;
 }
 
 .login-register-link {
     width: 100%;
-    color:#12b43b;
+    color: #12b43b;
     text-align: center;
 }
 
@@ -743,8 +755,10 @@ article img {
         margin-left: 20px;
     }
 
-    .header-secondary {
-        display: block;
+    .header-categories {
+        display: flex;
+        /* .header-secondary { */
+        /* display: block; */
         /* En mobile no se muestra, sólo tablet o web */
     }
 
@@ -760,11 +774,12 @@ article img {
         0% {
             width: 60px;
         }
+
         100% {
             width: 70px;
         }
     }
-    
+
     .floating-whatsapp:hover {
         width: 70px;
     }
@@ -936,6 +951,7 @@ article img {
         0% {
             width: 80px;
         }
+
         100% {
             width: 90px;
         }
