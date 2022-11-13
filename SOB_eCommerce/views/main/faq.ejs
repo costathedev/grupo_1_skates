@@ -15,14 +15,17 @@
                 <div class="main-content">
                     <!-- No tocar hasta acá -->
 
-                    <h1>
-                        FAQs
-                    </h1>
-
-
-
                     <!-- ***** Esta parte se DEBE EDITAR ***** -->
-
+                    <h1>
+                        Preguntas Frecuentes
+                    </h1>
+                    
+                    <% faqs.forEach( faq => { %>
+                        <article class="faq-item">
+                            <h2><%- faq.question %></h2>
+                            <p><%- faq.answer %></p>
+                        </article>
+                    <% } ) %>
 
                 </div>
 
