@@ -6,11 +6,11 @@ router.get('/faq', mainController.faq);
 
 router.get('/about-us', mainController.aboutUs);
 
-router.get('/contact', mainController.login);
+router.get('/contact', mainController.contact);
 
-router.get('/refund-policy', mainController.register);
+router.get('/refund-policy', mainController.refundPolicy);
 
-router.get('/', mainController.register);
+router.get('/', mainController.home);
 
 
 module.exports = router;

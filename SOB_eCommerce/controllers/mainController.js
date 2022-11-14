@@ -1,19 +1,33 @@
 const mainController = {
     faq: (req, res) => {
-        res.render('main/faq')
+        let faqs = [{
+            question: "First Question",
+            answer: "First answer ............."  
+        },
+        {
+            question: "Second Question",
+            answer: "Second answer ............"  
+        }];
+        res.render('main/faq', {faqs}) 
     },
 
     aboutUs: (req, res) => {
-        res.render('users/aboutUs')
+        res.render('users/about-us')
     },
 
-    faq: (req, res)  => {
-        res.render('main/faq')
+    contact: (req, res) => {
+        res.render('main/contact')
     },
 
-    aboutUs: (req, res) => {
-        res.render('users/aboutUs')
+    refundPolicy: (req, res)  => {
+        res.render('main/refund-policy')
     },
+
+    home: (req, res)  => {
+        res.render('main/index')
+    },
+
+
 }
 
 module.exports = mainController;
