@@ -4,6 +4,7 @@ const path = require('path');
 // RUTEO
 const userRoutes = require('./routes/user')
 const productRoutes = require('./routes/product')
+const mainRoutes = require('./routes/main')
 
 // Constantes y Variables
 const app = express(); // Para administrar el servidor web
@@ -19,6 +20,7 @@ app.use( express.static(path.resolve(__dirname, './public')));
 
 // RUTEO
 // Rutas
+app.use('/', mainRoutes)
 app.use('/user', userRoutes);
 app.use('/product', productRoutes);
 

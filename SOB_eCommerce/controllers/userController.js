@@ -1,4 +1,4 @@
-const mainController = {
+const userController = {
     login: function(req, res) {
         res.render('users/login')
     },
@@ -8,4 +8,4 @@ const mainController = {
     }
 }
 
-module.exports = mainController;
+module.exports = userController;
