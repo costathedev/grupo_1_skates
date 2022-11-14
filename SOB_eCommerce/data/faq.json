@@ -1,10 +1,32 @@
 [
     {
-        "question": "First Question",
-        "answer": "First answer ............."  
+        "question": "¿Cómo Realizo una Compra?",
+        "answer": "Es muy simple! Registrate ingresando Nombre y Apellido, Usuario, E-mail, Fecha de nacimiento (para facilitarte promociones!) y Contraseña. <br><br> Luego podés navegar por todas las categorías de productos del sitio e ingresar al producto para ver sus detalles. Seleccioná el color, talle y cantidad deseados, y hacé click en 'Agregar al carrito'. Podés colocar el código postal para calcular los costos de envío. <br><br> Podés seguir navegando el sitio y agregar más productos al carrito, o ir a ver tu Carrito y 'Realizar Checkout' para así finalizar tu pedido. Completa la información solicitada y podrás “Proceder a Pagar”. Seleccionar el medio de pago que más te resulte entre las opciones disponibles y el proceso de compra será concluido. <br><br> Recibirás un mail confirmando que hemos recibido tu pedido y lo estamos procesando. Una vez que validemos la orden  y tengamos la autorización de la tarjeta, tu compra quedará confirmada. Recibirás un mail confirmando la compra e indicando el nº de envío para que puedas seguirlo. <br><br> ES FACIL, RÁPIDO Y CON POCOS CLICKS, TENÉS EL PRODUCTO EN TU CASA.",
+        "order": 1
     },
     {
-        "question": "Second Question",
-        "answer": "Second answer ............"  
+        "question": "¿Cuáles son los medios de pago?",
+        "answer": "Los pagos se podrán realizar mediante Mercadopago, y con tarjeta de crédito o débito."  ,
+        "order": 2
+    },
+    {
+        "question": "¿Cuánto tarda en llegar mi compra?",
+        "answer": "Los plazos de entrega serán entre 5 Y 10 dias hábiles de lunes a viernes de 9 a 18 hs, desde que hayan sido validados la orden de compra y el pago. Puede variar según ámbito geográfico, localidad y sucursal de destino. En Cybermonday y Hotsale los plazos son de 10 a 15 dias habiles.",
+        "order": 3
+    },
+    {
+        "question": "¿Qué hago si mi pedido no llegó?",
+        "answer": "En caso de que se cumpla el plazo estipulado y no hayas recibido tu compra, comunicate con: ayuda@saintsofbath.com.ar indicando nombre, apellido y nº de pedido.",
+        "order": 4
+    },
+    {
+        "question": "¿Puedo cambiar un producto comprado?",
+        "answer": "Todos los productos adquiridos por el sitio web que no hayan sido utilizados, posean sus etiquetas correspondientes y tengan el embalaje original, podrán cambiarse contactando a ayuda@saintsofbath.com.ar. La primera vez no tiene costo y las siguientes deberás abonar los costos de envío. El plazo es de 30 días contados a partir de la entrega del producto, y se tomará como referencia el valor de compra del mismo.",
+        "order": 5
+    },
+    {
+        "question": "¿Qué hago si mi consulta no está aquí?",
+        "answer": "No dudes en enviarnos tu consulta o inquietud por correo electrónico escribiendo a ayuda@saintsofbath.com.ar. Todos los mensajes son contestados a la brevedad. Esta sección se ampliará con las preguntas que recibamos de los usuarios.",
+        "order": 6
     }
 ]

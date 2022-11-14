@@ -718,10 +718,9 @@ article img {
     font-weight: bold;
 }
 
-.altaProducto-btn-submit{
+.altaProducto-btn-submit {
     background-image: linear-gradient(#12b43b, #23a539);
     font-size: 1.2rem;
-    margin-top:0;
 }
 
 .altaProducto-btn-submit:hover {
@@ -730,11 +729,9 @@ article img {
     color: white;
 }
 
-.altaProducto-btn-reset{
+.altaProducto-btn-reset {
     background-image: linear-gradient(#ebebeb, darkgray);
     font-size: 1.2rem;
-    margin-bottom: 4rem;
-    margin-top:0;
 }
 
 /* ------------------ EDITAR PRODUCTO ------------------  */
@@ -752,6 +749,7 @@ article img {
 
 .editProduct-item {
     width: 100%;
+    margin-top: 1rem;
     padding: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -760,10 +758,9 @@ article img {
     font-weight: bold;
 }
 
-.editProduct-btn-submit{
+.editProduct-btn-submit {
     background-image: linear-gradient(#12b43b, #23a539);
     font-size: 1.2rem;
-    margin-top:0;
 }
 
 .editProduct-btn-submit:hover {
@@ -772,17 +769,35 @@ article img {
     color: white;
 }
 
-.editProduct-btn-reset{
+.editProduct-btn-reset {
     background-image: linear-gradient(#ebebeb, darkgray);
     font-size: 1.2rem;
-    margin-bottom: 4rem;
 }
 
-/* -------------- s -------------- */
-.faq-item h2 p {
+/* -------------- FAQs -------------- */
+.faq-content {
+    /* margin-top: 90px !important; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.faq-item {
+    width: 100%;
+}
+
+.faq-item h2 {
+    line-height: 3.5rem;
+}
+
+.faq-item p {
+    line-height: 1.5rem;
     display: none;
 }
-.faq-item h2:hover p {
+
+.faq-item:hover p {
     display: block;
 }
 
@@ -988,7 +1003,7 @@ article img {
     .altaProducto-form {
         width: 60%;
         margin: auto;
-        
+
     }
 
     /*-------EDITAR PRODUCTO--------*/
@@ -998,8 +1013,16 @@ article img {
         margin-bottom: 0;
     }
 
-    .editProduct-label{
+    .editProduct-label {
         margin-bottom: 0;
+    }
+
+
+    /*------- FAQs --------*/
+    .faq-content {
+        padding-left: 40px;
+        padding-right: 40px;
+        /* margin: auto; */
     }
 
 }
@@ -1082,5 +1105,11 @@ article img {
     .art-imganddesc {
         width: 24%;
 
+    }
+
+    /*------- FAQs --------*/
+    .faq-content {
+        padding-left: 80px;
+        padding-right: 80px;
     }
 }
