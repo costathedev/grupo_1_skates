@@ -5,7 +5,8 @@ const productController = require('../controllers/productController');
 // http://localhost:3050/product/productDetail
 router.get('/productDetail', productController.productofunction);
 
-
 router.get('/altaProducto', productController.altaproducto);
+
+router.get('/editProduct', productController.editproduct);
 
 module.exports = router;

@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 
 
 // Definir como públicos los recursos
-app.use( express.static(path.resolve(__dirname, './public')));
+app.use(express.static(path.resolve('./public')));
 
 // RUTEO
 // Rutas
@@ -36,29 +36,24 @@ app.get('/', (req, res) =>
 
 
 app.get('/refund-policy', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/refund-policy.html'))
+    res.sendFile(path.resolve(__dirname, 'views/main/refund-policy.html'))
 )
 
-app.get('/faq', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/faq.html'))
-)
+// app.get('/faq', (req, res) => 
+//     res.sendFile(path.resolve(__dirname, 'views/main/faq.html'))
+// )
 
 app.get('/contact', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/contact.html'))
+    res.sendFile(path.resolve(__dirname, 'views/main/contact.html'))
 )
 
 app.get('/about-us', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/about-us.html'))
+    res.sendFile(path.resolve(__dirname, 'views/main/about-us.html'))
 )
 
 app.get('/shopping-cart', (req, res) => 
     res.sendFile(path.resolve(__dirname, 'views/carrodecompras.html'))
 )
-
-app.get('/basic', (req, res) => 
-    res.sendFile(path.resolve(__dirname, 'views/basic.html'))
-)
-
 
 
 // RUTEO - Esto ya no va
@@ -77,3 +72,17 @@ app.get('/basic', (req, res) =>
 // )
 
 // RUTEO - Esto ya no va HASTA ACÁ
+
+const router = express.Router();
+
+app.get('/faq', (req, res) => {
+    let faqs = [{
+        question: "First Question",
+        answer: "First answer ............."  
+    },
+    {
+        question: "Second Question",
+        answer: "Second answer ............"  
+    }];
+    res.render('main/faq', {faqs})
+})

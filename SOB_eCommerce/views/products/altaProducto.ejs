@@ -6,7 +6,7 @@
 <body>
 	<!-- No tocar -->
 
-
+	<!-- http://localhost:3050/product/altaProducto -->
 	<div class="page-container">
 
 		<%- include('../partials/header') %>
@@ -16,58 +16,47 @@
 			        
 			<main class="altaProducto-main">
 
-				<div class="altaProducto-div-botones">
-
-					<h2>Seleccione la acción que desea realizar</h2>
-					<button class="altaProducto-boton-nuevo">Crear nuevo producto</button>
-					<button class="altaProducto-boton-editar">Editar producto</button>
-
-				</div>
 
 				<div class="altaProducto-formulario">
-					<form>
-						<label for="name">Nombre del producto</label><br>
-						<input type="text" class="altaProducto-nombre"><br>
-					</form>
 
-					<form>
-						<label for="description">Descripción</label><br>
-						<input type="text" class="altaProducto-descripcion"><br>
-					</form>
+					<form action="/product" method = "POST" class="altaProducto-form">
+						<h1 class="altaProducto-h1">Alta de producto</h1>
 
-					<form>
-						<label for="myfile">Cargar imagen</label><br>
-						<input type="file" id="myfile" name="myfile"><br>
-					</form> 
-
-					<form action="/quant" method="GET" class="altaProducto-categoria">
-						<label>Categoría</label>
-						<select name="categoria" class="altaProducto-form-categoria">
+						<label for="name" class="altaProducto-label altaProducto-item">Nombre del producto</label>
+						<input type="text" class="altaProducto-item" name="nombre" placeholder="Nombre del producto" required> 
+					
+						<label for="description" class="altaProducto-label altaProducto-item">Descripción</label>
+						<input type="text" class="altaProducto-item" name="descripcion" placeholder="Descripción del producto" required>
+						
+					
+						<label for="myfile" class="altaProducto-label altaProducto-item">Cargar imagen</label>
+						<input type="file" id="myfile" name="myfile" class="altaProducto-item" required><br>
+					
+						<label class="altaProducto-label altaProducto-item">Categoría</label>
+						<select name="categoria" class="altaProducto-item" placeholder="Seleccione una categoría" required>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
 							<option value="4">4</option>
 						</select>
-					</form>
-
-					<form action="/quant" method="GET" class="altaProducto-talle">
-						<label>Talle</label>
-						<select name="talle" class="altaProducto-form-talle">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
+					
+						<label class="altaProducto-label altaProducto-item">Talle</label>
+						<select name="talle" class="altaProducto-item" placeholder="Seleccione un talle" required>
+							<option value="1">XS</option>
+							<option value="2">S</option>
+							<option value="3">M</option>
+							<option value="4">L</option>
 						</select>
-					</form>
+					
+						<label for="color" class="altaProducto-label altaProducto-item">Color</label>
+						<input type="text" class="altaProducto-item" placeholder="Color del producto" required>
+					
+						<label for="price" class="altaProducto-label altaProducto-item">Precio</label>
+						<input type="text" class="altaProducto-item" placeholder="Precio del producto" required>
 
-					<form>
-						<label for="color">Color</label><br>
-						<input type="text" class="altaProducto-color"><br>
-					</form>
+						<button type="submit" class="altaProducto-item altaProducto-btn-submit">Enviar</button>
+                    	<button type="reset" class="altaProducto-item altaProducto-btn-reset">Limpiar</button>
 
-					<form>
-						<label for="price">Precio</label><br>
-						<input type="text" class="altaProducto-precio"><br>
 					</form>
 
 				</div>
