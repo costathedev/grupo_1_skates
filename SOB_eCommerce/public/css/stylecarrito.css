@@ -11,6 +11,15 @@ body{
 	align-items: center;
 }
 
+.generalcontainer {
+	width: 100%;
+	padding-left: 28rem;
+}
+
+.checkout {
+	padding-bottom: 1rem;
+}
+
 
 /*MAIN CONTAINER DEL CARRITO*/
 
