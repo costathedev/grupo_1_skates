@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('../partials/head') %>
+
+    <body>
+
+        
+
+
+        <div class="page-container">
+
+            <%- include('../partials/header') %>
+
+                <div class="main-content">
+                    
+
+                    
+                    <div class="faq-content">
+                        <h1 class="faq-item">
+                            Reembolsos en SAINTS OF BATH.
+                        </h1>
+
+                        <% faqs.forEach( faq=> { %>
+                            <article class="faq-item">
+                                <h2>
+                                    <%- faq.question %>
+                                </h2>
+                                <p>
+                                    <%- faq.answer %>
+                                </p>
+                            </article>
+                            <% } ) %>
+                    </div>
+
+
+                </div>
+
+
+                <%- include('../partials/footer') %>
+        </div>
+
+    </body>
+
+</html>
