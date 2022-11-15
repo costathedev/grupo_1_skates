@@ -18,6 +18,9 @@ const mainController = {
         res.render('main/contact')
     },
 
+    
+    // refund policy 
+    
     refundPolicy: (req, res)  => {
         res.render('main/refund-policy')
     },
