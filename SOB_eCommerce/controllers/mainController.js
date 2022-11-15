@@ -10,7 +10,8 @@ const mainController = {
     },
 
     aboutUs: (req, res) => {
-        res.render('users/about-us')
+        //res.render('users/about-us')
+        res.render('main/about-us')
     },
 
     contact: (req, res) => {
