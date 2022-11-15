@@ -9,7 +9,11 @@ const productController = {
 
     editproduct: (function(req, res) {
         res.render('products/editProduct')
-    })
+    }),
+    
+    carroDeCompras: (function(req, res) {
+        res.render('products/carrodecompras')
+    }),
 }
 
 module.exports = productController;
