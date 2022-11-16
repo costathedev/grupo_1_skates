@@ -4,6 +4,7 @@ const mainController = require ('../controllers/mainController');
 
 router.get('/faq', mainController.faq);
 
+// http://localhost:3050/main/about-us
 router.get('/about-us', mainController.aboutUs);
 
 router.get('/contact', mainController.contact);

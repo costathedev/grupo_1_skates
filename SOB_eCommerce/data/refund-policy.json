@@ -1,0 +1,23 @@
+[
+    {
+        "question": "Dónde se aplican los reembolsos",
+        "answer": "La oferta de reembolsos de S.O.B, en un plazo de dos semanas desde la compra , se aplica a prendas y skates obtenidos en la tienda de S.O.B. He aquí un resumen de cómo funcionan los reembolsos con otros tipos de compras.",
+        "order": 1
+    },
+    {
+        "question": "¿Cuánto tarda en llegar mi compra?",
+        "answer": "Los plazos de entrega serán entre 5 Y 10 dias hábiles de lunes a viernes de 9 a 18 hs, desde que hayan sido validados la orden de compra y el pago. Puede variar según ámbito geográfico, localidad y sucursal de destino. En Cybermonday y Hotsale los plazos son de 10 a 15 dias habiles.",
+        "order": 2
+    },
+    {
+        "question": "ABUSO",
+        "answer": "Los reembolsos están diseñados para eliminar el riesgo de compra de articulos de Saints Of Bath, no como una forma de conseguir prendas gratis. Si nos parece que estás abusando de los reembolsos, podemos dejar de ofrecerte nuestros productos. No consideramos abuso solicitar un reembolso de un objeto que fue comprado justo antes de unas rebajas si luego inmediatamente se compra de nuevo ese objeto por el precio rebajado.",
+        "order": 3
+    },
+    {
+        "question": "Cómo solicitar un reembolso",
+        "answer": "Puedes solicitar un reembolso u otro tipo de asistencia con tus compras de Saints of Bath en saintsofbath.shop",
+        "order": 4
+    },
+    
+]

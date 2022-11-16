@@ -10,13 +10,17 @@ const mainController = {
     },
 
     aboutUs: (req, res) => {
-        res.render('users/about-us')
+        //res.render('users/about-us')
+        res.render('main/about-us')
     },
 
     contact: (req, res) => {
         res.render('main/contact')
     },
 
+    
+    // refund policy 
+    
     refundPolicy: (req, res)  => {
         res.render('main/refund-policy')
     },

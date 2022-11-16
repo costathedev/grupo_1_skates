@@ -7,15 +7,15 @@ const productRoutes = require('./routes/product')
 const mainRoutes = require('./routes/main')
 
 // Constantes y Variables
-const app = express(); // Para administrar el servidor web
-const puerto = 3050; // Puerto a utilizar para el servidor web
-const url = 'http://localhost'; // Url a utilizar para el servidor web
+const app = express(); // Para administrar el servidor web.
+const puerto = 3050; // Puerto a utilizar para el servidor web.
+const url = 'http://localhost'; // Url a utilizar para el servidor web.
 
 // Aclaramos a Express cual es el motor de plantillas que vamos a usar, 
 app.set('view engine', 'ejs');
 
 
-// Definir como públicos los recursos
+// Definir como públicos los recursos.
 app.use(express.static(path.resolve('./public')));
 
 // RUTEO

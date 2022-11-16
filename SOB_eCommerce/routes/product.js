@@ -9,4 +9,6 @@ router.get('/altaProducto', productController.altaproducto);
 
 router.get('/editProduct', productController.editproduct);
 
+router.get('/carrodecompras', productController.carroDeCompras)
+
 module.exports = router;
