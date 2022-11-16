@@ -781,7 +781,7 @@ article img {
     flex-wrap: wrap;
     margin: auto;
     align-items: center;
-    margin-top: 20px;
+    padding-top: 20px;
 }
 
 .faq-item {

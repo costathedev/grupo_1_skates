@@ -3,47 +3,48 @@
 
 <%- include('../partials/head') %>
 
-<body>
+    <body>
 
-   <!-- No tocar -->
-    
-
-   <div class="page-container">
-
-    <%- include('../partials/header') %>
-
-    <div class="main-content">
-        <!-- No tocar hasta acá -->
+        <!-- No tocar -->
 
 
-        <!-- ***** Esta parte se DEBE EDITAR ***** -->
+        <div class="page-container">
 
-            <main class="login-container">
-                <form action="/login" method="POST" class="login-form">
-                    <h1>Ingresá</h1>
-                    <input type="text" class="reg-form-item" name="usuario" placeholder="usuario" required>
-                    <input type="password" class="reg-form-item" name="password" placeholder="contraseña" required>
+            <%- include('../partials/header') %>
 
-                    <button type="submit" class="reg-form-item btn-submit">Enviar</button>
-
-                    <label class="reg-form-item" >o</label>
-
-                    <a href="/user/register" class="login-register-link">Creá tu cuenta</a>
-
-                </form>
+                <div class="main-content">
+                    <!-- No tocar hasta acá -->
 
 
+                    <!-- ***** Esta parte se DEBE EDITAR ***** -->
 
-            </main>
+                    <main class="login-container">
+                        <form action="/login" method="POST" class="login-form">
+                            <h1>Ingresá</h1>
+                            <input type="text" class="reg-form-item" name="usuario" placeholder="usuario" required>
+                            <input type="password" class="reg-form-item" name="password" placeholder="contraseña"
+                                required>
 
-            <!-- ***** Hasta acá se puede EDITAR ***** -->
+                            <button type="submit" class="reg-form-item btn-submit">Enviar</button>
 
+                            <label class="reg-form-item">o</label>
+
+                            <a href="/user/register" class="login-register-link">Creá tu cuenta</a>
+
+                        </form>
+
+
+
+                    </main>
+
+                    <!-- ***** Hasta acá se puede EDITAR ***** -->
+
+                </div>
+
+
+                <%- include('../partials/footer') %>
         </div>
 
-
-        <%- include('../partials/footer') %>
-    </div>
-
-</body>
+    </body>
 
 </html>
