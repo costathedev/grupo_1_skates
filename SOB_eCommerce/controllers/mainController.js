@@ -22,7 +22,10 @@ const mainController = {
     // refund policy 
     
     refundPolicy: (req, res)  => {
-        res.render('main/refund-policy')
+        let file = fs.readFileSync('./data/refund-policy.json', 'utf8');
+        let arr = JSON.parse(file);
+
+        res.render('main/refund-policy', {arr})
     },
 
     home: (req, res)  => {
