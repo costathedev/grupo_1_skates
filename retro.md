@@ -59,5 +59,51 @@ Vamos bien con el trabajo en equipo! A seguir para adelante!
 
 Estamos reestructurando nuestros procesos de trabajo, creciendo como equipo y tirando para adelante!
 
+# Sprint 4
+
+# Comenzar a hacer
+
+(-)
+
+# Hacer más
+
+Anticipar el trabajo que sea necesario para poder trabajar a lo largo del sprint (ver clases, repasar conceptos, entender qué hay que hacer, etc)
+Reuniones de trabajo en equipo.
+
+
+# Continuar haciendo
+
+Programar dailys semanales de forma espontanea, según las necesidades del equipo.
+Asignanar las tareas de manera rotativa para que todos podamos hacer de todo.
+Commits más pequeños y más frecuentes.
+
+
+# Hacer menos
+
+(-)
+
+
+# Dejar de hacer
+
+
+Quedarse con las dudas y no animarse a consultar con nuestros compañeros (de Sprint) cuando no entendemos o no podemos avanzar con la tarea que nos definimos.
+
+
+
+
+# CONCLUSIONES
+
+
+Encontramos una nueva metodologia de trabajo, que se adapta mejor a nosotros, nos estamos conociendo mas y trabajando mejor como equipo!
+
+
+
+
+
+
+
+
+
+
 
 
