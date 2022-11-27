@@ -19,7 +19,7 @@ const mainController = {
     },
 
     
-    // refund policy 
+    // refund policy con variables para conectar al json
     
     refundPolicy: (req, res)  => {
         let file = fs.readFileSync('./data/refund-policy.json', 'utf8');
