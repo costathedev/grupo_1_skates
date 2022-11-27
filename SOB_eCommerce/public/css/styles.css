@@ -66,6 +66,7 @@ header {
     position: fixed;
     top: 0px;
     z-index: 100;
+    padding-right: 30px;
 
     /* Si se cambia el height, hay que cambiar en page-container */
     height: 18vh;
@@ -73,6 +74,8 @@ header {
 
     /* background-color: white; */
     background-image: linear-gradient(to bottom, white 80%, rgba(255, 255, 255, 0.6) 20%);
+   
+    width: 100%;
 
 }
 
@@ -81,6 +84,7 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    flex-grow: 1;
 
     /* --------- Esto creo que debe ir en el hader no en .header-main, lo muevo */
     /* position: fixed; */
@@ -156,6 +160,7 @@ header {
     /* En mobile no se muestra, sólo tablet o web */
     text-align: center;
     width: 100%;
+    height: 30px;
 
     /* display: flex; */
     /* justify-content: space-around; */
@@ -460,6 +465,7 @@ footer i {
 .main-content {
     /* Este padding sirve para dejar el espacio al Footer. En App lleva este valor, en tablet y desktop otros menores. */
     padding-bottom: 23.5rem;
+    height: 100%;
 }
 
 article img {
