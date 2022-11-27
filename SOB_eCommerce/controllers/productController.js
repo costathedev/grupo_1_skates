@@ -1,13 +1,13 @@
 const productController = {    
-    productofunction: function(req, res) {
+    productDetail: function(req, res) {
         res.render('products/productDetail')
     },
 
-    altaproducto: function(req, res) {
+    newProduct: function(req, res) {
         res.render('products/altaProducto')
     },
 
-    editproduct: (function(req, res) {
+    editProduct: (function(req, res) {
         res.render('products/editProduct')
     }),
     

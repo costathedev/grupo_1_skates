@@ -3,12 +3,22 @@ const router = express.Router();
 const productController = require('../controllers/productController');
 
 // http://localhost:3050/product/productDetail
-router.get('/productDetail', productController.productofunction);
 
-router.get('/altaProducto', productController.altaproducto);
 
-router.get('/editProduct', productController.editproduct);
+router.get('/', productController.index)
 
-router.get('/carrodecompras', productController.carroDeCompras)
+router.get('/:id', productController.productDetail);
+
+router.get('/create', productController.newProduct);
+
+router.get('/:id/edit', productController.editProduct);
+
+router.post('/', productController.saveNewProduct);
+
+router.put('/:id', productController.saveEditedProduct);
+
+router.delete('/:id', productController.deleteProduct)
+
+router.get('/carrodecompras', productController.carroDeCompras);
 
 module.exports = router;
