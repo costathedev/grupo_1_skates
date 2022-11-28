@@ -22,6 +22,16 @@
             <main>
                 <form action="/register" method="POST" class="reg-form">
                     <h1>Creá tu cuenta</h1>
+
+
+
+                    <% if (locals && locals.user) { %>
+                        <p> <%= user.id %> </p>
+                    <% }  else { %>
+                        <p>Sin Usuario</p>
+                    <% } %>
+                    
+
                     <input type="text" class="reg-form-item" name="nombre" placeholder="Nombre y apellido" required>
                     <input type="text" class="reg-form-item" name="usuario" placeholder="Usuario" required>
                     <input type="email" class="reg-form-item" name="email" placeholder="E-Mail" required>
