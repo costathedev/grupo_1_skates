@@ -807,6 +807,16 @@ article img {
     display: block;
 }
 
+/* -------------- ABOUT US -------------- */
+.about-us-title{
+    width: 100%;
+}
+
+.about-us-p{
+    line-height: 1.5rem;
+    display: none;
+}
+
 
 /* -------------- MEDIA QUERIES -------------- */
 /* Tablet */
