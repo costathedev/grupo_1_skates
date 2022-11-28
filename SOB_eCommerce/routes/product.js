@@ -7,18 +7,18 @@ const productController = require('../controllers/productController');
 
 router.get('/', productController.index)
 
-router.get('/:id', productController.productDetail);
+router.get('/carrodecompras', productController.carroDeCompras);
 
 router.get('/create', productController.newProduct);
 
 router.get('/:id/edit', productController.editProduct);
 
+router.get('/:id', productController.productDetail);
+
 router.post('/', productController.saveNewProduct);
 
 router.put('/:id', productController.saveEditedProduct);
 
-router.delete('/:id', productController.deleteProduct)
-
-router.get('/carrodecompras', productController.carroDeCompras);
+router.delete('/:id', productController.deleteProduct);
 
 module.exports = router;
