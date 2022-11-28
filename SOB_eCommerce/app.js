@@ -6,15 +6,16 @@ const userRoutes = require('./routes/user')
 const productRoutes = require('./routes/product')
 const mainRoutes = require('./routes/main')
 
-// 
-app.use(express.urlencoded({extended: false}));
-app.use(express.json());
-
 
 // Constantes y Variables
 const app = express(); // Para administrar el servidor web.
 const puerto = 3050; // Puerto a utilizar para el servidor web.
 const url = 'http://localhost'; // Url a utilizar para el servidor web.
+
+
+// Caro: Esto estaba antes de definir la constante "app" y daba error, lo pongo abajo:
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 // Aclaramos a Express cual es el motor de plantillas que vamos a usar, 
 app.set('view engine', 'ejs');
