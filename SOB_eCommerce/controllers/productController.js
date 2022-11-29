@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const rutaProductJson = path.resolve('../data/products.json');
+const rutaProductJson = path.resolve('./data/products.json');
 
-let productFile = fs.readFileSync(rutaProductJson, 'utf-8');
+// let productFile = fs.readFileSync(rutaProductJson, 'utf-8');
 // let product = JSON.parse(productFile);
 
 let products = [
@@ -75,7 +75,7 @@ const productController = {
         products = products.filter( product => product.id !== id);
         fs.writeFileSync(rutaProductJson ,JSON.stringify(products))
         res.redirect('/')
-        
+
     }),
 }
 
