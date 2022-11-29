@@ -1,6 +1,8 @@
 // Reuire de Modulos externos 
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override')
+
 // RUTEO
 const userRoutes = require('./routes/user')
 const productRoutes = require('./routes/product')
@@ -23,6 +25,9 @@ app.use(express.json());
 
 // Definir como públicos los recursos.
 app.use(express.static(path.resolve('./public')));
+
+app.use(methodOverride('_method'));
+
 
 // RUTEO
 // Rutas

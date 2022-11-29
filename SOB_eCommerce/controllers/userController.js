@@ -12,6 +12,7 @@ function loadUsers() {
 
 function writeUsers() {
     const fs = require('fs');
+    console.log('Por escribir', users.length, 'usuarios')
     fs.writeFileSync(rutaUsersJson , JSON.stringify(users))
 }
 
@@ -79,13 +80,21 @@ const userController = {
         let user = users.find( user => user.id == id );
         if (user) {
             user.apellido = req.body.apellido;
-            user.nombre = req.body.usuario;
+            console.log('Encontro el usuario a editar: ', user.apellido);
+            user.email = req.body.email;
+            user.domicilio = req.body.domicilio;
+            user.fecha_nacimiento = req.body.fecha_nacimiento;
+            user.contraseña = req.body.contraseña;
 
-            users = users.filter( user => user.id !== id);
+            users = users.filter( u => u.id != id);
             users.push(user);
-            writeUsers;
+
+            writeUsers();
 
             res.redirect('/');
+        }
+        else {
+            console.log('NO encontró el usuario a editar: ');
         }
         
     },
@@ -95,7 +104,7 @@ const userController = {
         loadUsers();
         let id = req.params.id;
         users = users.filter( user => user.id !== id);
-        writeUsers;
+        writeUsers();
 
         res.redirect('/');
 
