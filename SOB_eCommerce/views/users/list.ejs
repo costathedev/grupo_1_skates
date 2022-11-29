@@ -20,14 +20,32 @@
 
                     <h1>Listado de Usuarios</h1>
 
-                    <div class="user-list-list"></div>
+                    <div class="user-list-list">
 
-                    <b>Nombre de Usuario</b>
-                    <b>Nombre</b>
-                    <b>Editar</b>
+                        <div class="user-list-container">
+                            <h2 class="user-list-item user-list-title">Nombre</h2>
+                            <h2 class="user-list-item user-list-title">Mail</h2>
+                            <h2 class="user-list-item user-list-title">Domicilio</h2>
+                            <h2 class="user-list-item user-list-title">Fecha Nacimiento</h2>
+                            <h2 class="user-list-item user-list-title">Ver</h2>
+                            <h2 class="user-list-item user-list-title">Editar</h2>
+                            <h2 class="user-list-item user-list-title">Eliminar</h2>
+                        </div>
                     
                     <!-- Acá va el listado con EJS, pero me da error -->
-                 
+                    <% users.forEach( user => { %> 
+                        <div class="user-list-container">
+                            <span class="user-list-item"><%= user.apellido %></span>    
+                            <span class="user-list-item"><%= user.email %></span>    
+                            <span class="user-list-item"><%= user.domicilio %></span>    
+                            <span class="user-list-item"><%= user.fecha_nacimiento %></span>    
+                            <a href="/user/<%= user.id %>/userDetail"  class="user-list-item"><i class="fa-solid fa-magnifying-glass"></i></a>    
+                            <a href="/user/<%= user.id %>/edit?_method=PUT"  class="user-list-item"><i class="fa-solid fa-pen-to-square"></i></a>    
+                            <a href="/user/<%= user.id %>?_method=DELETE"  class="user-list-item"><i class="fa-solid fa-trash"></i></a>    
+                        </div>
+                    <% }) %>
+
+                    </div>
                     <!-- ***** Hasta acá se puede EDITAR ***** -->
 
                 </div>

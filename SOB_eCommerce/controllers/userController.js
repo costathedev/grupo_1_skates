@@ -54,7 +54,7 @@ const userController = {
             res.render('users/register', {user})
         } 
         else {
-            res.send('No se encontró el usuario' + id)
+            res.send('No se encontró el usuario ' + id)
         }
     },
 
@@ -103,7 +103,7 @@ const userController = {
         console.log('deleteUser. URL:', req.url);
         loadUsers();
         let id = req.params.id;
-        users = users.filter( user => user.id !== id);
+        users = users.filter( user => user.id != id);
         writeUsers();
 
         res.redirect('/');
