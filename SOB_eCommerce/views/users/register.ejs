@@ -32,7 +32,7 @@
                     <% } %>
                     
 
-                    <input type="text" class="reg-form-item" name="nombre" placeholder="Nombre y apellido" required>
+                    <input type="text" class="reg-form-item" name="apellido" placeholder="Nombre y apellido" value = "<%= locals.user && user.apellido %>"  required>
                     <input type="text" class="reg-form-item" name="usuario" placeholder="Usuario" required>
                     <input type="email" class="reg-form-item" name="email" placeholder="E-Mail" required>
                     <label class="reg-label reg-form-item" for="fecha-nacimiento">Fecha de nacimiento</label>
