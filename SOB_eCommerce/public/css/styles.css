@@ -837,11 +837,18 @@ article img {
     /* flex-grow: 1; */
     text-align: center;
     width: 14.28%;
+    max-width: 14.28%;
     line-height: 2.5rem;
+    flex-wrap: wrap;
 }
 
 .user-list-container:hover {
     box-shadow: 0px 0px 20px rgb(100, 100, 100);
+}
+
+.user-list-button {
+    border-width: 0px;
+    background-color: transparent;
 }
 
 

@@ -28,6 +28,11 @@ const userController = {
         res.render('users/register');
     },
 
+    create: function(req, res) {
+        console.log('create. URL:', req.url);
+        res.render('users/register', {backToList: true});
+    },
+
     index: function(req, res){
         console.log('index. URL:', req.url);
         loadUsers();
@@ -70,7 +75,14 @@ const userController = {
         
         writeUsers();
 
-        res.redirect('/');
+        if (req.url.toLowerCase().trim() == "/created") {
+            console.log('coincide url /created');
+            res.redirect('/user');
+        } else {
+            console.log('NO coincide url /created');
+            res.redirect('/');
+        }
+
     },
 
     saveEditedUser: function(req, res){
@@ -106,7 +118,7 @@ const userController = {
         users = users.filter( user => user.id != id);
         writeUsers();
 
-        res.redirect('/');
+        res.redirect('/user');
 
     },
 

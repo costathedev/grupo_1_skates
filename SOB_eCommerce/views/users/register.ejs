@@ -26,7 +26,11 @@
                     <form action="/user/<%= user.id %>?_method=PUT" method="POST" class="reg-form">
                 <% } else {%>
                         <!-- Si no hay usuario, se hace POST -->
-                    <form action="/user" method="POST" class="reg-form">
+                        <% if (locals && locals.backToList) {%>
+                            <form action="/user/created" method="POST" class="reg-form">
+                        <% } else { %>
+                            <form action="/user" method="POST" class="reg-form">
+                        <% } %>
                 <% } %>
 
 
@@ -62,7 +66,7 @@
                         <input type="password" class="reg-form-item" name="password_repeated"
                         placeholder="repetir contraseña" required>
 
-                        <button type="submit" class="reg-form-item btn-submit">Enviar</button>
+                        <button type="submit" class="reg-form-item btn-submit">Enviar</button>                      
                         <button type="reset" class="reg-form-item btn-reset">Limpiar</button>
                     <% } %>
 
