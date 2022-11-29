@@ -20,29 +20,42 @@
             <!-- ***** Esta parte se DEBE EDITAR ***** -->
 
             <main>
-                <form action="/register" method="POST" class="reg-form">
-                    <h1>Creá tu cuenta</h1>
-
-
+                <form action="/user" method="POST" class="reg-form">
 
                     <% if (locals && locals.user) { %>
-                        <p> <%= user.id %> </p>
+
+                        <% if (locals.readOnly) { %>
+                            <h1>Tus datos</h1>
+                        <% } else {%>
+                            <h1>Modificá tus datos</h1>
+                        <% } %>
+
+
                     <% }  else { %>
-                        <p>Sin Usuario</p>
+                        <h1>Creá tu cuenta</h1>
                     <% } %>
                     
 
-                    <input type="text" class="reg-form-item" name="apellido" placeholder="Nombre y apellido" value = "<%= locals.user && user.apellido %>"  required>
-                    <input type="text" class="reg-form-item" name="usuario" placeholder="Usuario" required>
-                    <input type="email" class="reg-form-item" name="email" placeholder="E-Mail" required>
-                    <label class="reg-label reg-form-item" for="fecha-nacimiento">Fecha de nacimiento</label>
-                    <input type="date" class="reg-form-item" name="fecha-acimiento" id="fecha_nacimiento" placeholder=""
-                        required>
-                    <input type="text" class="reg-form-item" name="domicilio" placeholder="domicilio" required>
-                    <label class="reg-label reg-form-item">Contraseña</label>
-                    <input type="password" class="reg-form-item" name="password" placeholder="contraseña" required>
-                    <input type="password" class="reg-form-item" name="password_repeated"
+                    <input type="text" class="reg-form-item" name="apellido" placeholder="Nombre y apellido" value = "<%= locals.user && user.apellido %>" required>
+                    <input type="email" class="reg-form-item" name="email" placeholder="E-Mail"  value = "<%= locals.user && user.email %>"required>
+                    <label class="reg-label reg-form-item" for="fecha_nacimiento">Fecha de nacimiento</label>
+                    <input type="date" class="reg-form-item" name="fecha_nacimiento" id="fecha_nacimiento" placeholder=""
+                            value = "<%= locals.user && user.fecha_nacimiento %>" required>
+                    <input type="text" class="reg-form-item" name="domicilio" placeholder="domicilio"  value = "<%= locals.user && user.domicilio %>"required>
+                    
+
+                    <% if (!locals.readOnly) { %>
+                        <label class="reg-label reg-form-item">Contraseña</label>
+
+                        <% if (locals && locals.user) { %>
+                            <p>(Dejar vacío para no modificar)</p>
+                        <% }  %>
+                        <input type="password" class="reg-form-item" name="password" placeholder="contraseña" required>
+                        <input type="password" class="reg-form-item" name="password_repeated"
                         placeholder="repetir contraseña" required>
+                    <% } %>
+
+                    
 
                     <button type="submit" class="reg-form-item btn-submit">Enviar</button>
                     <button type="reset" class="reg-form-item btn-reset">Limpiar</button>

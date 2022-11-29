@@ -12,7 +12,7 @@ router.get('/register', userController.register);
 
 router.get('/:id/edit', userController.editUser);
 
-router.get('/:id', userController.userDetail);
+router.get('/:id/userDetail', userController.userDetail);
 
 router.put('/:id', userController.saveEditedUser);
 

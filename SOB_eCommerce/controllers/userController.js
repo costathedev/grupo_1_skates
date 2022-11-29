@@ -7,9 +7,7 @@ let users = [];
 
 function loadUsers() {
     let usersFile = fs.readFileSync(rutaUsersJson, 'utf-8');
-    console.log("Archivo: ", usersFile);
     users = JSON.parse(usersFile);
-    console.log("Array: ", users);
 } 
 
 function writeUsers() {
@@ -19,28 +17,34 @@ function writeUsers() {
 
 const userController = {
     login: function(req, res) {
+        console.log('Login. URL:', req.url);
         res.render('users/login');
+        return;
     },
 
     register: function(req, res) {
+        console.log('register. URL:', req.url);
         res.render('users/register');
     },
 
     index: function(req, res){
+        console.log('index. URL:', req.url);
         loadUsers();
         res.render('users/list', {users})
     },
 
     userDetail: function(req, res){
+        console.log('userDetail. URL:', req.url);
         let id = req.params.id;
 
-        let user = users.find( user => user.id === id);
+        let user = users.find( user => user.id == id);
         if (user){
             res.render('users/register', {user, readOnly: true})
         } 
     },
 
     editUser: function(req, res){
+        console.log('editUser. URL:', req.url);
         let id = req.params.id;
         console.log("Editando: ", id, "Ruta: ", rutaUsersJson)
         loadUsers();
@@ -54,6 +58,7 @@ const userController = {
     },
 
     saveNewUser: function(req, res){
+        console.log('saveNewUser. URL:', req.url);
         let user = req.body;
         loadUsers();
         let maxId = 0;
@@ -68,9 +73,10 @@ const userController = {
     },
 
     saveEditedUser: function(req, res){
+        console.log('saveEditedUser. URL:', req.url);
         loadUsers();
         let id = req.params.id;
-        let user = users.find( user => user.id === id );
+        let user = users.find( user => user.id == id );
         if (user) {
             user.apellido = req.body.apellido;
             user.nombre = req.body.usuario;
@@ -85,6 +91,7 @@ const userController = {
     },
 
     deleteUser: function(req, res){
+        console.log('deleteUser. URL:', req.url);
         loadUsers();
         let id = req.params.id;
         users = users.filter( user => user.id !== id);
