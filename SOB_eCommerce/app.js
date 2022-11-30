@@ -8,10 +8,6 @@ const userRoutes = require('./routes/user')
 const productRoutes = require('./routes/product')
 const mainRoutes = require('./routes/main')
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 56fdb327c044a0302a9ccf8f7d441c4b8ed2d506
 // Constantes y Variables
 const app = express(); // Para administrar el servidor web.
 const puerto = 3050; // Puerto a utilizar para el servidor web.

@@ -48,12 +48,13 @@
                     <% } %>
                     
 
-                    <input type="text" class="reg-form-item" name="apellido" placeholder="Nombre y apellido" value = "<%= locals.user && user.apellido %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required >
-                    <input type="email" class="reg-form-item" name="email" placeholder="E-Mail"  value = "<%= locals.user && user.email %>"  required>
-                    <label class="reg-label reg-form-item" for="fecha_nacimiento">Fecha de nacimiento</label>
-                    <input type="date" class="reg-form-item" name="fecha_nacimiento" id="fecha_nacimiento" placeholder=""
+                    <input type="text" class="reg-form-item" name="firstName" placeholder="Nombre" value = "<%= locals.user && user.firstName %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required >
+                    <input type="text" class="reg-form-item" name="lastName" placeholder="Apellido" value = "<%= locals.user && user.lastName %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required >
+                    <input type="email" class="reg-form-item" name="email" placeholder="E-Mail"  value = "<%= locals.user && user.email %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required>
+                    <label class="reg-label reg-form-item" for="birth_date">Fecha de nacimiento</label>
+                    <input type="date" class="reg-form-item" name="birth_date" id="birth_date" placeholder=""
                             value = "<%= locals.user && user.fecha_nacimiento %>"  required>
-                    <input type="text" class="reg-form-item" name="domicilio" placeholder="domicilio"  value = "<%= locals.user && user.domicilio %>" required>
+                    <input type="text" class="reg-form-item" name="address" placeholder="domicilio"  value = "<%= locals.user && user.address %>" readonly required>
                     
 
                     <% if (!locals.readOnly) { %>
@@ -62,7 +63,7 @@
                         <% if (locals && locals.user) { %>
                             <p>(Dejar vacío para no modificar)</p>
                         <% }  %>
-                        <input type="password" class="reg-form-item" name="password" placeholder="contraseña" required>
+                        <input type="password" class="reg-form-item" name="password" placeholder="Contraseña" required>
                         <input type="password" class="reg-form-item" name="password_repeated"
                         placeholder="repetir contraseña" required>
 

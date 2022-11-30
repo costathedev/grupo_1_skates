@@ -91,12 +91,13 @@ const userController = {
         let id = req.params.id;
         let user = users.find( user => user.id == id );
         if (user) {
-            user.apellido = req.body.apellido;
-            console.log('Encontro el usuario a editar: ', user.apellido);
+            user.firstName = req.body.firstName;
+            user.lastName = req.body.lastName;
+            console.log('Encontro el usuario a editar: ', user.lastName);
             user.email = req.body.email;
-            user.domicilio = req.body.domicilio;
-            user.fecha_nacimiento = req.body.fecha_nacimiento;
-            user.contraseña = req.body.contraseña;
+            user.address = req.body.address;
+            user.birth_date = req.body.birth_date;
+            user.password = req.body.password;
 
             users = users.filter( u => u.id != id);
             users.push(user);
