@@ -6,17 +6,30 @@ const rutaProductJson = path.resolve('./data/products.json');
 // let productFile = fs.readFileSync(rutaProductJson, 'utf-8');
 // let product = JSON.parse(productFile);
 
-let products = [
-    {id: 1, description:'remera 1'},
-    {id: 2, description:'remera 2'},
-    {id: 3, description:'remera 3'},
-    {id: 4, description:'remera 4'},
-    {id: 5, description:'remera 5'}
-]
+let products = []
+  
+
+function loadProducts() {
+    let productsFile = fs.readFileSync(rutaProductsJson, 'utf-8');
+    products = JSON.parse(productsFile);
+} 
+
+function writeProducts() {
+    const fs = require('fs');
+    console.log('Por escribir', products.length, 'usuarios')
+    fs.writeFileSync(rutaProductsJson , JSON.stringify(products))
+}
+
 
 const productController = {    
-    productDetail: function(req, res) {
-        res.render('products/productDetail')
+    productDetail: function(req, res){
+        console.log('productDetail. URL:', req.url);
+        let id = req.params.id;
+        let product = products.find( product => product.id == id);
+        if (product){
+            res.render('products/register', {product, readOnly: true})
+        } 
+    
     },
 
     newProduct: function(req, res) {
@@ -24,59 +37,92 @@ const productController = {
         res.render('products/altaProducto')
     },
 
-    editProduct: (function(req, res) {
+    editProduct: function(req, res){
+        console.log('editProduct. URL:', req.url);
         let id = req.params.id;
-        let product = products.find( product => product.id == id)
-        if (product){
-            res.render('product/editProduct', {product})
-
+        console.log("Editando: ", id, "Ruta: ", rutaProductJson)
+        loadProducts();
+        let product = products.find( product => product.id == id );
+        if (product != undefined && product.id>0 ){
+            res.render('products/register', {product})
+        } 
+        else {
+            res.send('No se encontró el usuario ' + id)
         }
-    }),
+    },
     
     carroDeCompras: (function(req, res) {
         res.render('products/carrodecompras')
     }),
 
     
-    index: (function(req, res) {
-        res.render()
-    }), 
+    index: function(req, res){
+        console.log('index. URL:', req.url);
+        loadProducts();
+        res.render('products/list', {products})
+    }, 
 
-    saveNewProduct: (function(req, res) {
+    saveNewProduct: function(req, res){
+        console.log('saveNewProduct. URL:', req.url);
         let product = req.body;
+        loadProducts();
         let maxId = 0;
-        products.forEach ( product => product.id > maxId ? maxId = product.id : '' );
-        product.id = maxId + 1
-        products.push(product)
-        fs.writeFileSync(rutaProductJson ,JSON.stringify(products))
+        products.forEach ( product => product.id > maxId ? maxId = product.id : '');
+        product.id = maxId + 1;
 
-        res.redirect('/')
+        products.push(product);
+        
+        writeProducts();
 
-    }),
-
-    saveEditedProduct: (function(req, res) {
-        let id = req.params.id;
-        let product = product.find( product => product.id === id)
-        if (product) {
-            product.description = req.body.description;
-
-            products = products.filter( product => product.id !== id);
-            products.push(product)
-            fs.writeFileSync(rutaProductJson ,JSON.stringify(products))
-
-            res.redirect('/')
+        if (req.url.toLowerCase().trim() == "/created") {
+            console.log('coincide url /created');
+            res.redirect('/product');
+        } else {
+            console.log('NO coincide url /created');
+            res.redirect('/');
         }
 
-    }),
+    },
 
-
-    deleteProduct: (function(req, res) {
+    saveEditedProduct:  function(req, res){
+        console.log('saveEditedProduct. URL:', req.url);
+        loadProducts();
         let id = req.params.id;
-        products = products.filter( product => product.id !== id);
-        fs.writeFileSync(rutaProductJson ,JSON.stringify(products))
-        res.redirect('/')
+        let product = products.find( product => product.id == id );
+        if (product) {
+            product.name = req.body.name;
+            console.log('Encontro el producto a editar: ', product.name);
+            product.description = req.body.description;
+            product.image = req.body.image;
+            product.category = req.body.category;
+            product.size = req.body.size;
+            product.color = req.body.color;
+            product.price = req.body.price;
 
-    }),
+            products = products.filter( u => u.id != id);
+            products.push(product);
+
+            writeProducts();
+
+            res.redirect('/');
+        }
+        else {
+            console.log('NO encontró el producto a editar: ');
+        }
+        
+    },
+
+
+    deleteProduct: function(req, res){
+        console.log('deleteProduct. URL:', req.url);
+        loadProducts();
+        let id = req.params.id;
+        products = products.filter( product => product.id != id);
+        writeProducts();
+
+        res.redirect('/product');
+
+    },
 }
 
 module.exports = productController;
