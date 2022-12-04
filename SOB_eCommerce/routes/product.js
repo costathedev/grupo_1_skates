@@ -15,7 +15,7 @@ router.get('/:id/edit', productController.editProduct);
 // identificar el id recibido en req.params, buscar en el JSON de productos el que coincida con el ID.
 // renderizar la vista de producto enviando como dato el producto. ok
 
-router.get('/:id', productController.productDetail);
+router.get('/:id/productDetail', productController.productDetail);
 // identificar el id recibido en req.params, buscar en el JSON de productos el que coincida con el ID.
 // renderizar la vista de producto enviando como dato el producto 
 
