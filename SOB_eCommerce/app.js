@@ -34,6 +34,11 @@ app.use('/', mainRoutes)
 app.use('/user', userRoutes);
 app.use('/product', productRoutes);
 
+// ERROR 404 al no ingresar a una url existente
+// Se define luego de todas las demás rutas
+app.use((res, req, next) => {
+    res.status(404).render("not-found");
+});
 
 // Levantar servidor web con Express
 app.listen(puerto, () => console.log('Servidor corriendo en ' + url + ':' + puerto + '/'))

@@ -3,6 +3,8 @@ const router = express.Router();
 const productController = require('../controllers/productController');
 
 // http://localhost:3050/product/productDetail
+// ctrl+K+C => Atajo para comentar todo lo que seleccionas.
+// ctrl+click sobre una función => Te redirecciona a la función seleccionada
 
 
 router.get('/', productController.index) // ok
