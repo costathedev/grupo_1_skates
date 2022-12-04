@@ -18,46 +18,55 @@
 
 
 				<div class="altaProducto-formulario">
+					<!-- <% if (locals && locals.product) { %> -->
+						<!-- Si hay un producto, se hace PUT: -->
+						<!-- <form action="/product/<%= product.id %>?_method=PUT" method = "POST" class="altaProducto-form"></form>
+						<h1 class="altaProducto-h1">Modificar producto</h1> -->
+					<!-- <% } else {%> -->
+						<!-- Si no hay producto, se hace POST -->
+						
+						<!-- <form action="/product" method = "POST" class="altaProducto-form"> -->
+						<h1 class="altaProducto-h1">Alta de producto</h1>	
+					<!-- <% } %> -->
 
-					<form action="/product" method = "POST" class="altaProducto-form">
-						<h1 class="altaProducto-h1">Alta de producto</h1>
-
+						
+<!-- 
 						<label for="name" class="altaProducto-label altaProducto-item">Nombre del producto</label>
-						<input type="text" class="altaProducto-item" name="nombre" placeholder="Nombre del producto" required> 
+						<input type="text" class="altaProducto-item" name="name" placeholder="Nombre del producto" value = "<%= locals.product && product.name %>"  required> 
 					
 						<label for="description" class="altaProducto-label altaProducto-item">Descripción</label>
-						<input type="text" class="altaProducto-item" name="descripcion" placeholder="Descripción del producto" required>
+						<input type="text" class="altaProducto-item" name="description" placeholder="Descripción del producto" value = "<%= locals.product && product.description %>" required>
 						
 					
 						<label for="myfile" class="altaProducto-label altaProducto-item">Cargar imagen</label>
-						<input type="file" id="myfile" name="myfile" class="altaProducto-item" required><br>
+						<input type="file" id="myfile" name="image" class="altaProducto-item" value = "<%= locals.product && product.image %>" required><br>
 					
 						<label class="altaProducto-label altaProducto-item">Categoría</label>
-						<select name="categoria" class="altaProducto-item" placeholder="Seleccione una categoría" required>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
+						<select name="category" class="altaProducto-item" placeholder="Seleccione una categoría"  required>
+							<option value ="1" <% producto.category == 1 ? %> selected  <% :'' %>>1</option>
+							<option value="2" <% producto.category == 2 ? %> selected  <% :'' %>>2</option>
+							<option value="3" <% producto.category == 3 ? %> selected  <% :'' %>>3</option>
+							<option value="4" <% producto.category == 4 ? %> selected  <% :'' %>>4</option>
 						</select>
 					
 						<label class="altaProducto-label altaProducto-item">Talle</label>
-						<select name="talle" class="altaProducto-item" placeholder="Seleccione un talle" required>
-							<option value="1">XS</option>
-							<option value="2">S</option>
-							<option value="3">M</option>
-							<option value="4">L</option>
+						<select name="size" class="altaProducto-item" placeholder="Seleccione un talle" required>
+							<option value="1" <% producto.size == 1 ? %> selected  <% :'' %> > XS</option>
+							<option value="2" <% producto.size == 2 ? %> selected  <% :'' %> > S</option>
+							<option value="3" <% producto.size == 3 ? %> selected  <% :'' %> > M</option>
+							<option value="4" <% producto.size == 4 ? %> selected  <% :'' %> > L</option>
 						</select>
 					
 						<label for="color" class="altaProducto-label altaProducto-item">Color</label>
-						<input type="text" class="altaProducto-item" placeholder="Color del producto" required>
+						<input type="text" class="altaProducto-item" name="color" placeholder="Color del producto" value = "<%= locals.product && product.color %>" required>
 					
 						<label for="price" class="altaProducto-label altaProducto-item">Precio</label>
-						<input type="text" class="altaProducto-item" placeholder="Precio del producto" required>
+						<input type="text" class="altaProducto-item" name="price" placeholder="Precio del producto" value = "<%= locals.product && product.price %>" required>
 
 						<button type="submit" class="altaProducto-item altaProducto-btn-submit">Enviar</button>
-                    	<button type="reset" class="altaProducto-item altaProducto-btn-reset">Limpiar</button>
+                    	<button type="reset" class="altaProducto-item altaProducto-btn-reset">Limpiar</button> -->
 
-					</form>
+					<!-- </form> -->
 
 				</div>
 

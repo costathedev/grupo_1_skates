@@ -6,19 +6,20 @@ const rutaProductJson = path.resolve('./data/products.json');
 // let productFile = fs.readFileSync(rutaProductJson, 'utf-8');
 // let product = JSON.parse(productFile);
 
-let products = []
+let products = [ ];
   
 
 function loadProducts() {
-    let productsFile = fs.readFileSync(rutaProductsJson, 'utf-8');
+    let productsFile = fs.readFileSync(rutaProductJson, 'utf-8');
     products = JSON.parse(productsFile);
-} 
+};
+
 
 function writeProducts() {
     const fs = require('fs');
-    console.log('Por escribir', products.length, 'usuarios')
-    fs.writeFileSync(rutaProductsJson , JSON.stringify(products))
-}
+    console.log('Por escribir', products.length, 'productos')
+    fs.writeFileSync(rutaProductJson , JSON.stringify(products))
+};
 
 
 const productController = {    
@@ -27,15 +28,18 @@ const productController = {
         let id = req.params.id;
         let product = products.find( product => product.id == id);
         if (product){
-            res.render('products/register', {product, readOnly: true})
+            res.render('product/register', {product, readOnly: true})
         } 
     
     },
 
+
     newProduct: function(req, res) {
+        console.log('newProduct. URL:', req.url);
       
         res.render('products/altaProducto')
     },
+
 
     editProduct: function(req, res){
         console.log('editProduct. URL:', req.url);
@@ -44,24 +48,25 @@ const productController = {
         loadProducts();
         let product = products.find( product => product.id == id );
         if (product != undefined && product.id>0 ){
-            res.render('products/register', {product})
+            res.render('products/altaProducto', {product})
         } 
         else {
-            res.send('No se encontró el usuario ' + id)
+            res.send('No se encontró el producto ' + id)
         }
     },
     
+
     carroDeCompras: (function(req, res) {
         res.render('products/carrodecompras')
     }),
-
+  
     
     index: function(req, res){
         console.log('index. URL:', req.url);
         loadProducts();
         res.render('products/list', {products})
     }, 
-
+    
     saveNewProduct: function(req, res){
         console.log('saveNewProduct. URL:', req.url);
         let product = req.body;
@@ -74,14 +79,8 @@ const productController = {
         
         writeProducts();
 
-        if (req.url.toLowerCase().trim() == "/created") {
-            console.log('coincide url /created');
-            res.redirect('/product');
-        } else {
-            console.log('NO coincide url /created');
-            res.redirect('/');
-        }
-
+        res.redirect('/product');
+        
     },
 
     saveEditedProduct:  function(req, res){
