@@ -98,6 +98,36 @@ Encontramos una nueva metodologia de trabajo, que se adapta mejor a nosotros, no
 
 
 
+# 06/12
+
+
+# Comenzar a hacer
+
+* Comenzar a buscar espacios para codear juntos (ayudarnos entre nosotros).
+* Iniciar el trabajo del sprint cuanto antes para tener los conocimientos mas frescos.
+
+# Hacer más
+
+* (-) 
+
+# Continuar haciendo
+
+* Asignanar las tareas de manera rotativa para que todos podamos hacer de todo.
+* Commits más pequeños y más frecuentes.
+
+# Hacer menos
+
+* (-) 
+
+# Dejar de hacer
+
+* No dejar todo para ultimo momento como sucedió en el sprint 4.
+* No subestimar la complejidad del sprint.
+
+# CONCLUSIONES
+
+* Nos sorprendio la complejidad del sprints y debemos buscar nuevas salidas para poder incorporarnos todos. 
+
 
 
 
