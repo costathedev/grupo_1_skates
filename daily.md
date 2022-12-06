@@ -25,3 +25,18 @@ DAILY 17/11 (S4):
 
 - FLOR: Terminó sus tareas del sprint anterior (S3) y ahora va a trabajar con el JSON de usuarios. 
 
+
+DAILY 06/12 (S5):
+
+- CARO: Terminó sus tareas del sprint anterior (S4) y ahora va a trabajar con el resto del equipo en un esquema de "MOB PROGRAMMING".
+
+- FABI: Terminó sus tareas del sprint anterior (S4) y ahora va a trabajar con el resto del equipo en un esquema de "MOB PROGRAMMING". 
+
+- RAMA: Terminó sus tareas del sprint anterior (S4) y ahora va a trabajar con el resto del equipo en un esquema de "MOB PROGRAMMING". 
+
+- FLOR: Terminó sus tareas del sprint anterior (S4) y ahora va a trabajar con el resto del equipo en un esquema de "MOB PROGRAMMING". 
+
+
+
+
+
