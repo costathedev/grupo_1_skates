@@ -836,8 +836,8 @@ article img {
 .user-list-item {
     /* flex-grow: 1; */
     text-align: center;
-    width: 14.28%;
-    max-width: 14.28%;
+    width: 12.5%;
+    max-width: 12.5%;
     line-height: 2.5rem;
     flex-wrap: wrap;
 }

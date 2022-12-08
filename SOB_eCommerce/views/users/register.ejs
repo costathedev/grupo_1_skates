@@ -23,13 +23,13 @@
 
                 <% if (locals && locals.user && !locals.readOnly) { %>
                     <!-- Si hay un usuario, se hace PUT: -->
-                    <form action="/user/<%= user.id %>?_method=PUT" method="POST" class="reg-form">
+                    <form action="/user/<%= user.id %>?_method=PUT" method="POST" class="reg-form" enctype="multipart/form-data">
                 <% } else {%>
                         <!-- Si no hay usuario, se hace POST -->
                         <% if (locals && locals.backToList) {%>
-                            <form action="/user/created" method="POST" class="reg-form">
+                            <form action="/user/created" method="POST" class="reg-form" enctype="multipart/form-data">
                         <% } else { %>
-                            <form action="/user" method="POST" class="reg-form">
+                            <form action="/user" method="POST" class="reg-form" enctype="multipart/form-data">
                         <% } %>
                 <% } %>
 
@@ -53,9 +53,15 @@
                     <input type="email" class="reg-form-item" name="email" placeholder="E-Mail"  value = "<%= locals.user && user.email %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required>
                     <label class="reg-label reg-form-item" for="birth_date">Fecha de nacimiento</label>
                     <input type="date" class="reg-form-item" name="birth_date" id="birth_date" placeholder=""
-                            value = "<%= locals.user && user.fecha_nacimiento %>"  required>
+                            value = "<%= locals.user && user.birth_date %>"  required>
                     <input type="text" class="reg-form-item" name="address" placeholder="domicilio"  value = "<%= locals.user && user.address %>" readonly required>
                     
+                    <label for="avatar" class="reg-label reg-form-item">Avatar</label>
+                    <% if (locals.user && user.avatar) { %> 
+                        <img src="/img/users_avatars/<%= user.avatar %>">
+                    <% } %>
+                    <input type="file" id="avatar" name="avatar" class="reg-form-item"><br>
+						
 
                     <% if (!locals.readOnly) { %>
                         <label class="reg-label reg-form-item">Contraseña</label>

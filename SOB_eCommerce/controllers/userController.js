@@ -65,7 +65,15 @@ const userController = {
 
     saveNewUser: function(req, res){
         console.log('saveNewUser. URL:', req.url);
-        let user = req.body;
+        let user = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            birth_date: req.body.birth_date,
+            avatar: req.file ? req.file.filename : 'default.png',
+            address: req.body.address,
+            password: req.body.password,
+        };
         loadUsers();
         let maxId = 0;
         users.forEach ( user => user.id > maxId ? maxId = user.id : '');
@@ -73,6 +81,7 @@ const userController = {
 
         users.push(user);
         
+        console.log('Va a escribir el json....');
         writeUsers();
 
         if (req.url.toLowerCase().trim() == "/created") {
@@ -97,7 +106,9 @@ const userController = {
             user.email = req.body.email;
             user.address = req.body.address;
             user.birth_date = req.body.birth_date;
+            user.avatar = req.file ? req.file.filename : 'default.png';
             user.password = req.body.password;
+
 
             users = users.filter( u => u.id != id);
             users.push(user);

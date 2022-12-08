@@ -29,6 +29,7 @@
                             <h2 class="user-list-item user-list-title">Mail</h2>
                             <h2 class="user-list-item user-list-title">Domicilio</h2>
                             <h2 class="user-list-item user-list-title">Fecha Nacimiento</h2>
+                            <h2 class="user-list-item user-list-title">Avatar</h2>
                             <h2 class="user-list-item user-list-title">Ver</h2>
                             <h2 class="user-list-item user-list-title">Editar</h2>
                             <h2 class="user-list-item user-list-title">Eliminar</h2>
@@ -38,10 +39,11 @@
                     <% users.forEach( user => { %> 
                         <!-- <div class="user-list-container"> -->
                         <form class="user-list-container" action="/user/<%= user.id %>?_method=DELETE" method="POST">
-                            <span class="user-list-item"><%= user.apellido %></span>    
+                            <span class="user-list-item"><%= user.firstName + ' ' + user.lastName %></span>    
                             <span class="user-list-item"><%= user.email %></span>    
-                            <span class="user-list-item"><%= user.domicilio %></span>    
-                            <span class="user-list-item"><%= user.fecha_nacimiento %></span>    
+                            <span class="user-list-item"><%= user.address %></span>    
+                            <span class="user-list-item"><%= user.birth_date %></span>    
+                            <span class="user-list-item"><%= user.avatar%></span>    
                             <a href="/user/<%= user.id %>/userDetail"  class="user-list-item"><i class="fa-solid fa-magnifying-glass"></i></a>    
                             <a href="/user/<%= user.id %>/edit"  class="user-list-item"><i class="fa-solid fa-pen-to-square"></i></a>    
                             <button type="submit" class="user-list-item user-list-button"><i class="fa-solid fa-trash"></i></button>
