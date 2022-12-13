@@ -17,10 +17,29 @@ function writeUsers() {
 }
 
 const userController = {
-    login: function(req, res) {
-        console.log('Login. URL:', req.url);
+    showLogin: function(req, res) {
+        console.log('ShowLogin. URL:', req.url);
         res.render('users/login');
         return;
+    },
+
+    login: function(req, res) {
+        console.log('Login. URL:', req.url);
+        let userName = req.body.email;
+        loadUsers();
+        let user = users.find( user => user.email.toLowerCase() == userName.toLowerCase() );
+        let accesoOk = false; 
+        if (user != undefined && user.id>0 ){
+            let userPassword = req.body.password;
+            if(userPassword == user.password){
+                res.render('main/index');
+                accesoOk = true;
+            } 
+        }
+        if (!accesoOk){
+            res.render('users/login');
+        }
+
     },
 
     register: function(req, res) {

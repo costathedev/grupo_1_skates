@@ -22,7 +22,9 @@ router.post('/', uploadFile.single('avatar'), userController.saveNewUser);
 
 router.post('/created', userController.saveNewUser);
 
-router.get('/login', userController.login);
+router.post('/login', userController.login);
+
+router.get('/login', userController.showLogin);
 
 router.get('/register', userController.register);
 
