@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const bcrypt = require('bcryptjs');
 
 const rutaUsersJson = path.resolve('./data/users.json');
 
@@ -27,17 +28,17 @@ const userController = {
         console.log('Login. URL:', req.url);
         let userName = req.body.email;
         loadUsers();
-        let user = users.find( user => user.email.toLowerCase() == userName.toLowerCase() );
+        console.log('Quiere loguearse: ' + userName +  " | " + req.body.password)
+        let user = users.find( u => u.email.toLowerCase() == userName.toLowerCase() );
         let accesoOk = false; 
         if (user != undefined && user.id>0 ){
-            let userPassword = req.body.password;
-            if(userPassword == user.password){
-                res.render('main/index');
-                accesoOk = true;
+            if (bcrypt.compareSync(req.body.password, user.password)) {
+                accesoOk = true; 
+                res.redirect('/');
             } 
         }
         if (!accesoOk){
-            res.render('users/login');
+            res.render('users/login', {mensaje: 'El usuario o la contraseña son incorrectos.'});
         }
 
     },
@@ -91,7 +92,7 @@ const userController = {
             birth_date: req.body.birth_date,
             avatar: req.file ? req.file.filename : 'default.png',
             address: req.body.address,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
         };
         loadUsers();
         let maxId = 0;
@@ -102,14 +103,9 @@ const userController = {
         
         console.log('Va a escribir el json....');
         writeUsers();
-
-        if (req.url.toLowerCase().trim() == "/created") {
-            console.log('coincide url /created');
-            res.redirect('/user');
-        } else {
-            console.log('NO coincide url /created');
-            res.redirect('/');
-        }
+ 
+        res.redirect('/user');
+        return user;
 
     },
 
@@ -125,8 +121,21 @@ const userController = {
             user.email = req.body.email;
             user.address = req.body.address;
             user.birth_date = req.body.birth_date;
-            user.avatar = req.file ? req.file.filename : 'default.png';
-            user.password = req.body.password;
+
+            // user.avatar = req.file ? req.file.filename : 'default.png';
+            if (req.file){
+                user.avatar = req.file;
+            }
+            else {
+                if (!user.avatar){
+                    user.avatar = 'default.png';
+                }
+            }
+
+            if (req.body.password){
+                user.password = bcrypt.hashSync(req.body.password, 10);
+                console.log('Guardando password encriptada: ' + user.password )
+            }
 
 
             users = users.filter( u => u.id != id);

@@ -24,6 +24,10 @@
                             <input type="text" class="reg-form-item" name="email" placeholder="usuario" required>
                             <input type="password" class="reg-form-item" name="password" placeholder="contraseña"
                                 required>
+                            
+                            <% if(locals.mensaje) {%>
+                                <p class="reg-error"><%= mensaje%></p>
+                            <% }%>
 
                             <button type="submit" class="reg-form-item btn-submit">Enviar</button>
 

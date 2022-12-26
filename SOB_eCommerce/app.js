@@ -1,4 +1,4 @@
-// Reuire de Modulos externos 
+// Require de Modulos externos 
 const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override')
@@ -7,6 +7,9 @@ const methodOverride = require('method-override')
 const userRoutes = require('./routes/user')
 const productRoutes = require('./routes/product')
 const mainRoutes = require('./routes/main')
+
+// Required nuestros
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 // Constantes y Variables
 const app = express(); // Para administrar el servidor web.
@@ -27,6 +30,14 @@ app.use(express.static(path.resolve('./public')));
 
 app.use(methodOverride('_method'));
 
+app.use(session({
+    secret: 'Its a secret',
+    resave: false,
+    saveUninitialized : false,
+}))
+
+
+app.use(userLoggedMiddleware);
 
 // RUTEO
 // Rutas

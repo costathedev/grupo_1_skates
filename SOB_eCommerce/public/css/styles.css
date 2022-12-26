@@ -522,6 +522,10 @@ article img {
     font-weight: bold;
 }
 
+.reg-error {
+    width: 100%;
+    color: red;
+}
 
 /*-------------- DETALLE DE PRODUCTO -------------- */
 .prod-detalle-producto-main {
