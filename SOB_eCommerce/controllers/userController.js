@@ -61,6 +61,11 @@ const userController = {
         res.render('users/list', {users})
     },
 
+    profile: function(req, res) {
+        console.log('index. URL:', req.url);
+        res.render('users/profile', {user: req.session.userLogged})
+    },
+
     userDetail: function(req, res){
         console.log('userDetail. URL:', req.url);
         let id = req.params.id;

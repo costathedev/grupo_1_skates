@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require ('../controllers/userController');
 const multer = require('multer');
+const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 const storage = multer.diskStorage ( {
     destination: function(req, file, cb) {
@@ -18,9 +19,12 @@ const uploadFile = multer({storage});
 
 router.get('/', userController.index);
 
+router.get('/profile', userController.profile);
+
 router.post('/', uploadFile.single('avatar'), userController.saveNewUser);
 
 router.post('/created', userController.saveNewUser);
+
 
 router.post('/login', userController.login);
 
