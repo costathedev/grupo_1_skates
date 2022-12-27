@@ -3,6 +3,10 @@ const router = express.Router();
 const userController = require ('../controllers/userController');
 const multer = require('multer');
 
+// Middlewares
+
+const guestMiddleware = require('../middlewares/guestMiddleware');
+
 const storage = multer.diskStorage ( {
     destination: function(req, file, cb) {
         console.log('Destination....');
