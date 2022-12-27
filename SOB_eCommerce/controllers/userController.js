@@ -34,6 +34,8 @@ const userController = {
         if (user != undefined && user.id>0 ){
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 accesoOk = true; 
+                delete user.password;
+                req.session.userLogged = user;
                 res.redirect('/');
             } 
         }

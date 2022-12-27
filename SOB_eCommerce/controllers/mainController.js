@@ -6,16 +6,16 @@ const mainController = {
         let faqFile = fs.readFileSync('./data/faq.json', 'utf8');
         let faqs = JSON.parse(faqFile);
         
-        res.render('main/faq', {faqs})
+        res.render('main/faq', {faqs, user: req.session.userLogged})
     },
 
     aboutUs: (req, res) => {
         //res.render('users/about-us')
-        res.render('main/about-us')
+        res.render('main/about-us', {user: req.session.userLogged})
     },
 
     contact: (req, res) => {
-        res.render('main/contact')
+        res.render('main/contact', {user: req.session.userLogged})
     },
 
     
@@ -25,11 +25,12 @@ const mainController = {
         let file = fs.readFileSync('./data/refund-policy.json', 'utf8');
         let arr = JSON.parse(file);
 
-        res.render('main/refund-policy', {arr})
+        res.render('main/refund-policy', {arr, user: req.session.userLogged})
     },
 
     home: (req, res)  => {
-        res.render('main/index')
+        
+        res.render('main/index', {user: req.session.userLogged})
     },
 
 
