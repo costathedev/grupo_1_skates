@@ -23,14 +23,7 @@ const uploadFile = multer({storage});
 
 router.get('/', userController.index);
 
-router.get('/profile', userController.profile);
-
-router.post('/', uploadFile.single('avatar'), userController.saveNewUser);
-
-router.post('/created', userController.saveNewUser);
-
-
-router.post('/login', userController.login);
+router.get('/profile', userLoggedMiddleware, userController.profile);
 
 router.get('/login', userController.showLogin);
 
@@ -41,6 +34,14 @@ router.get('/create', userController.create);
 router.get('/:id/edit', userController.editUser);
 
 router.get('/:id/userDetail', userController.userDetail);
+
+router.post('/', uploadFile.single('avatar'), userController.saveNewUser);
+
+router.post('/created', userController.saveNewUser);
+
+router.post('/login', userController.login);
+
+router.post('/logout',  userController.logOut)
 
 router.put('/:id', uploadFile.single('avatar') ,userController.saveEditedUser);
 
