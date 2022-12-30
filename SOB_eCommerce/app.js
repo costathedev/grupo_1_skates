@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const cookies = require('cookie-parser'); //cookies: todo aquello que seguarda del lado del navegador
 
 // RUTEO
 const userRoutes = require('./routes/user')
@@ -34,8 +35,10 @@ app.use(methodOverride('_method'));
 app.use(session({
     secret: 'Its a secret',
     resave: false,
-    saveUninitialized : false,
+    saveUninitialized: false,
 }))
+
+app.use(cookies());
 
 
 // app.use(userLoggedMiddleware);
