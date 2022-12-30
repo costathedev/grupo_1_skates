@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
+const e = require('express');
 
 const rutaUsersJson = path.resolve('./data/users.json');
 
@@ -108,12 +109,20 @@ const userController = {
 
         users.push(user);
         
-        console.log('Va a escribir el json....');
         writeUsers();
- 
-        res.redirect('/user');
-        return user;
 
+        if (req.backToList) {
+            // no se cambia el usuario logueado, se redirecciona al listado
+            res.redirect('/user');
+        }
+        else {
+            // registrar la sesion iniciada y enviar a la Home logueado
+            delete user.password;
+            req.session.userLogged = user;
+            console.log('registra en session el usuario logueado: ' + req.session.userLogged);
+            res.redirect('/');
+        }   
+ 
     },
 
     saveEditedUser: function(req, res){

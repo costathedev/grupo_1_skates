@@ -109,7 +109,10 @@ header {
 }
 
 .header-logo-container {
-    width: 30%;
+    width: 23%;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 15px;
 }
 
 .header-logo {
@@ -912,7 +915,7 @@ article img {
     }
 
     footer {
-        height: 13rem;
+        height: 13rem; 
     }
 
     .footer-links {
@@ -1104,7 +1107,7 @@ article img {
     }
 
     footer {
-        height: 10rem;
+        height: 8rem; /* 10rem */
     }
 
     .footer-novedades-links-group {
