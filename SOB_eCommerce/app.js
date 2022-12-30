@@ -10,7 +10,7 @@ const productRoutes = require('./routes/product')
 const mainRoutes = require('./routes/main')
 
 // Required nuestros
-const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+// const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 // Constantes y Variables
 const app = express(); // Para administrar el servidor web.
@@ -38,7 +38,7 @@ app.use(session({
 }))
 
 
-app.use(userLoggedMiddleware);
+// app.use(userLoggedMiddleware);
 
 // RUTEO
 // Rutas

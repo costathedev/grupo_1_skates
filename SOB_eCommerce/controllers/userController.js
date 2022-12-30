@@ -46,6 +46,11 @@ const userController = {
 
     },
 
+    logOut: function(req, res) {
+        req.session.userLogged = null;
+        res.redirect('/');
+    },
+
     register: function(req, res) {
         console.log('register. URL:', req.url);
         res.render('users/register');

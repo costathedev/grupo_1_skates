@@ -1,3 +1,50 @@
-<h1>Mi perfil de Usuario: <%= user.firstName + ' ' + user.lastName %></h1>
+<!DOCTYPE html>
+<html>
 
-<img  src="/img/users_avatars/<%= user.avatar %>" alt="avatar">
+    <%- include('../partials/head') %>
+
+
+<body>
+
+    <!-- No tocar -->
+
+
+    <div class="page-container">
+
+        <%- include('../partials/header') %>
+
+        <div class="main-content">
+            <!-- No tocar hasta acá -->
+
+
+            <!-- ***** Esta parte se DEBE EDITAR ***** -->
+
+            <h1>Mis datos</h1>
+
+            <div class="profile-data">
+                <img class="profile-img" src="/img/users_avatars/<%= user.avatar %>" alt="avatar">
+                <div>
+                    <p class="profile-item"><%= user.firstName + ' ' + user.lastName %></p>
+                    <p class="profile-item"><%= user.email %></p>
+                    <p class="profile-item"><%= user.birth_date %></p>
+
+                    <a class="profile-item" href="/user/<%= user.id %>/edit">Editar</a>
+                </div>
+                
+
+            </div>
+            
+
+
+ <!-- ***** Hasta acá se puede EDITAR ***** -->
+
+</div>
+
+
+<%- include('../partials/footer') %>
+
+</div>
+
+</body>
+
+</html>

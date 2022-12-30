@@ -7,7 +7,28 @@
         </form>
 
         <a href="/product/carrodecompras"><i class="fa-solid fa-bag-shopping header-item"></i></a>
-        <a href="/user/login"><i class="fa-solid fa-user header-item"></i></a>
+        <% if (locals.user) { %>
+            <div class="header-usermenu header-item">
+                <img class="header-avatar header-item" src="/img/users_avatars/<%= user.avatar %>" alt="Avatar">
+                <p class="header-item">
+                    <%= locals.user ? user.firstName + ' ' + user.lastName : '' %>
+                </p>
+                <i class="fa-sharp fa-solid fa-angles-down header-item"></i>
+
+                <div class="header-user-submenu">
+                    <form class="header-usersubmenu-item" action="/user/profile" method="GET">
+                        <button type="submit">Mi Perfil</button>
+                    </form>
+                    <form class="header-usersubmenu-item" action="/user/logout" method="POST">
+                        <button type="submit">Salir</button>
+                    </form>
+                </div>
+            </div>
+        <% } else { %>
+                <a href="/user/login"><i class="fa-solid fa-user header-item"></i></a>
+        <% } %>
+
+
         <i class="fa-solid fa-bars header-item hamburguer-icon">
 
             <%- include('../partials/sidebar') %>
@@ -15,10 +36,11 @@
         </i>
     </div>
     <!-- <div class="header-secondary"> -->
-        <!-- <strong>Promociones, financiación y envíos</strong> -->
-        <!-- <form> -->
-            <%- include('../partials/categories-navbar.ejs') %>
+    <!-- <strong>Promociones, financiación y envíos</strong> -->
+    <!-- <form> -->
+    <%- include('../partials/categories-navbar.ejs') %>
         <!-- </form> -->
-    <!-- </div> -->
+        <!-- </div> -->
+
 
 </header>
