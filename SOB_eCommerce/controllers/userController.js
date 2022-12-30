@@ -40,7 +40,7 @@ const userController = {
 
                 //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 2 minutos.
                 if(req.body.remember_user){
-                    res.cookie('email', req.body.email, {maxAge: (1000 * 6) * 2});
+                    res.cookie('userEmail', req.body.email, {maxAge: (1000 * 6) * 2});
                 }
 
                 res.redirect('/');
@@ -53,6 +53,7 @@ const userController = {
     },
 
     logOut: function(req, res) {
+        res.clearCookie('userEmail');
         req.session.userLogged = null;
         res.redirect('/');
     },
