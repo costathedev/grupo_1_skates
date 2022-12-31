@@ -524,6 +524,11 @@ article img {
     text-align: center;
 }
 
+.login-left-item {
+    align-self: flex-start;
+    margin-top
+}
+
 
 /* ------------------ REGISTER ------------------  */
 .reg-form {

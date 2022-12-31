@@ -26,16 +26,17 @@ router.get('/', userLoggedMiddleware, userAdminMiddleware, userController.index)
 
 router.get('/profile', userLoggedMiddleware, userController.profile);
 
-router.get('/profile', guestMiddleware, userController.profile);
+router.get('/login', guestMiddleware, userController.showLogin);
 
-router.get('/login', userController.showLogin);
-
-router.get('/register', userController.register);
+router.get('/register', guestMiddleware, userController.register);
 
 router.get('/create', userLoggedMiddleware, userAdminMiddleware, userController.create);
 
+// Esto deberia ser: o un usuario logueado editar sus propios datos, o un Admin editar los de cualquier usuario.
+// Queda pendiente ese control.
 router.get('/:id/edit', userController.editUser);
 
+// Idem
 router.get('/:id/userDetail', userController.userDetail);
 
 router.post('/', uploadFile.single('avatar'), userController.saveNewUser);

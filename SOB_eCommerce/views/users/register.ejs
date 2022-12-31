@@ -58,7 +58,7 @@
                     
                     <label for="avatar" class="reg-label reg-form-item">Avatar</label>
                     <% if (locals.user && user.avatar) { %> 
-                        <img src="/img/users_avatars/<%= user.avatar %>">
+                        <img class="profile-img" src="/img/users_avatars/<%= user.avatar %>">
                     <% } %>
                     <input type="file" id="avatar" name="avatar" class="reg-form-item"><br>
 						

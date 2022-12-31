@@ -38,9 +38,9 @@ const userController = {
                 delete user.password;
                 req.session.userLogged = user;
 
-                //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 2 minutos.
+                //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 5 (decia 2) minutos.
                 if(req.body.remember_user){
-                    res.cookie('userEmail', req.body.email, {maxAge: (1000 * 6) * 2});
+                    res.cookie('userEmail', req.body.email, {maxAge: (1000 * 6) * 5});
                 }
 
                 res.redirect('/');
