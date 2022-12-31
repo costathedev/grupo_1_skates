@@ -28,7 +28,7 @@
                             <h2 class="user-list-item user-list-title">Nombre</h2>
                             <h2 class="user-list-item user-list-title">Mail</h2>
                             <h2 class="user-list-item user-list-title">Domicilio</h2>
-                            <h2 class="user-list-item user-list-title">Fecha Nacimiento</h2>
+                            <h2 class="user-list-item user-list-title">Nacimiento</h2>
                             <h2 class="user-list-item user-list-title">Avatar</h2>
                             <h2 class="user-list-item user-list-title">Ver</h2>
                             <h2 class="user-list-item user-list-title">Editar</h2>
@@ -43,7 +43,8 @@
                             <span class="user-list-item"><%= user.email %></span>    
                             <span class="user-list-item"><%= user.address %></span>    
                             <span class="user-list-item"><%= user.birth_date %></span>    
-                            <span class="user-list-item"><%= user.avatar%></span>    
+                            <img class="user-list-item" src="/img/users_avatars/<%= user.avatar %>" alt="avatar">    
+                            <!-- <span class="user-list-item"><%= user.avatar%></span>     -->
                             <a href="/user/<%= user.id %>/userDetail"  class="user-list-item"><i class="fa-solid fa-magnifying-glass"></i></a>    
                             <a href="/user/<%= user.id %>/edit"  class="user-list-item"><i class="fa-solid fa-pen-to-square"></i></a>    
                             <button type="submit" class="user-list-item user-list-button"><i class="fa-solid fa-trash"></i></button>

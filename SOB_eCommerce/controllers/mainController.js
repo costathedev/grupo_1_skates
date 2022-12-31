@@ -6,20 +6,20 @@ const mainController = {
         let faqFile = fs.readFileSync('./data/faq.json', 'utf8');
         let faqs = JSON.parse(faqFile);
         
-        return res.render('main/faq', {faqs, user: req.session.userLogged})
+        return res.render('main/faq', {faqs, userLogged: req.session.userLogged})
     },
 
     aboutUs: (req, res) => {
         //res.render('users/about-us')
-        return res.render('main/about-us', {user: req.session.userLogged})
+        return res.render('main/about-us', {userLogged: req.session.userLogged})
     },
 
     contact: (req, res) => {
-        return res.render('main/contact', {user: req.session.userLogged})
+        return res.render('main/contact', {userLogged: req.session.userLogged})
     },
 
     mediosDePago: (req, res) => {
-        return res.render('main/under-construction')
+        return res.render('main/under-construction', {userLogged: req.session.userLogged})
     },
 
     
@@ -29,14 +29,14 @@ const mainController = {
         let file = fs.readFileSync('./data/refund-policy.json', 'utf8');
         let arr = JSON.parse(file);
 
-        return res.render('main/refund-policy', {arr, user: req.session.userLogged})
+        return res.render('main/refund-policy', {arr, userLogged: req.session.userLogged})
     },
 
     home: (req, res)  => {
         const productController = require('./productController');
         let productsHome = productController.getProductsHome();
 
-        return res.render('main/index', {products: productsHome, user: req.session.userLogged})
+        return res.render('main/index', {products: productsHome, userLogged: req.session.userLogged})
     },
 
 

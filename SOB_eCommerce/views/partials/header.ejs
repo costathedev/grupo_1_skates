@@ -7,11 +7,11 @@
         </form>
 
         <a href="/product/carrodecompras"><i class="fa-solid fa-bag-shopping header-item"></i></a>
-        <% if (locals.user) { %>
+        <% if (locals.userLogged) { %>
             <div class="header-usermenu header-item">
-                <img class="header-avatar header-item" src="/img/users_avatars/<%= user.avatar %>" alt="Avatar">
+                <img class="header-avatar header-item" src="/img/users_avatars/<%= userLogged.avatar %>" alt="Avatar">
                 <p class="header-item">
-                    <%= locals.user ? user.firstName + ' ' + user.lastName : '' %>
+                    <%= locals.userLogged ? userLogged.firstName + ' ' + userLogged.lastName : '' %>
                 </p>
                 <i class="fa-sharp fa-solid fa-angles-down header-item"></i>
 
@@ -20,7 +20,7 @@
                         <button type="submit">Mi Perfil</button>
                     </form>
 
-                    <% if (user.roles && user.roles.includes("ADMIN")) { %>
+                    <% if (userLogged.roles && userLogged.roles.includes("ADMIN")) { %>
                         <form class="header-usersubmenu-item" action="/user/" method="GET">
                             <button type="submit">Usuarios</button>
                         </form>

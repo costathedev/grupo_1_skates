@@ -21,7 +21,7 @@ function writeUsers() {
 const userController = {
     showLogin: function(req, res) {
         console.log('ShowLogin. URL:', req.url);
-        res.render('users/login');
+        res.render('users/login', {userLogged: req.session.userLogged});
         return;
     },
 
@@ -48,7 +48,7 @@ const userController = {
             } 
         }
         if (!accesoOk){
-            res.render('users/login', {mensaje: 'El usuario o la contraseña son incorrectos.'});
+            res.render('users/login', {mensaje: 'El usuario o la contraseña son incorrectos.', userLogged: req.session.userLogged});
         }
 
     },
@@ -62,23 +62,23 @@ const userController = {
 
     register: function(req, res) {
         console.log('register. URL:', req.url);
-        res.render('users/register');
+        res.render('users/register', {userLogged: req.session.userLogged});
     },
 
     create: function(req, res) {
         console.log('create. URL:', req.url);
-        res.render('users/register', {backToList: true});
+        res.render('users/register', {backToList: true, userLogged: req.session.userLogged});
     },
 
     index: function(req, res){
         console.log('index. URL:', req.url);
         loadUsers();
-        res.render('users/list', {users})
+        res.render('users/list', {users, userLogged: req.session.userLogged})
     },
 
     profile: function(req, res) {
         console.log('index. URL:', req.url);
-        res.render('users/profile', {user: req.session.userLogged})
+        res.render('users/profile', {user: req.session.userLogged, userLogged: req.session.userLogged})
     },
 
     userDetail: function(req, res){
@@ -87,7 +87,7 @@ const userController = {
 
         let user = users.find( user => user.id == id);
         if (user){
-            res.render('users/register', {user, readOnly: true})
+            res.render('users/register', {user, readOnly: true, userLogged: req.session.userLogged})
         } 
     },
 
@@ -98,7 +98,7 @@ const userController = {
         loadUsers();
         let user = users.find( user => user.id == id );
         if (user != undefined && user.id>0 ){
-            res.render('users/register', {user})
+            res.render('users/register', {user, userLogged: req.session.userLogged})
         } 
         else {
             res.send('No se encontró el usuario ' + id)

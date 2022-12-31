@@ -51,7 +51,7 @@ app.use('/product', productRoutes);
 // ERROR 404 al no ingresar a una url existente
 // Se define luego de todas las demás rutas
 app.use((req, res, next) => {
-    res.status(404).render("main/not-found");
+    res.status(404).render("main/not-found", { userLogged: req.session.userLogged});
 });
 
 // Levantar servidor web con Express
