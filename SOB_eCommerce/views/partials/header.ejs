@@ -19,6 +19,16 @@
                     <form class="header-usersubmenu-item" action="/user/profile" method="GET">
                         <button type="submit">Mi Perfil</button>
                     </form>
+
+                    <% if (user.roles && user.roles.includes("ADMIN")) { %>
+                        <form class="header-usersubmenu-item" action="/user/" method="GET">
+                            <button type="submit">Usuarios</button>
+                        </form>
+                        <form class="header-usersubmenu-item" action="/product/" method="GET">
+                            <button type="submit">Productos</button>
+                        </form>
+                    <% } %>
+                    
                     <form class="header-usersubmenu-item" action="/user/logout" method="POST">
                         <button type="submit">Salir</button>
                     </form>

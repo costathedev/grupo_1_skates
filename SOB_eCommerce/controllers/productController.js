@@ -89,6 +89,7 @@ const productController = {
         let id = req.params.id;
         let product = products.find( product => product.id == id );
         if (product) {
+            console.log('Name del body: ' + req.body.name)
             product.name = req.body.name;
             console.log('Encontro el producto a editar: ', product.name);
             product.description = req.body.description;
@@ -103,7 +104,7 @@ const productController = {
 
             writeProducts();
 
-            res.redirect('/');
+            res.redirect('/product/');
         }
         else {
             console.log('NO encontró el producto a editar: ');

@@ -301,6 +301,25 @@ footer i {
     width: 60px;
 }
 
+/* -------------- NOT FOUND -------------- */
+.not-found-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px yellow solid;
+    
+}
+.not-found-
+.not-found-img {
+    width: 40%;
+    text-align: center;
+}
+
+.not-found-text {
+    text-align: center;
+}
+
+
 
 /* -------------- MAIN -------------- */
 
@@ -858,6 +877,44 @@ article img {
     background-color: transparent;
 }
 
+/* -------------- PRODUCT-LIST -------------- */
+.product-list-list {
+    margin-top:30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-list-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.product-list-title {
+    border-bottom: solid 1px #12b43b;
+}
+.product-list-item {
+    /* flex-grow: 1; */
+    text-align: center;
+    width: 12.5%;
+    max-width: 12.5%;
+    line-height: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.product-list-container img {
+    width: 20%
+}
+
+.product-list-container:hover {
+    box-shadow: 0px 0px 20px rgb(100, 100, 100);
+}
+
+.product-list-button {
+    border-width: 0px;
+    background-color: transparent;
+}
+
 
 /* -------------- MEDIA QUERIES -------------- */
 /* Tablet */
@@ -917,12 +974,12 @@ article img {
 
     .header-usermenu:hover .header-user-submenu {
         display: flex ;
-        flex-wrap: true;
+        flex-wrap: wrap;
     }
 
     .header-user-submenu:hover .header-user-submenu{
         display: flex ;
-        flex-wrap: true;
+        flex-wrap: wrap;
     } 
 
     .header-usersubmenu-item {

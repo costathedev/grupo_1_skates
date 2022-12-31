@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require ('../controllers/userController');
 const multer = require('multer');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
+const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
 
 // Middlewares
 
@@ -21,7 +22,7 @@ const storage = multer.diskStorage ( {
 
 const uploadFile = multer({storage});
 
-router.get('/', userController.index);
+router.get('/', userLoggedMiddleware, userAdminMiddleware, userController.index);
 
 router.get('/profile', userLoggedMiddleware, userController.profile);
 
@@ -29,7 +30,7 @@ router.get('/login', userController.showLogin);
 
 router.get('/register', userController.register);
 
-router.get('/create', userController.create);
+router.get('/create', userLoggedMiddleware, userAdminMiddleware, userController.create);
 
 router.get('/:id/edit', userController.editUser);
 

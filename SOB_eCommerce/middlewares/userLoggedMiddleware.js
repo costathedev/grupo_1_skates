@@ -6,14 +6,33 @@ function userLoggedMiddleware(req, res, next) {
     /* Agregado de flor para cookie recordación */
     /* Inicia acá */
     let emailInCookie = req.cookies.email;
-    let userFromCookie = User.findByField('email', emailInCookie);
+    let userFromCookie; //= User.findByField('email', emailInCookie);
 
-    console.log('UserFromCookie: ' + userFromCookie);
+    if (emailInCookie != '') {
+        if (emailInCookie == "carolinabubenik@gmail.com") {
+            userFromCookie = {
+                firstName: "Carolina",
+                lastName: "Admin",
+                roles: ['ADMIN'],
+            }
+        }
+        else {
+            userFromCookie = {
+                firstName: "Usuario",
+                lastName: "Comun",
+                roles: [],
+            }
+        }
 
-    if(userFromCookie){
-        req.session.userLogged = userFromCookie;
+        console.log('UserFromCookie: ' + userFromCookie);
+
+        if(userFromCookie){
+            req.session.userLogged = userFromCookie;
+        }
+        /* Y llega hasta acá */
+
     }
-    /* Y llega hasta acá */
+    
 
     if (!req.session.userLogged) {
         // res.locals.isLogged = true;

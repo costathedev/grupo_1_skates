@@ -1,11 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController');
+const multer = require('multer');
 
 // http://localhost:3050/product/productDetail
 // ctrl+K+C => Atajo para comentar todo lo que seleccionas.
 // ctrl+click sobre una función => Te redirecciona a la función seleccionada
 
+const storage = multer.diskStorage ( {
+    destination: function(req, file, cb) {
+        console.log('Destination....');
+        cb(null, './public/img/products');
+    },
+    filename: function(req, file, cb) {
+        console.log('Filename....');
+        cb(null, `${Date.now()}_${file.originalname}`);
+    },
+} );
+
+const uploadFile = multer({storage});
 
 router.get('/', productController.index) // ok
 
