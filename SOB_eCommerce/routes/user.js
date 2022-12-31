@@ -26,6 +26,8 @@ router.get('/', userLoggedMiddleware, userAdminMiddleware, userController.index)
 
 router.get('/profile', userLoggedMiddleware, userController.profile);
 
+router.get('/profile', guestMiddleware, userController.profile);
+
 router.get('/login', userController.showLogin);
 
 router.get('/register', userController.register);

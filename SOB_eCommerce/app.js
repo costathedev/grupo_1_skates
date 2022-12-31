@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const cookies = require('cookie-parser'); //cookies: todo aquello que seguarda del lado del navegador
+const cookies = require('cookie-parser'); //cookies: todo aquello que se guarda del lado del navegador
 
 // RUTEO
 const userRoutes = require('./routes/user')
@@ -39,7 +39,6 @@ app.use(session({
 }))
 
 app.use(cookies());
-
 
 // app.use(userLoggedMiddleware);
 
