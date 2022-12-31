@@ -3,6 +3,9 @@ const router = express.Router();
 const productController = require('../controllers/productController');
 const multer = require('multer');
 
+const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
+const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
+
 // http://localhost:3050/product/productDetail
 // ctrl+K+C => Atajo para comentar todo lo que seleccionas.
 // ctrl+click sobre una función => Te redirecciona a la función seleccionada
@@ -20,13 +23,13 @@ const storage = multer.diskStorage ( {
 
 const uploadFile = multer({storage});
 
-router.get('/', productController.index) // ok
+router.get('/', userLoggedMiddleware, userAdminMiddleware, productController.index) // ok
 
 router.get('/carrodecompras', productController.carroDeCompras); // ok
 
-router.get('/create', productController.newProduct); // render de la vista producto.  ok
+router.get('/create', userLoggedMiddleware, userAdminMiddleware, productController.newProduct); // render de la vista producto.  ok
 
-router.get('/:id/edit', productController.editProduct);  
+router.get('/:id/edit', userLoggedMiddleware, userAdminMiddleware, productController.editProduct);  
 // identificar el id recibido en req.params, buscar en el JSON de productos el que coincida con el ID.
 // renderizar la vista de producto enviando como dato el producto. ok
 

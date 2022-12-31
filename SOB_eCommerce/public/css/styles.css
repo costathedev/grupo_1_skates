@@ -303,15 +303,17 @@ footer i {
 
 /* -------------- NOT FOUND -------------- */
 .not-found-container {
+    padding-top: 30px;
     width: 100%;
     display: flex;
     align-items: center;
-    border: 1px yellow solid;
+    flex-direction: column;
+    /* border: 1px yellow solid; */
     
 }
-.not-found-
+
 .not-found-img {
-    width: 40%;
+    width: 20%;
     text-align: center;
 }
 
