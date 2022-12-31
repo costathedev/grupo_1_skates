@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('../partials/head') %>
+
+<body>
+
+    <!-- No tocar -->
+
+
+    <div class="page-container">
+
+    <%- include('../partials/header') %>
+
+        <div class="main-content">
+            <!-- No tocar hasta acá -->
+
+
+            <!-- ***** Esta parte se DEBE EDITAR ***** -->
+
+
+            <!-- Acá va el contenido de la página -->
+
+            <main class="homemain">
+
+
+                <div class="home-promos">
+                    <h1 class="homeh1-measure"> - Envios Gratis en compras superiores a $10.000 -</h1>
+                    <h1 class="home-info-cuotas"> - Hasta 6 cuotas sin interes -</h1>
+                </div>
+
+
+
+                <section>
+                    <h2 class="homeh2-measure"><%= category %></h2>
+
+                    <div class="homecontenedor-section3">
+                        <% products.forEach( product => {%>
+                            <article class="art-imganddesc">
+                                <a href="/product/<%= product.id %>/productDetail">
+                                    <img src="/img/<%= product.image %>" alt="<%= product.name %>">
+                                    <div class="homedetalle-producto">
+                                        <h4 class="hometitulo"><%= product.name %></h4>
+                                        <a href="/product/carrodecompras" name="section3a">
+                                            <p class="homesubtitulo">Agregar al carrito</p>
+                                        </a>
+                                    </div>
+                                </a>
+                            </article>
+                        <%})%>
+
+                    </div>
+                </section>
+
+            </main>
+
+
+            <!-- ***** Hasta acá se puede EDITAR ***** -->
+
+        </div>
+
+
+        <!-- No tocar -->
+        
+        <%- include('../partials/footer') %>
+        
+        <!-- No tocar hasta acá -->
+    </div>
+
+</body>
+
+</html>

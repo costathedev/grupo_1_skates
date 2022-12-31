@@ -7,6 +7,8 @@ router.get('/faq', mainController.faq);
 // http://localhost:3050/main/about-us
 router.get('/about-us', mainController.aboutUs);
 
+router.get('/mediosDePago', mainController.mediosDePago)
+
 router.get('/contact', mainController.contact);
 
 router.get('/refund-policy', mainController.refundPolicy);

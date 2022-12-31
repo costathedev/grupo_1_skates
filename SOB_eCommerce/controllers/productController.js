@@ -48,6 +48,32 @@ const productController = {
         res.render('products/altaProducto')
     },
 
+    searchProductsByCategory: function(req, res) {
+        console.log('searchProductsByCategory. URL:', req.url);
+
+        // Por ahora usamos para filtrar categorias
+        let category = "";
+        category = req.params.category;
+        console.log('Categoria: '+ category);
+        loadProducts(); 
+        let searchedProducts = products.filter(product => product.category && product.category.toLowerCase() == category.toLowerCase());
+
+        res.render('products/searchedProducts', {category, products: searchedProducts});
+    },
+
+
+    searchProducts: function(req, res) {
+        console.log('searchProducts. URL:', req.url);
+
+        // esto no anda
+        let category = req.query.search;
+        loadProducts()
+        let searchedProducts = products.filter(product => product.name.toLowerCase().contains(search.toLowerCase()) 
+                            || product.name.toLowerCase().contains(search.toLowerCase()));
+
+        res.render('products/searchedProducts', {products: searchedProducts});
+    },
+
 
     editProduct: function(req, res){
         console.log('editProduct. URL:', req.url);

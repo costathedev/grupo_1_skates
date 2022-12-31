@@ -29,6 +29,10 @@ router.get('/carrodecompras', productController.carroDeCompras); // ok
 
 router.get('/create', userLoggedMiddleware, userAdminMiddleware, productController.newProduct); // render de la vista producto.  ok
 
+router.get('/:category/search', productController.searchProductsByCategory)
+
+router.get('/search', productController.searchProducts)
+
 router.get('/:id/edit', userLoggedMiddleware, userAdminMiddleware, productController.editProduct);  
 // identificar el id recibido en req.params, buscar en el JSON de productos el que coincida con el ID.
 // renderizar la vista de producto enviando como dato el producto. ok

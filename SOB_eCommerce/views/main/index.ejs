@@ -1,197 +1,109 @@
 <!DOCTYPE html>
 <html>
+  <%- include('../partials/head') %>
 
-<%- include('../partials/head') %>
-
-<body>
-
+  <body>
     <!-- No tocar -->
 
-
     <div class="page-container">
+      <%- include('../partials/header') %>
 
-    <%- include('../partials/header') %>
-
-        <div class="main-content">
-            <!-- No tocar hasta acá -->
-
-
-            <!-- ***** Esta parte se DEBE EDITAR ***** -->
-
-
-            <!-- Acá va el contenido de la página -->
-
-            <main class="homemain">
-
-                <!-- <h1 class="homeh1-measure"> - Envios Gratis en compras superiores a $10.000 - Hasta 6 cuotas sin interes
-                    - </h1> -->
-                <div class="home-promos">
-                    <h1 class="homeh1-measure"> - Envios Gratis en compras superiores a $10.000 -</h1>
-                    <h1 class="home-info-cuotas"> - Hasta 6 cuotas sin interes -</h1>
-                </div>
-
-                <section class="homecontenedor-section">
-                    <article class="homearticle-1">
-                        <a href="/carrodecompras.html" name="remeras">
-                            <img src="img/homeremeras.jpg" alt="section-remeras"></a>
-                    </article>
-                    <article class="homearticle-1">
-                        <a href="/carrodecompras.html" name="buzos">
-                            <img src="img/homebuzos.jpg" alt="section-buzos"></a>
-                    </article>
-                    <article class="homearticle-1">
-                        <a href="/carrodecompras.html" name="Skates">
-                            <img src="img/homeskate.jpg" alt="section-skates"></a>
-                    </article>
-                </section>
-
-                <section class="homecontenedor-section2">
-                    <article class="home-tamañorelasub">
-                        <h2>Envios gratis a todo el pais</h2>
-                        <a href="/carrodecompras.html" name="section2a">
-                            <h3>En compras superiores a $10.000</h3>
-                        </a>
-                    </article>
-
-                    <article class="home-tamañorelasub">
-                        <h2>Hasta 6 cuotas sin interés</h2>
-                        <a href="/carrodecompras.html" name="section2b">
-                            <h3>En todos los productos!</h3>
-                        </a>
-                    </article>
-
-                    <article class="home-tamañorelasub">
-                        <h2>Devoluciones gratuitas</h2>
-                        <a href="/regund-policy.html" name="section2a">
-                            <h3>Ingresa aca para mas info</h3>
-                        </a>
-                    </article>
-                </section>
-
-
-                <section>
-                    <h2 class="homeh2-measure">Nuestros elegidos de la semana</h2>
-                    <div class="homecontenedor-section3">
-
-                        <% products.filter(product => product.section.includes("ELEGIDOS") ).forEach( product => {%>
-                            <article class="art-imganddesc">
-                                <img src="/img/<%= product.image %>" alt="<%= product.name %>">
-                                <div class="homedetalle-producto">
-                                    <h4 class="hometitulo"><%= product.name %></h4>
-                                    <a href="/carrodecompras.html" name="section3a">
-                                        <p class="homesubtitulo">Ver mas</p>
-                                    </a>
-                                </div>
-                            </article>
-                        <%})%>
-
-
-                        <!-- <article class="art-imganddesc">
-                            <img src="img/homebuzos1.jpg" alt="elegidos1">
-                            <div class="homedetalle-producto">
-                                <h4 class="hometitulo">Buzo estilo underground</h4>
-                                <a href="/carrodecompras.html" name="section3a">
-                                    <p class="homesubtitulo">Ver mas</p>
-                                </a>
-                            </div>
-                        </article>
-                        <article class="art-imganddesc">
-                            <img src="img/homebuzos2.jpg" alt="elegidos2">
-                            <div class="homedetalle-producto">
-                                <h4 class="hometitulo">Buzo canguro cicle star</h4>
-                                <a href="/carrodecompras.html" name="section3b">
-                                    <p class="homesubtitulo">Ver mas</p>
-                                </a>
-                            </div>
-
-                        </article>
-                        <article class="art-imganddesc">
-                            <img src="img/homeremeras1.jpg" alt="elegidos3">
-                            <div class="homedetalle-producto">
-                                <h4 class="hometitulo">Remera X top</h4>
-                                <a href="/carrodecompras.html" name="section3c">
-                                    <p class="homesubtitulo">Ver mas</p>
-                                </a>
-                            </div>
-                        </article>
-
-                        <article class="art-imganddesc">
-                            <img src="img/homeskate2.jpg" alt="elegidos5">
-                            <div class="homedetalle-producto">
-                                <h4 class="hometitulo">Remera MC build up</h4>
-                                <a href="/carrodecompras.html" name="section3d">
-                                    <p class="homesubtitulo">Ver mas</p>
-                                </a>
-                            </div>
-
-
-                        </article>
-                        <article class="art-imganddesc">
-                            <img src="img/homeskate3.jpg" alt="elegidos6">
-                            <div class="homedetalle-producto">
-                                <h4 class="hometitulo">Skate black blind</h4>
-                                <a href="/carrodecompras.html" name="section3e">
-                                    <p class="homesubtitulo">Ver mas</p>
-                                </a>
-
-                            </div>
-
-
-                        </article>
-                        <article class="art-imganddesc">
-                            <img src="img/homeskate4.jpg" alt="elegidos7">
-                            <div class="homedetalle-producto">
-                                <h4 class="hometitulo">Skate black almost</h4>
-                                <a href="/carrodecompras.html" name="section3f">
-                                    <p class="homesubtitulo">Ver mas</p>
-                                </a>
-                            </div>
-
-
-                        </article>
-                        <article class="art-imganddesc">
-                            <img src="img/homeremeras3.jpg" alt="elegidos7">
-                            <div class="homedetalle-producto">
-                                <h4 class="hometitulo">Remera vans estandar</h4>
-                                <a href="/carrodecompras.html" name="section3g">
-                                    <p class="homesubtitulo">Ver mas</p>
-                                </a>
-                            </div>
-
-
-                        </article>
-                        <article class="art-imganddesc">
-                            <img src="img/homebuzos3.jpg" alt="elegidos8">
-                            <div class="homedetalle-producto">
-                                <h4 class="hometitulo">Buzos thrasher magazine</h4>
-                                <a href="/carrodecompras.html" name="section3h">
-                                    <p class="homesubtitulo">Ver mas</p>
-                                </a>
-                            </div>
-                        </article> -->
-
-                    </div>
-                </section>
-
-
-
-
-
-            </main>
-
-
-            <!-- ***** Hasta acá se puede EDITAR ***** -->
-
-        </div>
-
-
-        <!-- No tocar -->
-        
-        <%- include('../partials/footer') %>
-        
+      <div class="main-content">
         <!-- No tocar hasta acá -->
+
+        <!-- ***** Esta parte se DEBE EDITAR ***** -->
+
+        <!-- Acá va el contenido de la página -->
+
+        <main class="homemain">
+          <!-- <h1 class="homeh1-measure"> - Envios Gratis en compras superiores a $10.000 - Hasta 6 cuotas sin interes
+                    - </h1> -->
+          <div class="home-promos">
+            <h1 class="homeh1-measure">
+              - Envios Gratis en compras superiores a $10.000 -
+            </h1>
+            <h1 class="home-info-cuotas">- Hasta 6 cuotas sin interes -</h1>
+          </div>
+
+          <!-- CATEGORIAS - por ahora, fijas -->
+          <section class="homecontenedor-section">
+            <article class="homearticle-1">
+              <a href="/product/remeras/search" name="remeras">
+                <img src="img/homeremeras.jpg" alt="section-remeras"
+              /></a>
+            </article>
+            <article class="homearticle-1">
+              <a href="/product/buzos/search" name="buzos">
+                <img src="img/homebuzos.jpg" alt="section-buzos"
+              /></a>
+            </article>
+            <article class="homearticle-1">
+              <a href="/product/skates/search" name="Skates">
+                <img src="img/homeskate.jpg" alt="section-skates"
+              /></a>
+            </article>
+          </section>
+
+
+          <!-- Seccion de ofertas -->
+          <section class="homecontenedor-section2">
+            <article class="home-tamañorelasub">
+              <h2>Envios gratis a todo el pais</h2>
+              <a href="/carrodecompras.html" name="section2a">
+                <h3>En compras superiores a $10.000</h3>
+              </a>
+            </article>
+
+            <article class="home-tamañorelasub">
+              <h2>Hasta 6 cuotas sin interés</h2>
+              <a href="/carrodecompras.html" name="section2b">
+                <h3>En todos los productos!</h3>
+              </a>
+            </article>
+
+            <article class="home-tamañorelasub">
+              <h2>Devoluciones gratuitas</h2>
+              <a href="/regund-policy.html" name="section2a">
+                <h3>Ingresa aca para mas info</h3>
+              </a>
+            </article>
+          </section>
+
+
+        <!-- Productos - Seccion = ELEGIDOS -->
+          <section>
+            <h2 class="homeh2-measure">Nuestros elegidos de la semana</h2>
+            <div class="homecontenedor-section3">
+              <% products.filter(product => product.section.includes("ELEGIDOS")
+              ).forEach( product => {%>
+              <article class="art-imganddesc">
+                <a href="/product/<%= product.id %>/productDetail">
+                  <img
+                    src="/img/<%= product.image %>"
+                    alt="<%= product.name %>"
+                  />
+                  <div class="homedetalle-producto">
+                    <h4 class="hometitulo"><%= product.name %></h4>
+                    <a href="/product/carrodecompras" name="section3a">
+                      <p class="homesubtitulo">Agregar al carrito</p>
+                    </a>
+                  </div>
+                </a>
+              </article>
+              <%})%>
+
+            </div>
+          </section>
+        </main>
+
+        <!-- ***** Hasta acá se puede EDITAR ***** -->
+      </div>
+
+      <!-- No tocar -->
+
+      <%- include('../partials/footer') %>
+
+      <!-- No tocar hasta acá -->
     </div>
-
-</body>
-
+  </body>
 </html>

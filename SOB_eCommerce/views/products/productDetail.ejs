@@ -23,19 +23,19 @@
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 					<section class="prod-foto-producto">
 						<div>
-							<img src="/img/remera.jpg" class="prod-remera" alt="">
+							<img src="/img/<%= product.image %>" class="prod-remera" alt="">
 						</div>
 				</div>
 
 				<div class="prod-detalles-caracteristicas">
 					<div class="prod-detalles">
-						<h2 class="prod-titulo-producto">Remera Sk-8</h2>
-						<span class="prod-precio-producto">$$$$</span>
+						<h2 class="prod-titulo-producto"><%= product.name %></h2>
+						<span class="prod-precio-producto">$<%= product.price %></span>
 						<div class="prod-cuotas">
 							<i class="fa-regular fa-credit-card"></i>
-							<p class="prod-texto-cuotas">xx cuotas sin interés</p>
+							<p class="prod-texto-cuotas">3 cuotas sin interés</p>
 						</div>
-						<a href="#" class="prod-link-detalles">Ver más detalles</a>
+						<a href="/mediosDePago" class="prod-link-detalles">Ver más detalles</a>
 
 						<section class="prod-formulario">
 							<form action="/color" method="GET" class="prod-elegir-color">
@@ -86,8 +86,7 @@
 						<section class="prod-section-caracteristicas-producto">
 							<p class="prod-titulo-caracteristicas">Caracteristicas:</p>
 							<p class="prod-texto-caracteristicas">
-								Remera diseñada por nuestros artistas exclusivos. Tejido: Jersey 30/1. Algodón
-								Sustentable.
+								<%= product.description %>
 							</p>
 						</section>
 					</div>

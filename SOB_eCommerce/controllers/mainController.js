@@ -18,6 +18,10 @@ const mainController = {
         return res.render('main/contact', {user: req.session.userLogged})
     },
 
+    mediosDePago: (req, res) => {
+        return res.render('main/under-construction')
+    },
+
     
     // refund policy con variables para conectar al json
     
