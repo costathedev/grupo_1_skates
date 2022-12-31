@@ -43,9 +43,9 @@
 			<% products.forEach( product => { %>
 
 				<div class="Cart-Items">
-					<div class="image-box">
+					<a href="/product/<%= product.id %>/productDetail" class="image-box">
 						<img src="/img/<%= product.image %>" style={{ height="120px" }} />
-					</div>
+					</a>
 					<div class="about">
 						<h1 class="title"><%= product.name %></h1>
 						<h3 class="subtitle">Color: <%= product.color %> Talle: <%= product.size %></h3>
