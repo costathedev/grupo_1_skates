@@ -28,7 +28,7 @@ const productController = {
         let id = req.params.id;
         let product = products.find( product => product.id == id);
         if (product){
-            res.render('product/register', {product, readOnly: true})
+            res.render('products/productDetail', {product})
         } 
     
     },
