@@ -29,8 +29,10 @@ const mainController = {
     },
 
     home: (req, res)  => {
-        
-        return res.render('main/index', {user: req.session.userLogged})
+        const productController = require('./productController');
+        let productsHome = productController.getProductsHome();
+
+        return res.render('main/index', {products: productsHome, user: req.session.userLogged})
     },
 
 

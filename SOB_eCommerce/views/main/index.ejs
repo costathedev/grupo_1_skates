@@ -72,7 +72,21 @@
                 <section>
                     <h2 class="homeh2-measure">Nuestros elegidos de la semana</h2>
                     <div class="homecontenedor-section3">
-                        <article class="art-imganddesc">
+
+                        <% products.filter(product => product.section.includes("ELEGIDOS") ).forEach( product => {%>
+                            <article class="art-imganddesc">
+                                <img src="/img/<%= product.image %>" alt="<%= product.name %>">
+                                <div class="homedetalle-producto">
+                                    <h4 class="hometitulo"><%= product.name %></h4>
+                                    <a href="/carrodecompras.html" name="section3a">
+                                        <p class="homesubtitulo">Ver mas</p>
+                                    </a>
+                                </div>
+                            </article>
+                        <%})%>
+
+
+                        <!-- <article class="art-imganddesc">
                             <img src="img/homebuzos1.jpg" alt="elegidos1">
                             <div class="homedetalle-producto">
                                 <h4 class="hometitulo">Buzo estilo underground</h4>
@@ -154,9 +168,8 @@
                                     <p class="homesubtitulo">Ver mas</p>
                                 </a>
                             </div>
+                        </article> -->
 
-
-                        </article>
                     </div>
                 </section>
 

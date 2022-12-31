@@ -23,6 +23,14 @@ function writeProducts() {
 
 
 const productController = {    
+    getProductsHome: function () {
+        // Buscamos los productos que tienen alguna seccion configurada. Hoy es solo ELEGIDOS, podrian haber otras.
+        loadProducts();
+        let productsHome = products.filter( product => product.section);
+        console.log('HOME: Se van a mostrar ' + productsHome.count + ' productos.');
+        return productsHome;
+    },
+
     productDetail: function(req, res){
         console.log('productDetail. URL:', req.url);
         let id = req.params.id;
