@@ -37,6 +37,7 @@ const userController = {
                 accesoOk = true; 
                 delete user.password;
                 req.session.userLogged = user;
+                req.session.cartProducts = [];
 
                 //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 5 (decia 2) minutos.
                 if(req.body.remember_user){
@@ -55,6 +56,7 @@ const userController = {
     logOut: function(req, res) {
         res.clearCookie('userEmail');
         req.session.userLogged = null;
+        req.session.cartProducts = [];
         res.redirect('/');
     },
 
@@ -131,6 +133,7 @@ const userController = {
             // registrar la sesion iniciada y enviar a la Home logueado
             delete user.password;
             req.session.userLogged = user;
+            req.session.cartProducts = [];
             console.log('registra en session el usuario logueado: ' + req.session.userLogged);
             res.redirect('/');
         }   

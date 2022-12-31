@@ -98,8 +98,8 @@ body{
 
 .title{
 	padding-top: 10px;
-	line-height: 10px;
-	font-size: 32px;
+	line-height: 2.6rem;/* 10px; */ 
+	font-size: 1.5rem;/* 32px; */
 	font-family: 'Open Sans';
 	font-weight: 800;
 	color: #202020;
@@ -107,8 +107,8 @@ body{
 
 /*SUBTITULO */
 .subtitle{
-	line-height: 10px;
-	font-size: 18px;
+	line-height: 1.8rem;/* 10px; */
+	font-size: 1rem;/* 18px; */
 	font-family: 'Open Sans';
 	font-weight: 600;
 	color: #909090;

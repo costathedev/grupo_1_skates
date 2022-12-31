@@ -66,10 +66,11 @@ const productController = {
         console.log('searchProducts. URL:', req.url);
 
         // esto no anda
-        let category = req.query.search;
+        let search = req.query.search;
+        console.log('Query:', search);
         loadProducts()
-        let searchedProducts = products.filter(product => product.name.toLowerCase().contains(search.toLowerCase()) 
-                            || product.name.toLowerCase().contains(search.toLowerCase()));
+        let searchedProducts = products.filter(product => product.name && (product.name.toLowerCase().includes(search.toLowerCase()) 
+                            || product.name.toLowerCase().includes(search.toLowerCase())));
 
         res.render('products/searchedProducts', {products: searchedProducts});
     },
@@ -91,7 +92,22 @@ const productController = {
     
 
     carroDeCompras: (function(req, res) {
-        res.render('products/carrodecompras')
+        console.log('carroDeCompras. URL:', req.url);
+        let cartProducts = [];
+        if (req.session.cartProducts) {
+            console.log('Hay productos en session: ' + req.session.cartProducts);
+            loadProducts();
+            for (let i = 0; i < req.session.cartProducts.length; i++) {
+                console.log('Producto Id: ' +  req.session.cartProducts[i]);
+                let product = products.find( p => p.id == req.session.cartProducts[i]);
+                if (product) {
+                    console.log('Encontro Producto Id: ' +  product.id + ' ' + product.name);
+                    cartProducts.push(product);
+                }
+            }
+        }
+        console.log('Se van a mostrar en el carrito: ' + cartProducts);
+        res.render('products/carrodecompras', {products: cartProducts})
     }),
   
     
@@ -157,6 +173,21 @@ const productController = {
         res.redirect('/product');
 
     },
+
+    addToCart: function (req, res) {
+        console.log('addToCart. URL:', req.url);
+
+        let id = req.params.id;
+        console.log('Producto a agregar id: ' + id);
+        
+        if (!req.session.cartProducts) {
+            req.session.cartProducts = [];
+        }
+        req.session.cartProducts.push(id);
+        console.log('Productos en Carrito: ' + req.session.cartProducts)
+        res.redirect('/product/carrodecompras')
+
+    }
 }
 
 module.exports = productController;

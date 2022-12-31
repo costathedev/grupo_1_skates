@@ -30,77 +30,60 @@
    	   	<h3 class="Heading">Carro de Compras</h3>
    	   	<h5 class="quitartodo">Quitar todo</h5>
    	   </div>
+ 
+	   <!-- Verificar si hay productos -->
+	    <% if (!locals.products || locals.products.length == 0) { %>
+			<!-- Si no hay, mostrar mensaje -->
+			<h1>Agrega productos a tu carrito</h1>
+			<a href="/">Ir a comprar</a>
 
+		<% } else { %>
 
-	   <!-- producto 1 -->
+			<!-- Si hay productos, mostrar el listado -->
+			<% products.forEach( product => { %>
 
+				<div class="Cart-Items">
+					<div class="image-box">
+						<img src="/img/<%= product.image %>" style={{ height="120px" }} />
+					</div>
+					<div class="about">
+						<h1 class="title"><%= product.name %></h1>
+						<h3 class="subtitle">Color: <%= product.color %> Talle: <%= product.size %></h3>
+						<img src="/img/disponible.png" style={{ height="30px" }}/>
+					</div>
 
-   	   <div class="Cart-Items">
-   	   	  <div class="image-box">
-   	   	  	<img src="/img/skate1.png" style={{ height="120px" }} />
-   	   	  </div>
-   	   	  <div class="about">
-   	   	  	<h1 class="title">Skate Blanca </h1>
-   	   	  	<h3 class="subtitle">.</h3>
-   	   	  	<img src="/img/disponible.png" style={{ height="30px" }}/>
-   	   	  </div>
+					<!-- botones de + y - para sumar respectiva cant de productos -->
+					<div class="sumaresta">
+						<div class="btn">-</div>
+						<div class="count">1</div>
+						<div class="btn">+</div>
+					</div>
 
+					<!-- precio , codigo de descuento y simbolo de quitar articulo -->
+					<div class="prices">
+						<div class="amount">$<%= product.price %></div>
+						<div class="save"><u>Aplicar Codigo de descuento</u></div>
+						<div class="remove"><u>Quitar</u></div>
+					</div>
+				</div>	
 
-		  <!-- botones de + y - para sumar respectiva cant de productos -->
-   	   	  <div class="sumaresta">
-   	   	  	<div class="btn">-</div>
-   	   	  	<div class="count">1</div>
-   	   	  	<div class="btn">+</div>
-   	   	  </div>
+			<%  } ) %>
 
-		  <!-- precio , codigo de descuento y simbolo de quitar articulo -->
+		
+		<% } %>
 
-   	   	  <div class="prices">
-   	   	  	<div class="amount">$19.999</div>
-   	   	  	<div class="save"><u>Aplicar Codigo de descuento</u></div>
-   	   	  	<div class="remove"><u>Quitar</u></div>
-   	   	  </div>
-   	   </div>
-
-	   <!-- producto 2  -->
-
-   	   <div class="Cart-Items pad">
-   	   	  <div class="image-box">
-   	   	  	<img src="/img/skate2.png" style={{ height="120px" }} />
-   	   	  </div>
-
-
-		<!-- titulo del producto y su respectiva informacion -->
-
-   	   	  <div class="about">
-   	   	  	<h1 class="title">Skate Negra</h1>
-   	   	  	<h3 class="subtitle">.</h3>
-   	   	  	<img src="/img/disponible.png" style={{ height="30px" }}/>
-   	   	  </div>
-
-		  <!-- contadores de cantidad de productos con botones de + y - -->
-
-		  <div class="sumaresta">
-   	   	  	<div class="btn">-</div>
-   	   	  	<div class="count">1</div>
-   	   	  	<div class="btn">+</div>
-   	   	  </div>
-   	   	  <div class="prices">
-   	   	  	<div class="amount">$19.999</div>
-   	   	  	<div class="save"><u>Aplicar codigo de descuento</u></div>
-   	   	  	<div class="remove"><u>Quitar</u></div>
-   	   	  </div>
-   	   </div>
-   	 <hr> 
+   	   
 
 	 <!-- sección de checkout con el total de la compra , cantidad de articulos , y boton para realizar el checkout. -->
    	 <div class="checkout">
    	 <div class="total">
    	 	<div>
    	 		<div class="Subtotal">Total</div>
-   	 		<div class="items">2 articulos</div>
+   	 		<div class="items"> <%= products.length %> articulos</div>
    	 	</div>
-   	 	<div class="total-amount">$39.998</div>
+			<% { let total = 0; products.forEach((product) => total += product.price); %>
+   	 	<div class="total-amount">$<%= total %></div>
+		<% }%>
    	 </div>
    	 <button class="button">Realizar Checkout</button></div>
    </div>

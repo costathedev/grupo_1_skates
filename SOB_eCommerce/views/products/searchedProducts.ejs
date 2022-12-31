@@ -32,7 +32,9 @@
 
 
                 <section>
-                    <h2 class="homeh2-measure"><%= category %></h2>
+                    <% if (locals.category && category) { %>
+                        <h2 class="homeh2-measure"><%= category.toUpperCase() %></h2>
+                    <% } %>
 
                     <div class="homecontenedor-section3">
                         <% products.forEach( product => {%>
