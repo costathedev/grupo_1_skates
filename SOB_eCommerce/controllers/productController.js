@@ -36,7 +36,7 @@ const productController = {
         let id = req.params.id;
         let product = products.find( product => product.id == id);
         if (product){
-            res.render('products/productDetail', {product, userLogged: req.session.userLogged})
+          return  res.render('products/productDetail', {product, userLogged: req.session.userLogged})
         } 
     
     },
@@ -45,7 +45,7 @@ const productController = {
     newProduct: function(req, res) {
         console.log('newProduct. URL:', req.url);
       
-        res.render('products/altaProducto', { userLogged: req.session.userLogged})
+      return  res.render('products/altaProducto', { userLogged: req.session.userLogged})
     },
 
     searchProductsByCategory: function(req, res) {
@@ -58,7 +58,7 @@ const productController = {
         loadProducts(); 
         let searchedProducts = products.filter(product => product.category && product.category.toLowerCase() == category.toLowerCase());
 
-        res.render('products/searchedProducts', {category, products: searchedProducts, userLogged: req.session.userLogged});
+        return res.render('products/searchedProducts', {category, products: searchedProducts, userLogged: req.session.userLogged});
     },
 
 
@@ -72,7 +72,7 @@ const productController = {
         let searchedProducts = products.filter(product => product.name && (product.name.toLowerCase().includes(search.toLowerCase()) 
                             || product.name.toLowerCase().includes(search.toLowerCase())));
 
-        res.render('products/searchedProducts', {products: searchedProducts, userLogged: req.session.userLogged});
+        return res.render('products/searchedProducts', {products: searchedProducts, userLogged: req.session.userLogged});
     },
 
 
@@ -83,10 +83,10 @@ const productController = {
         loadProducts();
         let product = products.find( product => product.id == id );
         if (product != undefined && product.id>0 ){
-            res.render('products/altaProducto', {product, userLogged: req.session.userLogged})
+            return res.render('products/altaProducto', {product, userLogged: req.session.userLogged})
         } 
         else {
-            res.send('No se encontró el producto ' + id)
+           return res.send('No se encontró el producto ' + id)
         }
     },
     
@@ -107,18 +107,22 @@ const productController = {
             }
         }
         console.log('Se van a mostrar en el carrito: ' + cartProducts);
-        res.render('products/carrodecompras', {products: cartProducts, userLogged: req.session.userLogged})
+        return res.render('products/carrodecompras', {products: cartProducts, userLogged: req.session.userLogged})
     }),
   
     
     index: function(req, res){
         console.log('index. URL:', req.url);
         loadProducts();
-        res.render('products/list', {products, userLogged: req.session.userLogged})
+        return  res.render('products/list', {products, userLogged: req.session.userLogged})
     }, 
     
     saveNewProduct: function(req, res){
         console.log('saveNewProduct. URL:', req.url);
+        // console.log('Name: ' + req.body.name);
+
+        console.log('Body Name: ' );
+        console.log(req.body.name);
         let product = req.body;
         loadProducts();
         let maxId = 0;
@@ -129,7 +133,7 @@ const productController = {
         
         writeProducts();
 
-        res.redirect('/product');
+        return  res.redirect('/product');
         
     },
 
@@ -154,7 +158,7 @@ const productController = {
 
             writeProducts();
 
-            res.redirect('/product/');
+            return res.redirect('/product/');
         }
         else {
             console.log('NO encontró el producto a editar: ');
@@ -170,7 +174,7 @@ const productController = {
         products = products.filter( product => product.id != id);
         writeProducts();
 
-        res.redirect('/product');
+        return res.redirect('/product');
 
     },
 
@@ -185,7 +189,7 @@ const productController = {
         }
         req.session.cartProducts.push(id);
         console.log('Productos en Carrito: ' + req.session.cartProducts)
-        res.redirect('/product/carrodecompras')
+        return res.redirect('/product/carrodecompras')
 
     }
 }

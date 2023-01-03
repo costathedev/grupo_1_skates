@@ -43,10 +43,10 @@ router.get('/:id/productDetail', productController.productDetail);
 // identificar el id recibido en req.params, buscar en el JSON de productos el que coincida con el ID.
 // renderizar la vista de producto enviando como dato el producto 
 
-router.post('/', productController.saveNewProduct);
+router.post('/', uploadFile.single('image'), productController.saveNewProduct);
 //Obtener los datos del body, volcarlo en un nuevo objeto producto, agregarlo al array y volver a escribirlo al JSON
 
-router.put('/:id', productController.saveEditedProduct);
+router.put('/:id', uploadFile.single('image'), productController.saveEditedProduct);
 //Obtener los datos del JSON, volcarlo en un nuevo objeto producto, agregarlo al array y volver a escribirlo al JSON
 // ..
 router.delete('/:id', productController.deleteProduct);

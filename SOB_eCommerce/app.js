@@ -22,15 +22,17 @@ const url = 'http://localhost'; // Url a utilizar para el servidor web.
 // Aclaramos a Express cual es el motor de plantillas que vamos a usar, 
 app.set('view engine', 'ejs');
 
+// Definir como públicos los recursos.
+app.use(express.static(path.resolve('./public')));
+
+app.use(methodOverride('_method'));
+
 // Caro: Esto estaba antes de definir la constante "app" y daba error, lo pongo abajo:
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 
-// Definir como públicos los recursos.
-app.use(express.static(path.resolve('./public')));
 
-app.use(methodOverride('_method'));
 
 app.use(session({
     secret: 'Its a secret',

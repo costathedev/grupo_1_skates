@@ -21,8 +21,7 @@ function writeUsers() {
 const userController = {
     showLogin: function(req, res) {
         console.log('ShowLogin. URL:', req.url);
-        res.render('users/login', {userLogged: req.session.userLogged});
-        return;
+        return  res.render('users/login', {userLogged: req.session.userLogged});
     },
 
     login: function(req, res) {
@@ -44,11 +43,11 @@ const userController = {
                     res.cookie('userEmail', req.body.email, {maxAge: (1000 * 6) * 5});
                 }
 
-                res.redirect('/');
+                return res.redirect('/');
             } 
         }
         if (!accesoOk){
-            res.render('users/login', {mensaje: 'El usuario o la contraseña son incorrectos.', userLogged: req.session.userLogged});
+            return res.render('users/login', {mensaje: 'El usuario o la contraseña son incorrectos.', userLogged: req.session.userLogged});
         }
 
     },
@@ -57,28 +56,28 @@ const userController = {
         res.clearCookie('userEmail');
         req.session.userLogged = null;
         req.session.cartProducts = [];
-        res.redirect('/');
+        return res.redirect('/');
     },
 
     register: function(req, res) {
         console.log('register. URL:', req.url);
-        res.render('users/register', {userLogged: req.session.userLogged});
+        return res.render('users/register', {userLogged: req.session.userLogged});
     },
 
     create: function(req, res) {
         console.log('create. URL:', req.url);
-        res.render('users/register', {backToList: true, userLogged: req.session.userLogged});
+        return res.render('users/register', {backToList: true, userLogged: req.session.userLogged});
     },
 
     index: function(req, res){
         console.log('index. URL:', req.url);
         loadUsers();
-        res.render('users/list', {users, userLogged: req.session.userLogged})
+        return res.render('users/list', {users, userLogged: req.session.userLogged})
     },
 
     profile: function(req, res) {
         console.log('index. URL:', req.url);
-        res.render('users/profile', {user: req.session.userLogged, userLogged: req.session.userLogged})
+        return res.render('users/profile', {user: req.session.userLogged, userLogged: req.session.userLogged})
     },
 
     userDetail: function(req, res){
@@ -87,7 +86,7 @@ const userController = {
 
         let user = users.find( user => user.id == id);
         if (user){
-            res.render('users/register', {user, readOnly: true, userLogged: req.session.userLogged})
+            return res.render('users/register', {user, readOnly: true, userLogged: req.session.userLogged})
         } 
     },
 
@@ -98,10 +97,10 @@ const userController = {
         loadUsers();
         let user = users.find( user => user.id == id );
         if (user != undefined && user.id>0 ){
-            res.render('users/register', {user, userLogged: req.session.userLogged})
+            return res.render('users/register', {user, userLogged: req.session.userLogged})
         } 
         else {
-            res.send('No se encontró el usuario ' + id)
+            return   res.send('No se encontró el usuario ' + id)
         }
     },
 
@@ -126,8 +125,8 @@ const userController = {
         writeUsers();
 
         if (req.backToList) {
-            // no se cambia el usuario logueado, se redirecciona al listado
-            res.redirect('/user');
+            return // no se cambia el usuario logueado, se redirecciona al listado
+           return res.redirect('/user');
         }
         else {
             // registrar la sesion iniciada y enviar a la Home logueado
@@ -135,7 +134,7 @@ const userController = {
             req.session.userLogged = user;
             req.session.cartProducts = [];
             console.log('registra en session el usuario logueado: ' + req.session.userLogged);
-            res.redirect('/');
+            return res.redirect('/');
         }   
  
     },
@@ -174,7 +173,7 @@ const userController = {
 
             writeUsers();
 
-            res.redirect('/');
+            return res.redirect('/');
         }
         else {
             console.log('NO encontró el usuario a editar: ');
@@ -189,7 +188,7 @@ const userController = {
         users = users.filter( user => user.id != id);
         writeUsers();
 
-        res.redirect('/user');
+        return res.redirect('/user');
 
     },
 
