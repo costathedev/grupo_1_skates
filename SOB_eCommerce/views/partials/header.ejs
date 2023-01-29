@@ -20,7 +20,7 @@
                         <button type="submit">Mi Perfil</button>
                     </form>
 
-                    <% if (userLogged.roles && userLogged.roles.includes("ADMIN")) { %>
+                    <% if (userLogged.roles && userLogged.roles.find(role => role.name == "ADMIN") ) { %>
                         <form class="header-usersubmenu-item" action="/user/" method="GET">
                             <button type="submit">Usuarios</button>
                         </form>

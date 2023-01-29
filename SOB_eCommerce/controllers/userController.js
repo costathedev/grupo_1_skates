@@ -3,20 +3,26 @@ const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const e = require('express');
 
+const db = require('../database/models');
+const { Association } = require('sequelize');
+const Op = db.Sequelize.Op;
+
 const rutaUsersJson = path.resolve('./data/users.json');
 
 let users = [];
 
-function loadUsers() {
-    let usersFile = fs.readFileSync(rutaUsersJson, 'utf-8');
-    users = JSON.parse(usersFile);
-} 
+// BORRAR
+// function loadUsers() {
+//     let usersFile = fs.readFileSync(rutaUsersJson, 'utf-8');
+//     users = JSON.parse(usersFile);
+// } 
 
-function writeUsers() {
-    const fs = require('fs');
-    console.log('Por escribir', users.length, 'usuarios')
-    fs.writeFileSync(rutaUsersJson , JSON.stringify(users))
-}
+// BORRAR
+// function writeUsers() {
+//     const fs = require('fs');
+//     console.log('Por escribir', users.length, 'usuarios')
+//     fs.writeFileSync(rutaUsersJson , JSON.stringify(users))
+// }
 
 const userController = {
     showLogin: function(req, res) {
@@ -27,28 +33,44 @@ const userController = {
     login: function(req, res) {
         console.log('Login. URL:', req.url);
         let userName = req.body.email;
-        loadUsers();
         console.log('Quiere loguearse: ' + userName +  " | " + req.body.password)
-        let user = users.find( u => u.email.toLowerCase() == userName.toLowerCase() );
+
         let accesoOk = false; 
-        if (user != undefined && user.id>0 ){
-            if (bcrypt.compareSync(req.body.password, user.password)) {
-                accesoOk = true; 
-                delete user.password;
-                req.session.userLogged = user;
-                req.session.cartProducts = [];
 
-                //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 5 (decia 2) minutos.
-                if(req.body.remember_user){
-                    res.cookie('userEmail', req.body.email, {maxAge: (1000 * 6) * 5});
-                }
-
-                return res.redirect('/');
-            } 
+        // let user = users.find( u => u.email.toLowerCase() == userName.toLowerCase() );
+       db.User.findOne({
+            where: {
+                email: userName
+                // email: {[Op.Like]: userName}
+            },
+            include: [{association: 'roles'}]
+        }).then ( user => {
+            console.log('Encontro el usuario');
+            if (user != undefined && user.id>0 ){
+                console.log('Va a comparar password: ' + user.password + ' con: ' + bcrypt.hashSync(req.body.password, 10) );
+                if (bcrypt.compareSync(req.body.password, user.password)) {
+                    accesoOk = true; 
+                    delete user.password;
+                    req.session.userLogged = user;
+                    req.session.cartProducts = [];
+    
+                    //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 5 (decia 2) minutos.
+                    if(req.body.remember_user){
+                        res.cookie('userEmail', req.body.email, {maxAge: (1000 * 6) * 5});
+                    }
+    
+                    return res.redirect('/');
+                } 
+            }
+            if (!accesoOk){
+                return res.render('users/login', {mensaje: 'El usuario o la contraseña son incorrectos.', userLogged: req.session.userLogged});
+            }
+        })
+        .catch ( err => {
+            console.log('Dio error al buscar el usuario');
+            res.send(err) ;
         }
-        if (!accesoOk){
-            return res.render('users/login', {mensaje: 'El usuario o la contraseña son incorrectos.', userLogged: req.session.userLogged});
-        }
+       )
 
     },
 
@@ -71,8 +93,18 @@ const userController = {
 
     index: function(req, res){
         console.log('index. URL:', req.url);
-        loadUsers();
-        return res.render('users/list', {users, userLogged: req.session.userLogged})
+        // BORRAR
+        // loadUsers();
+        db.User.findAll(
+            {
+                include: [{association: 'roles'}],
+            //     where:{
+            //         deleted_at: null,
+            //     }         
+            }   
+        ).then ( users => {
+            return res.render('users/list', {users, userLogged: req.session.userLogged})
+        })
     },
 
     profile: function(req, res) {
@@ -84,109 +116,153 @@ const userController = {
         console.log('userDetail. URL:', req.url);
         let id = req.params.id;
 
-        let user = users.find( user => user.id == id);
-        if (user){
-            return res.render('users/register', {user, readOnly: true, userLogged: req.session.userLogged})
-        } 
+        // let user = users.find( user => user.id == id);
+        db.User.findByPk( id, {
+            include: [{ association: 'roles'} ]
+        })
+        .then( user =>
+            {
+                if (user){
+                    return res.render('users/register', {user, readOnly: true, userLogged: req.session.userLogged})
+                } 
+                else {
+                    return   res.send('No se encontró el usuario ' + id)
+                }
+            }
+        )
     },
 
     editUser: function(req, res){
         console.log('editUser. URL:', req.url);
         let id = req.params.id;
         console.log("Editando: ", id, "Ruta: ", rutaUsersJson)
-        loadUsers();
-        let user = users.find( user => user.id == id );
-        if (user != undefined && user.id>0 ){
-            return res.render('users/register', {user, userLogged: req.session.userLogged})
-        } 
-        else {
-            return   res.send('No se encontró el usuario ' + id)
-        }
+        
+        // BORRAR
+        // loadUsers();
+        // let user = users.find( user => user.id == id );
+        db.User.findByPk( id, {
+            include: [{association: 'roles'}],
+        })
+        .then ( user => {
+            if (user != undefined && user.id>0 ){
+                return res.render('users/register', {user, userLogged: req.session.userLogged})
+            } 
+            else {
+                return   res.send('No se encontró el usuario ' + id)
+            }
+        })
+        
     },
 
     saveNewUser: function(req, res){
         console.log('saveNewUser. URL:', req.url);
+
+
+        // desde aca
+        
+    //En esta variable guardo lo enviado desde la ruta, con respecto a los errores encontrados en la carga de los datos por parte del usuario
+    let errors= {}; // validationResult(req); HACER!!
+    //return res.send(errors); ???
+
+    //Aquí determino si hay ó no errores encontrados
+    // if(!errors.isEmpty()) {
+    //   return res.render(path.resolve(__dirname, '../views/usuarios/registro'), {
+    //     errors: errors.errors,  old: req.body
+    //   });
+    // } 
+
+    console.log('Va a guardar el password: ' + req.body.password + ' como: ' + bcrypt.hashSync(req.body.password, 10) );
+    
+
         let user = {
+            email: req.body.email,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
-            email: req.body.email,
-            birth_date: req.body.birth_date,
+            password: bcrypt.hashSync(req.body.password, 10),
+            birthDate: req.body.birthDate,
             avatar: req.file ? req.file.filename : 'default.png',
             address: req.body.address,
-            password: bcrypt.hashSync(req.body.password, 10),
         };
-        loadUsers();
-        let maxId = 0;
-        users.forEach ( user => user.id > maxId ? maxId = user.id : '');
-        user.id = maxId + 1;
+      
+        db.User.create(user)
+        .then( storedUser => {
+           
+            if (req.backToList) {
+                return // no se cambia el usuario logueado, se redirecciona al listado
+               return res.redirect('/user');
+            }
+            else {
+                // registrar la sesion iniciada y enviar a la Home logueado
+                delete user.password;
+                req.session.userLogged = user;
+                req.session.cartProducts = [];
+                console.log('registra en session el usuario logueado: ' + req.session.userLogged);
+                return res.redirect('/');
+            }   
 
-        users.push(user);
-        
-        writeUsers();
+        })
+        .catch(error => console.log(error));
 
-        if (req.backToList) {
-            return // no se cambia el usuario logueado, se redirecciona al listado
-           return res.redirect('/user');
-        }
-        else {
-            // registrar la sesion iniciada y enviar a la Home logueado
-            delete user.password;
-            req.session.userLogged = user;
-            req.session.cartProducts = [];
-            console.log('registra en session el usuario logueado: ' + req.session.userLogged);
-            return res.redirect('/');
-        }   
- 
     },
 
     saveEditedUser: function(req, res){
         console.log('saveEditedUser. URL:', req.url);
-        loadUsers();
-        let id = req.params.id;
-        let user = users.find( user => user.id == id );
-        if (user) {
-            user.firstName = req.body.firstName;
-            user.lastName = req.body.lastName;
-            console.log('Encontro el usuario a editar: ', user.lastName);
-            user.email = req.body.email;
-            user.address = req.body.address;
-            user.birth_date = req.body.birth_date;
+        
+        
+        // BORRAR
+        // let id = req.params.id;
+        // loadUsers();
+        // let user = users.find( user => user.id == id );
 
-            // user.avatar = req.file ? req.file.filename : 'default.png';
-            if (req.file){
-                user.avatar = req.file;
+        let newPass = req.body.password ? bcrypt.hashSync(req.body.password, 10) : '';
+
+
+        db.User.update({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                address: req.body.address,
+                birth_date : req.body.birthDate,
+                firstName: req.body.firstName,
+                // avatar: req.file ? req.file : (avatar ?avatar : 'default.png'),
+                // password: newPass ? newPass : password,
+            },
+            {
+                where: { id: req.params.id}
             }
-            else {
-                if (!user.avatar){
-                    user.avatar = 'default.png';
-                }
+            )
+            .catch ( err => {
+                console.log('NO encontró el usuario a editar ');
             }
-
-            if (req.body.password){
-                user.password = bcrypt.hashSync(req.body.password, 10);
-                console.log('Guardando password encriptada: ' + user.password )
-            }
-
-
-            users = users.filter( u => u.id != id);
-            users.push(user);
-
-            writeUsers();
-
-            return res.redirect('/');
-        }
-        else {
-            console.log('NO encontró el usuario a editar: ');
-        }
+            )  
+                
+    
+                // users = users.filter( u => u.id != id);
+                // users.push(user);
+    
+                // BORRAR
+                // writeUsers();
+    
+                return res.redirect('/');            
+           
         
     },
 
     deleteUser: function(req, res){
         console.log('deleteUser. URL:', req.url);
-        loadUsers();
-        let id = req.params.id;
-        users = users.filter( user => user.id != id);
-        writeUsers();
+
+
+        // BORRAR
+        // let id = req.params.id;
+        // loadUsers();
+        // users = users.filter( user => user.id != id);
+        
+        db.User.update( { deleted_at: new Date() }, {
+            where: { id: req.params.id}
+        })
+
+        // BORRAR
+        // writeUsers();
 
         return res.redirect('/user');
 
