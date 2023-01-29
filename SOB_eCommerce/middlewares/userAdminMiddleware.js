@@ -7,7 +7,7 @@ function userAdminMiddleware(req, res, next) {
     if (req.session.userLogged) {   
         console.log('Esta logueado: ' + req.session.userLogged)
 
-        if (req.session.userLogged.roles.includes("ADMIN")) {
+        if (req.session.userLogged.roles.find(role => role.name == "ADMIN")) {
             console.log('Es admin')
             next();
             return;

@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     const alias = "User";
     const cols = {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             autoincrement: true,
         },
@@ -11,23 +11,37 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        first_name: DataTypes.STRING,
-        last_name:  DataTypes.STRING,
+        firstName: {
+            type: DataTypes.STRING(50),
+            field: 'first_name',
+        },
+        lastName: {
+            type: DataTypes.STRING(50),
+            field: 'last_name',
+        },
         password: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false,
         },
-        birt_date:  DataTypes.STRING,
-        address:  DataTypes.STRING,
-        phone:  DataTypes.STRING,
+        birthDate:  {
+            type: DataTypes.DATEONLY,
+            field: 'birth_date',
+        },
+        address:  DataTypes.STRING(100),
+        phone:  DataTypes.STRING(15),
         avatar:  DataTypes.STRING,
-        created_at:  DataTypes.DATETIME,
-        updated_at:  DataTypes.DATETIME,
+        deletedAt: {
+            type: DataTypes.DATE,
+            field: 'deleted_at'
+        }
     };
     const config =  {
         // nombre de tabla, si lleva timestamps, etc
         tableName: 'users',
         timestamps: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        deletedAt: 'deleted_at',
     };
 
     const User = sequelize.define(alias, cols, config );
@@ -35,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     // Luego de "define", asociar con otras tablas
     User.associate = function (models) {
         User.belongsToMany(models.Role, {
-            as: 'user_roles',
+            as: 'roles',
             through: 'user_roles',
             foreignKey: 'user_id',
             otherKey: 'role_id',
