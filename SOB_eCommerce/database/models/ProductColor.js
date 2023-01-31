@@ -40,7 +40,9 @@ module.exports = (sequelize, dataTypes) => {
         
         
     };
-
+    
+    
+    /* REVISAR TODA ESTA PARTE PARA VER ERRORES */
 
     const ProductColor = sequelize.define(alias, cols, config)
 
