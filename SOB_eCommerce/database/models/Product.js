@@ -17,7 +17,10 @@ module.exports = (Sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         },
         id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true, 
+            allowNull: false
         },
         name:{
             type: DataTypes.INTEGER
@@ -33,8 +36,17 @@ module.exports = (Sequelize, DataTypes) => {
 
     const Product = Sequelize.define(alias, cols, config);
 
-    Product.belongto()
+    //Product.belongto()
 
-    return product;
+    //Agrego la asociación de Productos con Categorías
+    Product.associate = function(models){
+        Product.belongsTo(models.Product, {
+            as : 'categories',
+            foreignKey : 'category_id',
+            //Debería crear en la tabla de categorias en la DB el campo product_id
+        })
+    }
+
+    return Product;
 
 };
