@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
     const alias = "Category";
 
     //Columnas si la relación es con categorías.
-    const cols = {
+    /*const cols = {
         id: {
             type: DataTypes.INTEGER.UNSIGNED, 
             primaryKey: true,
@@ -19,10 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         //UNSIGNED - Es para que inicie a partir del 0, si sabes que no vas a usar negativos se recomienda usar esto para dejar todo el espacio de almacenamiento para numeros positivos.
         //ALLOWNULL - Sirve definirlo cuando realmente es un dato importante (contraseña, mail, dni, etc) 
 
-    };
+    };*/
 
     //Columnas si la relación es con productos.
-    /*const cols = {
+    const cols = {
         id: {
             type: DataTypes.INTEGER.UNSIGNED, 
             primaryKey: true,
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(100),
             field: 'name'
         }, 
-    };*/
+    };
 
     const config = {
         // Nombre de tabla y si tiene timestamps
@@ -65,8 +65,8 @@ module.exports = (sequelize, DataTypes) => {
     Category.associate = function(models){
         Category.hasMany(models.Product, {
             as : 'products',
-            foreignKey : 'categoryId' 
-            //Debería crear en la tabla de productos en la DB el campo categoryId
+            foreignKey : 'category_id',
+            //Debería crear en la tabla de productos en la DB el campo category_id
         })
     }
 
