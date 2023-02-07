@@ -3,6 +3,20 @@ module.exports = (Sequelize, DataTypes) => {
     const alias = "Product";
     const cols = {
         id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            primaryKey: true,
+            autoincrement: true,
+        },
+        name:{
+            type: DataTypes.VARCHAR
+        },
+        price: {
+            type: DataTypes.DECIMAL
+        },
+        name:{
+            type: DataTypes.INTEGER
+        },
+        id: {
             type: DataTypes.INTEGER
         },
         name:{
