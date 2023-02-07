@@ -8,30 +8,50 @@ module.exports = (Sequelize, DataTypes) => {
             autoincrement: true,
         },
         name:{
-            type: DataTypes.VARCHAR
+            type: DataTypes.STRING(100),
         },
         price: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.DECIMAL(10,0),
         },
-        name:{
-            type: DataTypes.INTEGER
+        model:{
+            type: DataTypes.STRING(50),
         },
-        id: {
+        color_id: {
             type: DataTypes.INTEGER,
-            primaryKey: true,
             autoIncrement: true, 
-            allowNull: false
+            allowNull: false,
+            field: 'color_id'
+
         },
-        name:{
-            type: DataTypes.INTEGER
+        brand_id:{
+            type: DataTypes.INTEGER,
+            autoIncrement: true, 
+            allowNull: false,
+            field: 'brand_id'
+
         },
+        category_id:{
+            type: DataTypes.INTEGER,
+            autoIncrement: true, 
+            allowNull: false,
+            field: 'category_id'
+
+        },
+        Image: {
+            type: DataTypes.STRING,
+        },
+      
         //columnas
     };
 
     const config = {
         //nombre de tabla, si lleva stamptimes o no 
         tableName: 'Product',
-        timestamps: false,
+        timestamps: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        deletedAt: 'deleted_at',
+
     };
 
     const Product = Sequelize.define(alias, cols, config);
