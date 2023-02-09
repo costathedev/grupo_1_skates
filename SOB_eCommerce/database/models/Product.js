@@ -16,13 +16,7 @@ module.exports = (Sequelize, DataTypes) => {
         model:{
             type: DataTypes.STRING(50),
         },
-        color_id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true, 
-            allowNull: false,
-            field: 'color_id'
-
-        },
+    
         brand_id:{
             type: DataTypes.INTEGER,
             autoIncrement: true, 
@@ -60,12 +54,21 @@ module.exports = (Sequelize, DataTypes) => {
 
     //Agrego la asociación de Productos con Categorías
     Product.associate = function(models){
-        Product.belongsTo(models.Product, {
+        Product.belongsTo(models.Category, {
             as : 'categories',
             foreignKey : 'category_id',
             //Debería crear en la tabla de categorias en la DB el campo product_id
+        }),
+        Product.belongsToMany(models.Color, {
+            as : 'colors',
+            through: 'ProductColor',
+            foreignKey: 'product_id',
+            otherKey: 'color_id',
+            timestamps: false,
+            //Debería crear en la tabla de categorias en la DB el campo product_id
         })
-    }
+    };
+
 
     return Product;
 
