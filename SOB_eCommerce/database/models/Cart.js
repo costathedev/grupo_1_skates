@@ -79,3 +79,40 @@ module.exports = function(sequelize, dataTypes){
 
 
         });
+
+    
+      Cart.belongsToMany(models.Product, {
+
+
+
+
+            through: models.CartProduct,
+
+
+
+
+            as: "products",
+
+
+
+
+            foreingKey: "cart_id",
+
+
+
+            otherKey: "product_id"
+
+
+
+
+        })
+       
+
+
+
+    };
+
+
+
+    return Cart;
+   
