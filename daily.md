@@ -45,7 +45,7 @@ DAILY 01/02 (S6)
 
 - FABI:
 
-- RAMA:
+- RAMA: Termino productColor.js (despues no lo usamos porque se reemplazo) y esta arrancando con Cart.js  
 
 - FLOR:
 
@@ -59,6 +59,6 @@ DAILY 8/02 (S6)
 
 - FABI:
 
-- RAMA:
+- RAMA: Termino Cart.js con sus respectivas funciones y se elimino el productColor.js porque Fabi reemplazo en Product.js el contenido del ProductColor
 
 - FLOR:
