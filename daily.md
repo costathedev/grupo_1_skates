@@ -43,7 +43,7 @@ DAILY 01/02 (S6)
 
 - CARO: Hizo las entidades en el DER, las tablas, y los modelos de USER y ROLE. Faltan poblar la BD y adaptar los controllers de user.
 
-- FABI:
+- FABI: Hizo las entidades en el DER de la parte productos, las tablas, y los modelos de PRODUCT y COLOR. Faltan poblar la BD y adaptar los controllers de product.
 
 - RAMA: Termino productColor.js (despues no lo usamos porque se reemplazo) y esta arrancando con Cart.js  
 
