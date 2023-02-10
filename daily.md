@@ -11,9 +11,9 @@ DAILY 8/11 (S3):
 - RAMA : FALTA RUTEO DEL CARRITO Y NUEVA TAREA DE POLITICAS DE REEMBOLSO , UNIFICAR STYLESCARRITO AL CSS GENERAL.
 
 
-
 - FLOR : ARMO SISTEMAS DE RUTEO DEL PRODUCT DETAIL Y TAMBIEN EL PRODUCTS CONTROLLER , ARMO LA PARTE DE HTML DE ALTA PRODUCTO QUE ES LA PAGINA EN DONDE SE DA DE ALTA O MODIFICACIÓN DE UN PRODUCTO EXISTENTE , FALTA EL .CSS (DISEÑO) Y TAMBIEN LE FALTA EL ABOUT US DESDE 0 QUE ES LA NUEVA TAREA .
 
+-----------------------------------------------------
 
 DAILY 17/11 (S4):
 
@@ -25,6 +25,7 @@ DAILY 17/11 (S4):
 
 - FLOR: Terminó sus tareas del sprint anterior (S3) y ahora va a trabajar con el JSON de usuarios. 
 
+-----------------------------------------------------
 
 DAILY 06/12 (S5):
 
@@ -36,7 +37,28 @@ DAILY 06/12 (S5):
 
 - FLOR: Terminó sus tareas del sprint anterior (S4) y ahora va a trabajar con el resto del equipo en un esquema de "MOB PROGRAMMING". 
 
+-----------------------------------------------------
+
+DAILY 01/02 (S6)
+
+- CARO: Hizo las entidades en el DER, las tablas, y los modelos de USER y ROLE. Faltan poblar la BD y adaptar los controllers de user.
+
+- FABI:
+
+- RAMA:
+
+- FLOR:
 
 
 
+-----------------------------------------------------
 
+DAILY 8/02 (S6)
+
+- CARO: Adecuó los controllers de USER y cargó datos básicos en la BD. Faltan más datos pero no pudo armar bien imagenes aleatorias aún.
+
+- FABI:
+
+- RAMA:
+
+- FLOR:
