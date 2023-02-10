@@ -43,8 +43,8 @@ DAILY 01/02 (S6)
 
 - CARO: Hizo las entidades en el DER, las tablas, y los modelos de USER y ROLE. Faltan poblar la BD y adaptar los controllers de user.
 
-- FABI: Hizo las entidades en el DER de la parte productos, las tablas, y los modelos de PRODUCT y COLOR. Faltan poblar la BD y adaptar los controllers de product.
-
+- FABI: Hizo las entidades en el DER de la parte productos, las tablas, y el modelos de PRODUCT a la mitad.
+- 
 - RAMA: Termino productColor.js (despues no lo usamos porque se reemplazo) y esta arrancando con Cart.js  
 
 - FLOR:
@@ -57,7 +57,7 @@ DAILY 8/02 (S6)
 
 - CARO: Adecuó los controllers de USER y cargó datos básicos en la BD. Faltan más datos pero no pudo armar bien imagenes aleatorias aún.
 
-- FABI:
+- FABI: Termino los modelos PRODUCT y COLOR. Faltan poblar la BD y adaptar los controllers de product.
 
 - RAMA: Termino Cart.js con sus respectivas funciones y se elimino el productColor.js porque Fabi reemplazo en Product.js el contenido del ProductColor
 
