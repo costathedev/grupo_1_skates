@@ -129,9 +129,21 @@ Encontramos una nueva metodologia de trabajo, que se adapta mejor a nosotros, no
 * Nos sorprendio la complejidad del sprints y debemos buscar nuevas salidas para poder incorporarnos todos. 
 
 
+# 8/2 (S6)
 
+Aplicamos un nuevo esquema esta vez:
 
+## ANDUVO BIEN
 
+Organizar y dividir el trabajo al inicio del sprint.
+
+## SE PUEDE MEJORAR
+La coordinación entre compañeros cuando el trabajo de uno depende o necesita del trabajo de otro
+Tener más "masticado" el material antes de trabajar en el sprint
+
+## NO AYUDÓ MUCHO
+Dejar para ultimo momento
+Subestimar el trabajo
 
 
 
