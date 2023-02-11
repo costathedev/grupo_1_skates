@@ -40,10 +40,9 @@ module.exports = (Sequelize, DataTypes) => {
 
 
 
+        return Color
 
        
       
         //columnas
     };
-
-    return Color

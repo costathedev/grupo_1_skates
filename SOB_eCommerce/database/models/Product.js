@@ -19,14 +19,12 @@ module.exports = (Sequelize, DataTypes) => {
     
         brand_id:{
             type: DataTypes.INTEGER,
-            autoIncrement: true, 
             allowNull: false,
             field: 'brand_id'
 
         },
         category_id:{
             type: DataTypes.INTEGER,
-            autoIncrement: true, 
             allowNull: false,
             field: 'category_id'
 
