@@ -61,4 +61,4 @@ DAILY 8/02 (S6)
 
 - RAMA: Termino Cart.js con sus respectivas funciones y se elimino el productColor.js porque Fabi reemplazo en Product.js el contenido del ProductColor
 
-- FLOR:
+- FLOR: Creó la tabla categories en el DER, en phpMyAdmin e hizo las relaciones correspondientes en el código. Cargó la última versión de la base de datos integrada con phpMyAdmin. 
