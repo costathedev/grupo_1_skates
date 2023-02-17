@@ -29,6 +29,8 @@ module.exports = (Sequelize, DataTypes) => {
             field: 'category_id'
 
         },
+        section: DataTypes.STRING,
+        description: DataTypes.STRING,
         Image: {
             type: DataTypes.STRING,
         },

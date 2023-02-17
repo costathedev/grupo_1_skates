@@ -185,5 +185,14 @@
         "color": "Negro",
         "price": "44",
         "id": 24
+    },
+    {
+        "name": "pepe",
+        "description": "pepe",
+        "category": "1",
+        "size": "2",
+        "color": "negro",
+        "price": "1500",
+        "id": 25
     }
 ]
