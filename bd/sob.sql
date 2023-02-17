@@ -1,7 +1,3 @@
-CREATE SCHEMA `sob` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci ;
-USE `sob`;
-
-
 /*
  Navicat Premium Data Transfer
 
@@ -15,7 +11,7 @@ USE `sob`;
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 10/02/2023 22:42:08
+ Date: 16/02/2023 23:21:17
 */
 
 SET NAMES utf8mb4;
@@ -112,12 +108,14 @@ CREATE TABLE `product_sizes`  (
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products`  (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `price` decimal(16, 2) NOT NULL,
-  `model` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `brand_id` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `category_id` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `image` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `model` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `brand_id` int NOT NULL,
+  `category_id` int NOT NULL,
+  `image` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `section` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -125,11 +123,13 @@ CREATE TABLE `products`  (
   INDEX `id`(`id`) USING BTREE,
   INDEX `id_2`(`id`) USING BTREE,
   INDEX `id_3`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of products
 -- ----------------------------
+INSERT INTO `products` VALUES (1, 'Buzo Estilo Underground', 'En todos los tamaños', 5500.00, 'oversize', 1, 1, 'homebuzos1.jpg', 'ELEGIDOS', '2023-02-16 23:00:15', '2023-02-16 23:00:15', NULL);
+INSERT INTO `products` VALUES (2, 'ELEGIDOS', 'En todos los tamaños', 5500.00, 'oversize', 1, 1, 'homebuzos1.jpg', 'ELEGIDOS', '2023-02-16 23:00:15', '2023-02-16 23:00:15', NULL);
 
 -- ----------------------------
 -- Table structure for roles
@@ -205,7 +205,7 @@ CREATE TABLE `users`  (
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 513 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 514 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
@@ -413,5 +413,6 @@ INSERT INTO `users` VALUES (507, 'oliesco@gmail.com', 'Oli', 'Escobar', '$2a$10$
 INSERT INTO `users` VALUES (509, 'carolinabubenik@gmail.com', 'María Carolina', 'Bubenik Ricciardi', '$2a$10$fq2I1SpyCX/SWHknYlqk8eOj04wsIiOJ27hF2HkO2S3ssf0oUceHK', '1985-07-18', 'AV. PUJOL 1740', NULL, '1674990928265_Caro.jpg', '2023-01-29 08:15:28', '2023-01-29 09:15:47', NULL);
 INSERT INTO `users` VALUES (510, 'biancaescobarbubenik@gmail.com', 'Bianca', 'Josefina', '$2a$10$gyw/802qgmok5PtqkN4gCeHpEWygU/E3MiFR8WRN9Xm3c1JQpbEHy', '2008-12-11', 'Demir Mz24 S9 Apto 4', NULL, '1674993396902_FondoProcesos3.jpg', '2023-01-29 08:56:37', '2023-01-29 08:56:37', NULL);
 INSERT INTO `users` VALUES (511, 'admin@gmail.com', 'admin', 'admin', '$2a$10$sIEW2sBxAf6tN98MYDdXUulS8baeKYbHFlduBqyhCvbCjv/iBMBxy', '2000-01-01', 'admin', NULL, '1674994634785_fondoProcesos.webp', '2023-01-29 09:17:14', '2023-01-29 09:17:14', NULL);
+INSERT INTO `users` VALUES (513, 'oliesco@gmail.com', 'olivia', 'escobar', '$2a$10$ZFcxscNin/DmyfGE7P0vqet2txtKcvsN7yN9S/yqULkl5RDqYiwXO', '2018-07-13', 'fasfdsa', NULL, '1676595288705_D_NQ_NP_891262-MLA31018776146_062019-O.webp', '2023-02-16 21:54:48', '2023-02-16 21:54:48', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
