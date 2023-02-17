@@ -1,3 +1,4 @@
+const { Console } = require('console');
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
@@ -41,6 +42,7 @@ const productController = {
                 }         
             }   
         ).then ( productsHome => {
+            Console.log('Productos para la HOME:' + productsHome)
             return productsHome;
         })
         .catch ( err => {

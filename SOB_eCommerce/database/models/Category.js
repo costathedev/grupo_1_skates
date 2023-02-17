@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     const config = {
         // Nombre de tabla y si tiene timestamps
         tableName: "categories", 
-        timeStamps: false,
+        timeStamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     }

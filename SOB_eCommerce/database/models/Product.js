@@ -40,7 +40,7 @@ module.exports = (Sequelize, DataTypes) => {
 
     const config = {
         //nombre de tabla, si lleva stamptimes o no 
-        tableName: 'Product',
+        tableName: 'products',
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
@@ -58,15 +58,15 @@ module.exports = (Sequelize, DataTypes) => {
             as : 'categories',
             foreignKey : 'category_id',
             //Debería crear en la tabla de categorias en la DB el campo product_id
-        }),
-        Product.belongsToMany(models.Color, {
-            as : 'colors',
-            through: 'ProductColor',
-            foreignKey: 'product_id',
-            otherKey: 'color_id',
-            timestamps: false,
-            //Debería crear en la tabla de categorias en la DB el campo product_id
         })
+        // Product.belongsToMany(models.Color, {
+        //     as : 'colors',
+        //     through: 'ProductColor',
+        //     foreignKey: 'product_id',
+        //     otherKey: 'color_id',
+        //     timestamps: false,
+        //     //Debería crear en la tabla de categorias en la DB el campo product_id
+        // })
     };
 
 
