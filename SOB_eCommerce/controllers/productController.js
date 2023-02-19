@@ -26,33 +26,7 @@ let products = [ ];
 
 
 const productController = {    
-    getProductsHome: function () {
-        // Buscamos los productos que tienen alguna seccion configurada. Hoy es solo ELEGIDOS, podrian haber otras.
-        // loadProducts();
-        // let productsHome = products.filter( product => product.section);
-        // console.log('HOME: Se van a mostrar ' + productsHome.count + ' productos.');
-        // return productsHome;
-
-
-        db.Product.findAll(
-            {
-                include: [{association: 'categories'}],
-                where:{
-                    section: { [Op.not]: null } ,
-                }         
-            }   
-        ).then ( productsHome => {
-            Console.log('Productos para la HOME:' + productsHome)
-            return productsHome;
-        })
-        .catch ( err => {
-            console.log('Dio error al buscar el producto');
-            res.send(err) ;
-        })
-
-
-
-    },
+    
 
     productDetail: function(req, res){
         console.log('productDetail. URL:', req.url);

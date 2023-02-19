@@ -1,4 +1,6 @@
 const fs = require('fs');
+const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 
 const mainController = {
@@ -33,10 +35,24 @@ const mainController = {
     },
 
     home: (req, res)  => {
-        const productController = require('./productController');
-        let productsHome = productController.getProductsHome();
 
-        return res.render('main/index', {products: productsHome, userLogged: req.session.userLogged})
+        db.Product.findAll(
+            {
+                // include: [{association: 'categories'}],
+                where:{
+                    section: { [Op.not]: null } ,
+                }         
+            }   
+        ).then ( productsHome => {
+            console.log('Productos para la HOME:' + productsHome)
+            return res.render('main/index', {products: productsHome, userLogged: req.session.userLogged})
+
+        })
+        .catch ( err => {
+            console.log('Dio error al buscar el producto '+ err);
+        })
+
+      
     },
 
 
