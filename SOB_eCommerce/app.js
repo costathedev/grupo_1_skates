@@ -25,27 +25,26 @@ app.set('view engine', 'ejs');
 // Definir como públicos los recursos.
 app.use(express.static(path.resolve('./public')));
 
+// Para permitir PUT y PATCH en los formularios
 app.use(methodOverride('_method'));
 
-// Caro: Esto estaba antes de definir la constante "app" y daba error, lo pongo abajo:
+// Para permitir el paso de información en el body, con json
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-
-
-
+// Para mantener las sesiones de usuarios:
 app.use(session({
     secret: 'Its a secret',
     resave: false,
     saveUninitialized: false,
 }))
 
+// Para utilizar cookies
 app.use(cookies());
 
 // app.use(userLoggedMiddleware);
 
-// RUTEO
-// Rutas
+// RUTAS
 app.use('/', mainRoutes)
 app.use('/user', userRoutes);
 app.use('/product', productRoutes);
