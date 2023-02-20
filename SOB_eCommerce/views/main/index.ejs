@@ -74,7 +74,7 @@
           <section>
             <h2 class="homeh2-measure">Nuestros elegidos de la semana</h2>
             <div class="homecontenedor-section3">
-              <% products.filter(product => product.name =="ELEGIDOS"
+              <% products.filter(product => product.section =="ELEGIDOS"
               ).forEach( product => {%>
               <article class="art-imganddesc">
                 <a href="/product/<%= product.id %>/productDetail">
