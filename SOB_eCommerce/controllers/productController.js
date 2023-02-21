@@ -115,10 +115,7 @@ const productController = {
                 // include: [{association: 'categories'}],
                 where:{
                     [Op.or]: [ { name: { [Op.like]: '%' + search + '%' } } , {description: { [Op.like]: '%' + search + '%' }} ] ,
-                }
-                // where:{
-                //     name: { [Op.like]: '%' + search + '%' } 
-                // }           
+                }          
             }   
         ).then ( searchedProducts => {
                 return res.render('products/searchedProducts', {products: searchedProducts, userLogged: req.session.userLogged});
