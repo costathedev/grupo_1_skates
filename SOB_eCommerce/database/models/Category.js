@@ -64,7 +64,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Category.associate = function(models){
         Category.hasMany(models.Product, {
-            as : 'products',
+            as : 'Products',
             foreignKey : 'category_id',
             //Debería crear en la tabla de productos en la DB el campo category_id
         })

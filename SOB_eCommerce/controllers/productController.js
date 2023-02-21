@@ -29,14 +29,10 @@ const productController = {
     
 
     productDetail: function(req, res){
-        console.log('productDetail. URL:', req.url);
+        console.log('productDetail id: ' + req.params.id + '. URL:', req.url);
        
 
-        db.Product.findByPk({
-            where: {
-                id: req.params.id
-            },
-            include: [{association: 'categories'}]
+        db.Product.findByPk(req.params.id, {include: [{association: 'Category'}]
 
         }).then ( product => {
             console.log('Encontro el product');
@@ -47,7 +43,7 @@ const productController = {
 
         })
         .catch ( err => {
-            console.log('Dio error al buscar el producto');
+            console.log('Dio error al buscar el producto ' + err);
             res.send(err) ;
         }
        )
@@ -81,10 +77,14 @@ const productController = {
   
         db.Product.findAll(
             {
-                include: [{association: 'categories'}],
+                // include: [{association: 'Category'}],
                 where:{
-                    category: { [Op.Like]: categoryParam } ,
-                }         
+                    '$Category.name$': { [Op.Like]: categoryParam } ,
+                },
+                include: [{
+                    model: db.Category,
+                    as: 'Category'
+                }]       
             }   
         ).then ( productsHome => {
                 return res.render('products/searchedProducts', {category, products: searchedProducts, userLogged: req.session.userLogged});
@@ -112,10 +112,10 @@ const productController = {
     
         db.Product.findAll(
             {
-                include: [{association: 'categories'}],
-                where:{
-                    [Op.or]: [ {name: { [Op.Like]: '%' + search + '%' } } , {description: { [Op.Like]: '%' + search + '%' }} ] ,
-                }         
+                // include: [{association: 'categories'}],
+                // where:{
+                //     [Op.or]: [ {name: { [Op.Like]: '%' + search + '%' } } , {description: { [Op.Like]: '%' + search + '%' }} ] ,
+                // }         
             }   
         ).then ( searchedProducts => {
                 return res.render('products/searchedProducts', {products: searchedProducts, userLogged: req.session.userLogged});
