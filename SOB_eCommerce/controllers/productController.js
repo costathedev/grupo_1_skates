@@ -113,16 +113,19 @@ const productController = {
         db.Product.findAll(
             {
                 // include: [{association: 'categories'}],
+                where:{
+                    [Op.or]: [ { name: { [Op.like]: '%' + search + '%' } } , {description: { [Op.like]: '%' + search + '%' }} ] ,
+                }
                 // where:{
-                //     [Op.or]: [ {name: { [Op.Like]: '%' + search + '%' } } , {description: { [Op.Like]: '%' + search + '%' }} ] ,
-                // }         
+                //     name: { [Op.like]: '%' + search + '%' } 
+                // }           
             }   
         ).then ( searchedProducts => {
                 return res.render('products/searchedProducts', {products: searchedProducts, userLogged: req.session.userLogged});
 
         })
         .catch ( err => {
-            console.log('Dio error al buscar los productos para la búsqueda');
+            console.log('Dio error al buscar los productos para la búsqueda '+ err);
             res.send(err) ;
         })
     

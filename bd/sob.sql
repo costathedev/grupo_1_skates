@@ -1,4 +1,6 @@
+DROP DATABASE IF EXISTS  `sob`;
 CREATE DATABASE `sob` CHARACTER SET 'latin1' COLLATE 'latin1_spanish_ci';
+
 USE `sob`;
 
 
@@ -18,7 +20,7 @@ USE `sob`;
  Date: 20/02/2023 13:13:05
 */
 
-SET NAMES utf8mb4;
+SET NAMES latin1; -- utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
@@ -27,12 +29,12 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `brands`;
 CREATE TABLE `brands`  (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `name` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of brands
@@ -60,7 +62,7 @@ INSERT INTO `brands` VALUES (16, 'DGK', '2023-02-20 12:52:07', '2023-02-20 12:52
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories`  (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `parent_category_id` int UNSIGNED NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp ON UPDATE CURRENT_TIMESTAMP,
@@ -93,12 +95,12 @@ INSERT INTO `categories` VALUES (13, 'Freebord', 3, '2023-02-20 12:19:29', '2023
 DROP TABLE IF EXISTS `colors`;
 CREATE TABLE `colors`  (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `name` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = latin1 COLLATE = latin1_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of colors
@@ -141,7 +143,7 @@ CREATE TABLE `product_colors`  (
   INDEX `ix_color`(`color_id`) USING BTREE,
   CONSTRAINT `fkproduct` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fkcolor` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product_colors
@@ -175,7 +177,7 @@ CREATE TABLE `product_sizes`  (
   INDEX `ix_size`(`size_id`) USING BTREE,
   CONSTRAINT `fkproductsize` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fksize` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product_sizes
@@ -212,12 +214,12 @@ INSERT INTO `product_sizes` VALUES (12, 9);
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products`  (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `name` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
   `price` decimal(16, 2) NOT NULL,
-  `model` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `image` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `section` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `model` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
+  `image` varchar(150) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
+  `section` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
   `category_id` int UNSIGNED NOT NULL,
   `brand_id` int UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
@@ -249,13 +251,13 @@ INSERT INTO `products` VALUES (12, 'Skate DGK Finger', 'Skate de color naranja h
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles`  (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_spanish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of roles
@@ -271,12 +273,12 @@ INSERT INTO `roles` VALUES (4, 'Suscriptor', 'Suscripto a las notificaciones, s√
 DROP TABLE IF EXISTS `sizes`;
 CREATE TABLE `sizes`  (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `name` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sizes
@@ -304,7 +306,7 @@ CREATE TABLE `user_roles`  (
   INDEX `fk_user`(`user_id`) USING BTREE,
   CONSTRAINT `fk_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_spanish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_roles
@@ -317,19 +319,19 @@ INSERT INTO `user_roles` VALUES (1, 1);
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `email` varchar(254) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `first_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `last_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `email` varchar(254) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `first_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
+  `last_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
+  `password` varchar(100) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `birth_date` date NULL DEFAULT NULL,
-  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `avatar` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `address` varchar(100) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
+  `phone` varchar(15) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
+  `avatar` varchar(150) CHARACTER SET latin1 COLLATE latin1_spanish_ci NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 201 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 201 CHARACTER SET = latin1 COLLATE = latin1_spanish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
