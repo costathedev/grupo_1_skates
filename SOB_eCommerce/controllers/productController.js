@@ -135,7 +135,7 @@ const productController = {
 
     editProduct: function(req, res){
         console.log('editProduct. URL:', req.url);
-        console.log("Editando: ", req.params.id, "Ruta: ", rutaProductJson)
+        // console.log("Editando: ", req.params.id, "Ruta: ", rutaProductJson)
         // loadProducts();
         // let product = products.find( product => product.id == id );
         // if (product != undefined && product.id>0 ){
@@ -144,11 +144,7 @@ const productController = {
         // else {
         //    return res.send('No se encontró el producto ' + id)
         // }
-        db.Product.findByPk({
-            where: {
-                id: req.params.id
-            },
-            include: [{association: 'categories'}]
+        db.Product.findByPk(req.params.id, { include: [{association: 'Category'}]
 
         }).then ( product => {
             console.log('Encontro el product');
@@ -161,7 +157,7 @@ const productController = {
 
         })
         .catch ( err => {
-            console.log('No se encontró el producto ' + req.params.id);
+            console.log('No se encontró el producto ' + req.params.id + ' Error: ' + err);
             res.send(err) ;
         }
        )
@@ -197,7 +193,8 @@ const productController = {
         
         db.Product.findAll(
             {
-                include: [{association: 'Category'}],       
+                include: [{association: 'Category'}], 
+                where: {deleted_at: null },      
             }   
         ).then ( products => {
             return  res.render('products/list', {products, userLogged: req.session.userLogged})
@@ -241,8 +238,8 @@ const productController = {
             description: req.body.description,
             model: req.body.model,
             price: req.body.price,
-            band_id: req.body.band_id,
-            category_id: req.body.category_id,
+            brand_id: req.body.brand_id != null ? req.body.brand_id : 1,
+            category_id: req.body.category_id != null ? req.body.category_id : 1 ,
             image: req.file ? req.file.filename : 'default.png',
         };
       
@@ -293,26 +290,35 @@ const productController = {
     // } 
 
 
-    db.Product.update({
-        name: req.body.firstName,
-        description: req.body.lastName,
-        model: req.body.email,
-        price: req.body.address,
-        category_id : req.body.birthDate,
-        brand_id: req.body.firstName,
-        // image: req.file ? req.file : (image ?image : 'default.png'),
-    },
-    {
-        where: { id: req.params.id}
-    }
-    )
-    .then( producto =>{
-        return res.redirect('/product/'); })
+    db.Product.findByPk(req.params.id)
+    .then( prodAnt => {
+        db.Product.update({
+            name: req.body.name,
+            description: req.body.description,
+            model: req.body.model,
+            price: req.body.price,
+            category_id : req.body.category_id,
+            brand_id: req.body.brand_id,
+            image: req.file ? req.file.filename : (prodAnt.image ? prodAnt.image : 'default.png'),
+        },
+        {
+            where: { id: req.params.id}
+        }
+        )
+        .then( producto =>{
+            console.log('guardó el producto editado.')
+            return res.redirect('/product/'); })
+    
+        .catch ( err => {
+            console.log('NO encontró el producto a editar. Error: ' + err);
+        }
+        )  
+    } )
+    .catch( err => {
+        console.log('NO se pudo editar el producto. Error: ' + err);
+    })
 
-    .catch ( err => {
-        console.log('NO encontró el producto a editar ');
-    }
-    )  
+   
        
         
     },
