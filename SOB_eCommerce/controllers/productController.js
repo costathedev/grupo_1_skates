@@ -77,21 +77,22 @@ const productController = {
   
         db.Product.findAll(
             {
+                   include: [{
+                    model: db.Category,
+                    as: 'Category'
+                }] ,
                 // include: [{association: 'Category'}],
                 where:{
                     '$Category.name$': { [Op.Like]: categoryParam } ,
                 },
-                include: [{
-                    model: db.Category,
-                    as: 'Category'
-                }]       
+                   
             }   
         ).then ( productsHome => {
                 return res.render('products/searchedProducts', {category, products: searchedProducts, userLogged: req.session.userLogged});
 
         })
         .catch ( err => {
-            console.log('Dio error al buscar los productos de la categoría');
+            console.log('Dio error al buscar los productos de la categoría ' + err);
             res.send(err) ;
         })
   
