@@ -16,10 +16,10 @@ const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
 
 //validaciones
 const validateCreateForm = [
-    body('nombre').notEmpty(),
-    body('descripcion').notEmpty(),
-    body('myfile').notEmpty(),
-    body('price').notEmpty(),
+    body('nombre').notEmpty().withMessage('Debes completar el campo de nombre'),
+    body('descripcion').notEmpty().withMessage('Debes completar el campo de descripción'),
+    body('myfile').notEmpty().withMessage('Debes cargar una imagen'),
+    body('price').notEmpty().withMessage('Debes completar el campo de precio'),
 ]
 
 const storage = multer.diskStorage ( {
@@ -55,7 +55,7 @@ router.get('/:id/productDetail', productController.productDetail);
 // identificar el id recibido en req.params, buscar en el JSON de productos el que coincida con el ID.
 // renderizar la vista de producto enviando como dato el producto 
 
-router.post('/', uploadFile.single('image'), productController.saveNewProduct);
+router.post('/', validateCreateForm, uploadFile.single('image'), productController.saveNewProduct);
 //Obtener los datos del body, volcarlo en un nuevo objeto producto, agregarlo al array y volver a escribirlo al JSON
 
 router.put('/:id', uploadFile.single('image'), productController.saveEditedProduct);

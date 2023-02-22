@@ -9,7 +9,7 @@ const Op = db.Sequelize.Op;
 // let productFile = fs.readFileSync(rutaProductJson, 'utf-8');
 // let product = JSON.parse(productFile);
 
-let products = [ ];
+let products = [ ]; 
   
 
 // function loadProducts() {
