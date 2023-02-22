@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const { body } = require ('express-validator')
+
 const productController = require('../controllers/productController');
 const multer = require('multer');
+
 
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
@@ -9,6 +12,15 @@ const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
 // http://localhost:3050/product/productDetail
 // ctrl+K+C => Atajo para comentar todo lo que seleccionas.
 // ctrl+click sobre una función => Te redirecciona a la función seleccionada
+
+
+//validaciones
+const validateCreateForm = [
+    body('nombre').notEmpty(),
+    body('descripcion').notEmpty(),
+    body('myfile').notEmpty(),
+    body('price').notEmpty(),
+]
 
 const storage = multer.diskStorage ( {
     destination: function(req, file, cb) {
