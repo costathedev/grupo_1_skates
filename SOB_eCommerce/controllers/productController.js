@@ -75,6 +75,9 @@ const productController = {
         // let searchedProducts = products.filter(product => product.category && product.category.toLowerCase() == category.toLowerCase());
         // return res.render('products/searchedProducts', {category, products: searchedProducts, userLogged: req.session.userLogged});
   
+
+
+
         db.Product.findAll(
             {
                    include: [{
@@ -194,7 +197,7 @@ const productController = {
         
         db.Product.findAll(
             {
-                include: [{association: 'categories'}],       
+                include: [{association: 'Category'}],       
             }   
         ).then ( products => {
             return  res.render('products/list', {products, userLogged: req.session.userLogged})
