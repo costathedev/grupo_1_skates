@@ -2,7 +2,8 @@ window.addEventListener('load',function(){
     
     //Capturar el formulario 
     let formulario = document.querySelector('.login-form');
-    //console.log(formulario.elements.email.value);
+    
+    console.log(formulario.elements.email.value);
     formulario.addEventListener('submit',function(evento){
         
         if(!validaciones(evento)){
@@ -21,8 +22,6 @@ window.addEventListener('load',function(){
         let reEmail  = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
    
         //Validar el email - que no esté vacío el campo
-
-        let esValido = 0;
         if(email.value.length > 0) {
 
             if(!reEmail.test(email.value)){
@@ -30,7 +29,6 @@ window.addEventListener('load',function(){
                 //errores['last_name'] = 'El campo nombre no puede estar vacio...';
             }else{
                 //El email pasa la prueba de cant. de caracteres y validacion de caracteres
-                esValido++;
             }
 
         } else {
@@ -49,7 +47,6 @@ window.addEventListener('load',function(){
                 //errores['last_name'] = 'El campo nombre no puede estar vacio...';
             }else{
                 //La password fue ingresada y es válida
-                esValido++;
             }
 
         } else {
@@ -59,7 +56,6 @@ window.addEventListener('load',function(){
 
           //Aquí enviamos los errores al usuario
           let ulErrores = document.getElementById('errores');
-          ulErrores.classList.add('alert-danger')
           if(errores.length > 0){
               
               evento.preventDefault();
@@ -69,10 +65,7 @@ window.addEventListener('load',function(){
               }
               errores = [];
           }else{
-
-            if(esValido == 2){
                 return true;
-            }
           } 
         }
     })
