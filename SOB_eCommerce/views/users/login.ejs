@@ -19,9 +19,15 @@
                     <!-- ***** Esta parte se DEBE EDITAR ***** -->
 
                     <main class="login-container">
+
+                        <!--Aquí muestro los errores del lado del Js-Front -->
+                      <div>
+                        <ul id="errores"> </ul>
+                      </div>
+
                         <form action="/user/login" method="POST" class="login-form">
                             <h1>Ingresá</h1>
-                            <input type="text" class="reg-form-item" name="email" placeholder="usuario" required>
+                            <input type="text" class="reg-form-item" name="email" placeholder="usuario" value = "" required>
                             <input type="password" class="reg-form-item" name="password" placeholder="contraseña"
                                 required>
                             
@@ -56,7 +62,7 @@
 
                 <%- include('../partials/footer') %>
         </div>
-
+    <script src="/js/login.js"></script>
     </body>
 
 </html>
