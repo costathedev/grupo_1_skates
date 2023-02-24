@@ -71,7 +71,7 @@ window.onload = function () {
 		
 				!password.value.matches(
 		
-					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/,
 		
 					"i"
 		
@@ -80,7 +80,7 @@ window.onload = function () {
 					) {
 				passwordError.innerText =
 			
-				"Su contraseña debe debe contar con al menos una letra mínuscula , mayúscula y un número. Además , su longitud debe tener un mínimo de 8 caracteres.";
+				"Su contraseña debe debe contar con al menos una letra mínuscula , mayúscula y un número. Además , su longitud debe tener un mínimo de 6 caracteres.";
 		
 			} else if (password.value !== confirmPassword.value) {
 		
