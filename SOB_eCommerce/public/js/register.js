@@ -71,7 +71,7 @@ window.onload = function () {
 		
 				!password.value.matches(
 		
-					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/,
 		
 					"i"
 		
@@ -80,7 +80,7 @@ window.onload = function () {
 					) {
 				passwordError.innerText =
 			
-				"Su contraseña debe debe contar con al menos una letra mínuscula , mayúscula y un número. Además , su longitud debe tener un mínimo de 8 caracteres.";
+				"Su contraseña debe debe contar con al menos una letra mínuscula , mayúscula y un número. Además , su longitud debe tener un mínimo de 6 caracteres.";
 		
 			} else if (password.value !== confirmPassword.value) {
 		
@@ -109,32 +109,34 @@ window.onload = function () {
 			}
 
 
-		//se le envia al usuario los errores
+		//Aquí enviamos los errores al usuario
+	
+		let ulErrores = document.getElementById('errores');
 
-		if (
+		ulErrores.classList.add('alert-danger')
 		
-			!!nameError.innerText ||
-		
-			!!surnameError.innerText ||
-		
-			!!emailError.innerText ||
-		
-			!!passwordError.innerText ||
-         
-			!!imageError.innerText
-		) {
-		
+		if(errores.length > 0){
+			
 			evento.preventDefault();
 		
-			return;
-	
-		} else {
+			ulErrores.innerHTML = "";
 		
-			form.submit();
-	
-		}
+			for (let i = 0 ; i < errores.length; i++){
+		
+				ulErrores.innerHTML += `<li> ${errores[i]} </li> `
+		
+			}
+		
+			errores = [];
+		
+		}else{
+		
+			return true;
+		
+		} 
 	
 	});
 
 };
+
 

@@ -528,6 +528,14 @@ article img {
     align-self: flex-start;
 }
 
+.is-invalid {
+    border: 1px solid #EF5350;
+}
+
+.alert-danger {
+    color: #EF5350;
+}
+
 
 /* ------------------ REGISTER ------------------  */
 .reg-form {

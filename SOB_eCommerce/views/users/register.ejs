@@ -51,7 +51,7 @@
                     <input type="text" class="reg-form-item" name="firstName" placeholder="Nombre" value = "<%= locals.user && user.firstName %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required >
                     <input type="text" class="reg-form-item" name="lastName" placeholder="Apellido" value = "<%= locals.user && user.lastName %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required >
                     <input type="email" class="reg-form-item" name="email" placeholder="E-Mail"  value = "<%= locals.user && user.email %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required>
-                    <label class="reg-label reg-form-item" for="birthDate">Fecha de nacimiento</label>
+                    <label class="reg-label reg-form-item" for="birthDate" name="birthDate1">Fecha de nacimiento</label>
                     <input type="date" class="reg-form-item" name="birthDate" id="birthDate" placeholder=""
                             value = "<%= locals.user && user.birthDate %>"  required>
                     <input type="text" class="reg-form-item" name="address" placeholder="domicilio"  value = "<%= locals.user && user.address %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required>

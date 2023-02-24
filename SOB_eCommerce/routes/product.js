@@ -16,8 +16,8 @@ const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
 
 //validaciones
 const validateCreateForm = [
-    body('nombre').notEmpty().withMessage('Debes completar el campo de nombre'),
-    body('descripcion').notEmpty().withMessage('Debes completar el campo de descripción'),
+    body('name').notEmpty().withMessage('Debes completar el campo de nombre'),
+    body('description').notEmpty().withMessage('Debes completar el campo de descripción'),
     body('myfile').notEmpty().withMessage('Debes cargar una imagen'),
     body('price').notEmpty().withMessage('Debes completar el campo de precio'),
 ]

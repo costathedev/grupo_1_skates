@@ -1,4 +1,5 @@
 const { Console } = require('console');
+const { validationResult } = require('express-validator')
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
@@ -224,34 +225,44 @@ const productController = {
 
 
         //En esta variable guardo lo enviado desde la ruta, con respecto a los errores encontrados en la carga de los datos por parte del usuario
-        let errors = {}; // validationResult(req); HACER!!
-        //return res.send(errors); ???
+        let errors = validationResult(req); // validationResult(req); HACER!!
+
 
         //Aquí determino si hay ó no errores encontrados
-        // if(!errors.isEmpty()) {
-        //   return res.render(path.resolve(__dirname, '../views/usuarios/registro'), {
-        //     errors: errors.errors,  old: req.body
-        //   });
-        // } 
+        if (errors.isEmpty()) {
+            //   return res.render(path.resolve(__dirname, '../views/usuarios/registro'), {
+            //     errors: errors.errors,  old: req.body
+            //   });
+            // } 
+            // section: req.body.section,
+            let product = {
+                name: req.body.name,
+                description: req.body.description,
+                model: req.body.model,
+                price: req.body.price,
+                brand_id: req.body.brand_id != null ? req.body.brand_id : 1,
+                category_id: req.body.category_id != null ? req.body.category_id : 1,
+                image: req.file ? req.file.filename : 'default.png',
+            };
 
-        // section: req.body.section,
-        let product = {
-            name: req.body.name,
-            description: req.body.description,
-            model: req.body.model,
-            price: req.body.price,
-            brand_id: req.body.brand_id != null ? req.body.brand_id : 1,
-            category_id: req.body.category_id != null ? req.body.category_id : 1,
-            image: req.file ? req.file.filename : 'default.png',
-        };
+            db.Product.create(product)
+                .then(storedProduct => {
+                    return res.redirect('/product');
+                })
+                .catch(error => console.log(error));
 
-        db.Product.create(product)
-            .then(storedProduct => {
-                return res.redirect('/product');
-            })
-            .catch(error => console.log(error));
+        } else {
 
+            res.render('products/altaProducto', {
+                errors: errors.array(),
+                old: req.body
+
+            });
+            //{ userLogged: req.session.userLogged})
+
+        }
     },
+
 
     saveEditedProduct: function (req, res) {
         console.log('saveEditedProduct. URL:', req.url);
@@ -336,18 +347,14 @@ const productController = {
 
         // return res.redirect('/product');
 
-        db.Product.destroy({
+        db.Product.update({ deleted_at: new Date() }, {
             where: { id: req.params.id }
         })
-            // db.Product.update( { deleted_at: new Date(), description: 'Eliminado' }, {
-            //     where: { id: req.params.id}
-            // })
             .then(product => {
-                console.log('Dio de baja el producto')
                 return res.redirect('/product');
             })
             .catch(err => {
-                console.log('NO encontró el producto a eliminar. Error: ' + err);
+                console.log('NO encontró el producto a eliminar ');
             }
             )
 

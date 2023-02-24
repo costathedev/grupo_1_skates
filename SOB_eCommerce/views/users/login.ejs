@@ -27,9 +27,8 @@
 
                         <form action="/user/login" method="POST" class="login-form">
                             <h1>Ingresá</h1>
-                            <input type="text" class="reg-form-item" name="email" placeholder="usuario" value = "" required>
-                            <input type="password" class="reg-form-item" name="password" placeholder="contraseña"
-                                required>
+                            <input type="text" class="reg-form-item" name="email" placeholder="usuario" value = "" >
+                            <input type="password" class="reg-form-item" name="password" placeholder="contraseña">
                             
                             <% if(locals.mensaje) {%>
                                 <p class="reg-error"><%= mensaje%></p>
