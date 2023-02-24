@@ -109,32 +109,34 @@ window.onload = function () {
 			}
 
 
-		//se le envia al usuario los errores
+		//Aquí enviamos los errores al usuario
+	
+		let ulErrores = document.getElementById('errores');
 
-		if (
+		ulErrores.classList.add('alert-danger')
 		
-			!!nameError.innerText ||
-		
-			!!surnameError.innerText ||
-		
-			!!emailError.innerText ||
-		
-			!!passwordError.innerText ||
-         
-			!!imageError.innerText
-		) {
-		
+		if(errores.length > 0){
+			
 			evento.preventDefault();
 		
-			return;
-	
-		} else {
+			ulErrores.innerHTML = "";
 		
-			form.submit();
-	
-		}
+			for (let i = 0 ; i < errores.length; i++){
+		
+				ulErrores.innerHTML += `<li> ${errores[i]} </li> `
+		
+			}
+		
+			errores = [];
+		
+		}else{
+		
+			return true;
+		
+		} 
 	
 	});
 
 };
+
 
