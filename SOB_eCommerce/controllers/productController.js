@@ -1,4 +1,5 @@
 const { Console } = require('console');
+const { validationResult } = require('express-validator')
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
@@ -9,8 +10,8 @@ const Op = db.Sequelize.Op;
 // let productFile = fs.readFileSync(rutaProductJson, 'utf-8');
 // let product = JSON.parse(productFile);
 
-let products = [ ]; 
-  
+let products = [];
+
 
 // function loadProducts() {
 //     let productsFile = fs.readFileSync(rutaProductJson, 'utf-8');
@@ -25,84 +26,85 @@ let products = [ ];
 // };
 
 
-const productController = {    
-    
+const productController = {
 
-    productDetail: function(req, res){
+
+    productDetail: function (req, res) {
         console.log('productDetail id: ' + req.params.id + '. URL:', req.url);
-       
 
-        db.Product.findByPk(req.params.id, {include: [{association: 'Category'}]
 
-        }).then ( product => {
+        db.Product.findByPk(req.params.id, {
+            include: [{ association: 'Category' }]
+
+        }).then(product => {
             console.log('Encontro el product');
-            if (product != undefined && product.id>0 ){
-                return  res.render('products/productDetail', {product, userLogged: req.session.userLogged})
-                 
+            if (product != undefined && product.id > 0) {
+                return res.render('products/productDetail', { product, userLogged: req.session.userLogged })
+
             }
 
         })
-        .catch ( err => {
-            console.log('Dio error al buscar el producto ' + err);
-            res.send(err) ;
-        }
-       )
+            .catch(err => {
+                console.log('Dio error al buscar el producto ' + err);
+                res.send(err);
+            }
+            )
 
 
         // let product = products.find( product => product.id == id);
         // if (product){
         //   return  res.render('products/productDetail', {product, userLogged: req.session.userLogged})
         // } 
-    
+
     },
 
 
-    newProduct: function(req, res) {
+    newProduct: function (req, res) {
         console.log('newProduct. URL:', req.url);
-      
-      return  res.render('products/altaProducto', { userLogged: req.session.userLogged})
+
+        return res.render('products/altaProducto', { userLogged: req.session.userLogged })
     },
 
-    searchProductsByCategory: function(req, res) {
+    searchProductsByCategory: function (req, res) {
         console.log('searchProductsByCategory. URL:', req.url);
 
         // Por ahora usamos para filtrar categorias
         let categoryParam = "";
         categoryParam = req.params.category;
-        console.log('Categoria: '+ categoryParam);
+        console.log('Categoria: ' + categoryParam);
 
         // loadProducts(); 
         // let searchedProducts = products.filter(product => product.category && product.category.toLowerCase() == category.toLowerCase());
         // return res.render('products/searchedProducts', {category, products: searchedProducts, userLogged: req.session.userLogged});
-  
+
 
 
 
         db.Product.findAll(
             {
-                   include: [{
+                include: [{
                     model: db.Category,
                     as: 'Category'
-                }] ,
+                }],
                 // include: [{association: 'Category'}],
-                where:{
-                    '$Category.name$': { [Op.Like]: categoryParam } ,
+                where: {
+                    '$Category.name$': { [Op.Like]: categoryParam },
                 },
-                   
-            }   
-        ).then ( productsHome => {
-                return res.render('products/searchedProducts', {category, products: searchedProducts, userLogged: req.session.userLogged});
+
+            }
+        ).then(productsHome => {
+            return res.render('products/searchedProducts', { category, products: searchedProducts, userLogged: req.session.userLogged });
 
         })
-        .catch ( err => {
-            console.log('Dio error al buscar los productos de la categoría ' + err);
-            res.send(err) ;
-        })
-  
+            .catch(err => {
+                console.log('Dio error al buscar los productos de la categoría ' + err);
+                res.send(err);
+            })
+
     },
 
 
-    searchProducts: function(req, res) {
+    searchProducts: function (req, res) {
         console.log('searchProducts. URL:', req.url);
 
         // esto no anda
@@ -113,27 +115,27 @@ const productController = {
         //                     || product.name.toLowerCase().includes(search.toLowerCase())));
 
         // return res.render('products/searchedProducts', {products: searchedProducts, userLogged: req.session.userLogged});
-    
+
         db.Product.findAll(
             {
                 // include: [{association: 'categories'}],
-                where:{
-                    [Op.or]: [ { name: { [Op.like]: '%' + search + '%' } } , {description: { [Op.like]: '%' + search + '%' }} ] ,
-                }          
-            }   
-        ).then ( searchedProducts => {
-                return res.render('products/searchedProducts', {products: searchedProducts, userLogged: req.session.userLogged});
+                where: {
+                    [Op.or]: [{ name: { [Op.like]: '%' + search + '%' } }, { description: { [Op.like]: '%' + search + '%' } }],
+                }
+            }
+        ).then(searchedProducts => {
+            return res.render('products/searchedProducts', { products: searchedProducts, userLogged: req.session.userLogged });
 
         })
-        .catch ( err => {
-            console.log('Dio error al buscar los productos para la búsqueda '+ err);
-            res.send(err) ;
-        })
-    
+            .catch(err => {
+                console.log('Dio error al buscar los productos para la búsqueda ' + err);
+                res.send(err);
+            })
+
     },
 
 
-    editProduct: function(req, res){
+    editProduct: function (req, res) {
         console.log('editProduct. URL:', req.url);
         // console.log("Editando: ", req.params.id, "Ruta: ", rutaProductJson)
         // loadProducts();
@@ -144,28 +146,29 @@ const productController = {
         // else {
         //    return res.send('No se encontró el producto ' + id)
         // }
-        db.Product.findByPk(req.params.id, { include: [{association: 'Category'}]
+        db.Product.findByPk(req.params.id, {
+            include: [{ association: 'Category' }]
 
-        }).then ( product => {
+        }).then(product => {
             console.log('Encontro el product');
-            if (product != undefined && product.id>0 ){
-                return res.render('products/altaProducto', {product, userLogged: req.session.userLogged})
+            if (product != undefined && product.id > 0) {
+                return res.render('products/altaProducto', { product, userLogged: req.session.userLogged })
             }
             else {
                 return res.send('No se encontró el producto ' + req.params.id)
             }
 
         })
-        .catch ( err => {
-            console.log('No se encontró el producto ' + req.params.id + ' Error: ' + err);
-            res.send(err) ;
-        }
-       )
+            .catch(err => {
+                console.log('No se encontró el producto ' + req.params.id + ' Error: ' + err);
+                res.send(err);
+            }
+            )
 
     },
-    
 
-    carroDeCompras: (function(req, res) {
+
+    carroDeCompras: (function (req, res) {
         // FALTA !!!!!!!!!!!!!!
         console.log('carroDeCompras. URL:', req.url);
         let cartProducts = [];
@@ -173,43 +176,43 @@ const productController = {
             console.log('Hay productos en session: ' + req.session.cartProducts);
             loadProducts();
             for (let i = 0; i < req.session.cartProducts.length; i++) {
-                console.log('Producto Id: ' +  req.session.cartProducts[i]);
-                let product = products.find( p => p.id == req.session.cartProducts[i]);
+                console.log('Producto Id: ' + req.session.cartProducts[i]);
+                let product = products.find(p => p.id == req.session.cartProducts[i]);
                 if (product) {
-                    console.log('Encontro Producto Id: ' +  product.id + ' ' + product.name);
+                    console.log('Encontro Producto Id: ' + product.id + ' ' + product.name);
                     cartProducts.push(product);
                 }
             }
         }
         console.log('Se van a mostrar en el carrito: ' + cartProducts);
-        return res.render('products/carrodecompras', {products: cartProducts, userLogged: req.session.userLogged})
+        return res.render('products/carrodecompras', { products: cartProducts, userLogged: req.session.userLogged })
     }),
-  
-    
-    index: function(req, res){
+
+
+    index: function (req, res) {
         console.log('index. URL:', req.url);
         // loadProducts();
         // return  res.render('products/list', {products, userLogged: req.session.userLogged})
-        
+
         db.Product.findAll(
             {
-                include: [{association: 'Category'}], 
-                where: {deleted_at: null },      
-            }   
-        ).then ( products => {
-            return  res.render('products/list', {products, userLogged: req.session.userLogged})
+                include: [{ association: 'Category' }],
+                where: { deleted_at: null },
+            }
+        ).then(products => {
+            return res.render('products/list', { products, userLogged: req.session.userLogged })
         })
-        .catch ( err => {
-            console.log('Dio error al buscar los productos');
-            res.send(err) ;
-        })
-    }, 
-    
-    saveNewProduct: function(req, res){
+            .catch(err => {
+                console.log('Dio error al buscar los productos');
+                res.send(err);
+            })
+    },
+
+    saveNewProduct: function (req, res) {
         console.log('saveNewProduct. URL:', req.url);
         // console.log('Name: ' + req.body.name);
 
-        console.log('Body Name: ' );
+        console.log('Body Name: ');
         console.log(req.body.name);
         // let product = req.body;
         // loadProducts();
@@ -221,37 +224,47 @@ const productController = {
         // return  res.redirect('/product');
 
 
-    //En esta variable guardo lo enviado desde la ruta, con respecto a los errores encontrados en la carga de los datos por parte del usuario
-    let errors= {}; // validationResult(req); HACER!!
-    //return res.send(errors); ???
+        //En esta variable guardo lo enviado desde la ruta, con respecto a los errores encontrados en la carga de los datos por parte del usuario
+        let errors = validationResult(req); // validationResult(req); HACER!!
 
-    //Aquí determino si hay ó no errores encontrados
-    // if(!errors.isEmpty()) {
-    //   return res.render(path.resolve(__dirname, '../views/usuarios/registro'), {
-    //     errors: errors.errors,  old: req.body
-    //   });
-    // } 
 
+        //Aquí determino si hay ó no errores encontrados
+        if (errors.isEmpty()) {
+            //   return res.render(path.resolve(__dirname, '../views/usuarios/registro'), {
+            //     errors: errors.errors,  old: req.body
+            //   });
+            // } 
             // section: req.body.section,
-        let product = {
-            name: req.body.name,
-            description: req.body.description,
-            model: req.body.model,
-            price: req.body.price,
-            brand_id: req.body.brand_id != null ? req.body.brand_id : 1,
-            category_id: req.body.category_id != null ? req.body.category_id : 1 ,
-            image: req.file ? req.file.filename : 'default.png',
-        };
-      
-        db.Product.create(product)
-        .then( storedProduct => {
-            return  res.redirect('/product');
-        })
-        .catch(error => console.log(error));
+            let product = {
+                name: req.body.name,
+                description: req.body.description,
+                model: req.body.model,
+                price: req.body.price,
+                brand_id: req.body.brand_id != null ? req.body.brand_id : 1,
+                category_id: req.body.category_id != null ? req.body.category_id : 1,
+                image: req.file ? req.file.filename : 'default.png',
+            };
 
+            db.Product.create(product)
+                .then(storedProduct => {
+                    return res.redirect('/product');
+                })
+                .catch(error => console.log(error));
+
+        } else {
+
+            res.render('products/altaProducto', {
+                errors: errors.array(),
+                old: req.body
+
+            });
+            //{ userLogged: req.session.userLogged})
+
+        }
     },
 
-    saveEditedProduct:  function(req, res){
+
+    saveEditedProduct: function (req, res) {
         console.log('saveEditedProduct. URL:', req.url);
         // loadProducts();
         // let id = req.params.id;
@@ -278,53 +291,54 @@ const productController = {
         //     console.log('NO encontró el producto a editar: ');
         // }
 
-         //En esta variable guardo lo enviado desde la ruta, con respecto a los errores encontrados en la carga de los datos por parte del usuario
-    let errors= {}; // validationResult(req); HACER!!
-    //return res.send(errors); ???
+        //En esta variable guardo lo enviado desde la ruta, con respecto a los errores encontrados en la carga de los datos por parte del usuario
+        let errors = {}; // validationResult(req); HACER!!
+        //return res.send(errors); ???
 
-    //Aquí determino si hay ó no errores encontrados
-    // if(!errors.isEmpty()) {
-    //   return res.render(path.resolve(__dirname, '../views/usuarios/registro'), {
-    //     errors: errors.errors,  old: req.body
-    //   });
-    // } 
+        //Aquí determino si hay ó no errores encontrados
+        // if(!errors.isEmpty()) {
+        //   return res.render(path.resolve(__dirname, '../views/usuarios/registro'), {
+        //     errors: errors.errors,  old: req.body
+        //   });
+        // } 
 
 
-    db.Product.findByPk(req.params.id)
-    .then( prodAnt => {
-        db.Product.update({
-            name: req.body.name,
-            description: req.body.description,
-            model: req.body.model,
-            price: req.body.price,
-            category_id : req.body.category_id,
-            brand_id: req.body.brand_id,
-            image: req.file ? req.file.filename : (prodAnt.image ? prodAnt.image : 'default.png'),
-        },
-        {
-            where: { id: req.params.id}
-        }
-        )
-        .then( producto =>{
-            console.log('guardó el producto editado.')
-            return res.redirect('/product/'); })
-    
-        .catch ( err => {
-            console.log('NO encontró el producto a editar. Error: ' + err);
-        }
-        )  
-    } )
-    .catch( err => {
-        console.log('NO se pudo editar el producto. Error: ' + err);
-    })
+        db.Product.findByPk(req.params.id)
+            .then(prodAnt => {
+                db.Product.update({
+                    name: req.body.name,
+                    description: req.body.description,
+                    model: req.body.model,
+                    price: req.body.price,
+                    category_id: req.body.category_id,
+                    brand_id: req.body.brand_id,
+                    image: req.file ? req.file.filename : (prodAnt.image ? prodAnt.image : 'default.png'),
+                },
+                    {
+                        where: { id: req.params.id }
+                    }
+                )
+                    .then(producto => {
+                        console.log('guardó el producto editado.')
+                        return res.redirect('/product/');
+                    })
 
-   
-       
-        
+                    .catch(err => {
+                        console.log('NO encontró el producto a editar. Error: ' + err);
+                    }
+                    )
+            })
+            .catch(err => {
+                console.log('NO se pudo editar el producto. Error: ' + err);
+            })
+
+
+
+
     },
 
 
-    deleteProduct: function(req, res){
+    deleteProduct: function (req, res) {
         console.log('deleteProduct. URL:', req.url);
         // loadProducts();
         // let id = req.params.id;
@@ -333,16 +347,16 @@ const productController = {
 
         // return res.redirect('/product');
 
-        db.Product.update( { deleted_at: new Date() }, {
-            where: { id: req.params.id}
+        db.Product.update({ deleted_at: new Date() }, {
+            where: { id: req.params.id }
         })
-        .then (product => {
-            return res.redirect('/product');
-        })
-        .catch ( err => {
-            console.log('NO encontró el producto a eliminar ');
-        }
-        )  
+            .then(product => {
+                return res.redirect('/product');
+            })
+            .catch(err => {
+                console.log('NO encontró el producto a eliminar ');
+            }
+            )
 
     },
 
@@ -351,7 +365,7 @@ const productController = {
 
         let id = req.params.id;
         console.log('Producto a agregar id: ' + id);
-        
+
         if (!req.session.cartProducts) {
             req.session.cartProducts = [];
         }

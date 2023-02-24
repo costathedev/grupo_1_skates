@@ -2,12 +2,27 @@ const express = require('express');
 const router = express.Router();
 const userController = require ('../controllers/userController');
 const multer = require('multer');
+const { body } = require ('express-validator')
+
+
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
 
 // Middlewares
 
 const guestMiddleware = require('../middlewares/guestMiddleware');
+
+
+//validaciones
+const validateUserForm = [
+    body('firstName').notEmpty().withMessage('Debes completar el campo de nombre'),
+    body('lastName').notEmpty().withMessage('Debes completar el campo de descripción'),
+    body('email').isEmail().withMessage('Debes ingresar un email'),
+    body('birthDate1').notEmpty().withMessage('Debes ingresar una fecha'),
+]
+
+
+
 
 const storage = multer.diskStorage ( {
     destination: function(req, file, cb) {
@@ -41,7 +56,7 @@ router.get('/:id/userDetail', userController.userDetail);
 
 router.post('/', uploadFile.single('avatar'), userController.saveNewUser);
 
-router.post('/created', userController.saveNewUser);
+router.post('/created', validateUserForm, userController.saveNewUser);
 
 router.post('/login', userController.login);
 
