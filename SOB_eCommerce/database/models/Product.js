@@ -34,6 +34,10 @@ module.exports = (Sequelize, DataTypes) => {
         image: {
             type: DataTypes.STRING,
         },
+        deletedAt: {
+            type: DataTypes.DATE,
+            field: 'deleted_at'
+        }
       
         //columnas
     };

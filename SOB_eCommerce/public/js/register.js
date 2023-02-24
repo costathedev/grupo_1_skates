@@ -75,6 +75,12 @@ window.onload = function () {
 			} else if (password.value !== confirmPassword.value) {
 		
 				passwordError.innerText = "Las contraseñas no coinciden";
+
+                errores.push(
+		
+					"Las contraseñas no coinciden"
+			
+					);
 		
 			}
 	
@@ -119,5 +125,3 @@ window.onload = function () {
 	});
 
 };
-
-
