@@ -5,35 +5,25 @@ window.onload = function () {
 
 
 
-	let form = document.querySelector(".form-register");
-
-	let nameError = document.getElementById("nameError");
-
-	let surnameError = document.getElementById("surnameError");
-
-	let emailError = document.getElementById("emailError");
-
-	let passwordError = document.getElementById("passwordError");
-
-	let imageError = document.getElementById("imageError");
-
-	let image = document.querySelector("input[type=file]");
+	let form = document.querySelector(".reg-form");
+	let nameError = document.getElementById("firstName");
+	let surnameError = document.getElementById("lastName");
+	let emailError = document.getElementById("email");
+	let passwordError = document.getElementById("password");
+	let imageError = document.getElementById("avatar");
 
 
 	// submit datos
 
 	form.addEventListener("submit", (evento) => {
 		
-		let name = document.getElementById("name");
-		
-		let surname = document.getElementById("apellido");
-		
-		let email = document.getElementById("email");
-	
-		let password = document.getElementById("password");
-		
-		let confirmPassword = document.getElementById("confirmPassword");
+		let name = document.getElementById("firstName");		
+		let surname = document.getElementById("lastName");		
+		let email = document.getElementById("email");	
+		let password = document.getElementById("password");		
+		let confirmPassword = document.getElementById("password_repeated");
 
+		let errores = [];
 
 		//valido el nombre
 	
@@ -70,8 +60,8 @@ window.onload = function () {
 			if (
 		
 				!password.value.matches(
-		
-					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+
+					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/,
 		
 					"i"
 		
@@ -80,11 +70,17 @@ window.onload = function () {
 					) {
 				passwordError.innerText =
 			
-				"Su contraseña debe debe contar con al menos una letra mínuscula , mayúscula y un número. Además , su longitud debe tener un mínimo de 8 caracteres.";
+				"Su contraseña debe debe contar con al menos una letra mínuscula , mayúscula y un número. Además , su longitud debe tener un mínimo de 6 caracteres.";
 		
 			} else if (password.value !== confirmPassword.value) {
 		
 				passwordError.innerText = "Las contraseñas no coinciden";
+
+                errores.push(
+		
+					"Las contraseñas no coinciden"
+			
+					);
 		
 			}
 	
@@ -100,7 +96,7 @@ window.onload = function () {
 	
 		if (!imageValidation) {
 		
-			error.push(
+			errores.push(
 		
 				"Se permiten archivos de formato [PNG, JPG, JPEG, GIF] únicamente."
 		
@@ -109,32 +105,23 @@ window.onload = function () {
 			}
 
 
-		//se le envia al usuario los errores
+		//Aquí enviamos los errores al usuario
+	
+		let ulErrores = document.getElementById('errores');
+		ulErrores.classList.add('alert-danger')
+		
+		if(errores.length > 0){
 
-		if (
-		
-			!!nameError.innerText ||
-		
-			!!surnameError.innerText ||
-		
-			!!emailError.innerText ||
-		
-			!!passwordError.innerText ||
-         
-			!!imageError.innerText
-		) {
-		
-			evento.preventDefault();
-		
-			return;
-	
-		} else {
-		
-			form.submit();
-	
-		}
+			evento.preventDefault();		
+			ulErrores.innerHTML = "";		
+			for (let i = 0 ; i < errores.length; i++){		
+				ulErrores.innerHTML += `<li> ${errores[i]} </li> `		
+			}		
+			errores = [];		
+		}else{		
+			return true;		
+		} 		
 	
 	});
 
 };
-

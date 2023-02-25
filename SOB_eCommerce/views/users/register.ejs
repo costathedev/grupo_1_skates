@@ -21,6 +21,10 @@
 
             <main>
 
+                <div>
+                    <ul id="errores"> </ul>
+                </div>                    
+
                 <% if (locals && locals.user && !locals.readOnly) { %>
                     <!-- Si hay un usuario, se hace PUT: -->
                     <form action="/user/<%= user.id %>?_method=PUT" method="POST" class="reg-form" enctype="multipart/form-data">
