@@ -7,8 +7,8 @@ function categoriesListMiddleware(req, res, next) {
         })
         .then( categories => {
             res.locals.categories = categories;
-            console.log('Categorias de variable locals.categories: ');
-            console.log(res.locals.categories);
+            console.log('Cargó categorias en variable locals.categories: ');
+            // console.log(res.locals.categories);
         })
         .catch( err => {
             console.log('Error al buscar las categorías: ' + err);

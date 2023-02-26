@@ -20,7 +20,7 @@ const validateCreateForm = [
     body('name').notEmpty().isLength({ min: 5 }).withMessage('Debes completar el campo de nombre'),
     body('description').notEmpty().isLength({ min: 20 }).withMessage('Debes completar el campo de descripción'),
     body('price').notEmpty().withMessage('Debes completar el campo de precio')
-]
+];
 
 const validateImgProduct = [
     check('image')
@@ -30,7 +30,7 @@ const validateImgProduct = [
         }
         return true;
       })
-  ]
+  ];
 
 
 
@@ -68,7 +68,8 @@ router.get('/:id/productDetail', productController.productDetail);
 // identificar el id recibido en req.params, buscar en el JSON de productos el que coincida con el ID.
 // renderizar la vista de producto enviando como dato el producto 
 
-router.post('/', validateCreateForm, validateImgProduct, uploadFile.single('image'), productController.saveNewProduct);
+//validateImgProduct
+router.post('/', validateCreateForm, uploadFile.single('image'), productController.saveNewProduct);
 //Obtener los datos del body, volcarlo en un nuevo objeto producto, agregarlo al array y volver a escribirlo al JSON
 
 router.put('/:id', uploadFile.single('image'), productController.saveEditedProduct);
