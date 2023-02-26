@@ -9,7 +9,8 @@ const Op = db.Sequelize.Op;
 
 const rutaUsersJson = path.resolve('./data/users.json');
 
-let users = [];
+// Ya no se usa el Json de usuarios
+// let users = [];
 
 // BORRAR
 // function loadUsers() {
@@ -26,8 +27,9 @@ let users = [];
 
 const userController = {
     showLogin: function(req, res) {
+        console.log(req.session)
         console.log('ShowLogin. URL:', req.url);
-        return  res.render('users/login', {userLogged: req.session.userLogged});
+        return  res.render('users/login')// , {userLogged: req.session.userLogged});
     },
 
     login: function(req, res) {
@@ -41,7 +43,6 @@ const userController = {
        db.User.findOne({
             where: {
                 email: userName
-                // email: {[Op.Like]: userName}
             },
             include: [{association: 'roles'}]
         }).then ( user => {
@@ -50,9 +51,12 @@ const userController = {
                 console.log('Va a comparar password: ' + user.password + ' con: ' + bcrypt.hashSync(req.body.password, 10) );
                 if (bcrypt.compareSync(req.body.password, user.password)) {
                     accesoOk = true; 
-                    delete user.password;
+                    delete user.password;  // no me toma! sigue estando el password
                     req.session.userLogged = user;
                     req.session.cartProducts = [];
+
+                    console.log('EStas loguado: ******************' )
+                    console.log(req.session)
     
                     //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 5 (decia 2) minutos.
                     if(req.body.remember_user){
@@ -63,7 +67,7 @@ const userController = {
                 } 
             }
             if (!accesoOk){
-                return res.render('users/login', {mensaje: 'El usuario o la contraseña son incorrectos.', userLogged: req.session.userLogged});
+                return res.render('users/login', {mensaje: 'El usuario o la contraseña son incorrectos.'})// , userLogged: req.session.userLogged});
             }
         })
         .catch ( err => {
@@ -76,19 +80,20 @@ const userController = {
 
     logOut: function(req, res) {
         res.clearCookie('userEmail');
-        req.session.userLogged = null;
-        req.session.cartProducts = [];
+        // req.session.userLogged = null;
+        // req.session.cartProducts = [];
+        req.session.destroy();
         return res.redirect('/');
     },
 
     register: function(req, res) {
         console.log('register. URL:', req.url);
-        return res.render('users/register', {userLogged: req.session.userLogged});
+        return res.render('users/register')//, {userLogged: req.session.userLogged});
     },
 
     create: function(req, res) {
         console.log('create. URL:', req.url);
-        return res.render('users/register', {backToList: true, userLogged: req.session.userLogged});
+        return res.render('users/register', {backToList: true})// , userLogged: req.session.userLogged});
     },
 
     index: function(req, res){
@@ -103,13 +108,13 @@ const userController = {
             //     }         
             }   
         ).then ( users => {
-            return res.render('users/list', {users, userLogged: req.session.userLogged})
+            return res.render('users/list', {users})// , userLogged: req.session.userLogged})
         })
     },
 
     profile: function(req, res) {
         console.log('index. URL:', req.url);
-        return res.render('users/profile', {user: req.session.userLogged, userLogged: req.session.userLogged})
+        return res.render('users/profile', {user: req.session.userLogged})// , userLogged: req.session.userLogged})
     },
 
     userDetail: function(req, res){
@@ -123,7 +128,7 @@ const userController = {
         .then( user =>
             {
                 if (user){
-                    return res.render('users/register', {user, readOnly: true, userLogged: req.session.userLogged})
+                    return res.render('users/register', {user, readOnly: true})// , userLogged: req.session.userLogged})
                 } 
                 else {
                     return   res.send('No se encontró el usuario ' + id)
@@ -145,7 +150,7 @@ const userController = {
         })
         .then ( user => {
             if (user != undefined && user.id>0 ){
-                return res.render('users/register', {user, userLogged: req.session.userLogged})
+                return res.render('users/register', {user})// , userLogged: req.session.userLogged})
             } 
             else {
                 return   res.send('No se encontró el usuario ' + id)

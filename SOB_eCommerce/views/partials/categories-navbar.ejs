@@ -1,4 +1,12 @@
 <nav class="header-categories">
+    <% if (locals.categories) { %>
+        <select class="header-category">
+        <% locals.categories.every( cat => { %>
+            <option ><%= cat.name %></option>
+        <% }) %>
+    </select>
+
+    <% } %>
     <select class="header-category">
         <option selected>Skates</option>
         <option>Skates A</option>

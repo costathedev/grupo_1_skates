@@ -12,6 +12,8 @@ const mainRoutes = require('./routes/main')
 
 // Required nuestros
 // const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const userIsLoggedMiddleware = require('./middlewares/userIsLoggedMiddleware');
+const categoriesListMiddleware = require('./middlewares/categoriesListMiddleware');
 
 // Constantes y Variables
 const app = express(); // Para administrar el servidor web.
@@ -43,6 +45,8 @@ app.use(session({
 app.use(cookies());
 
 // app.use(userLoggedMiddleware);
+app.use(userIsLoggedMiddleware);
+app.use(categoriesListMiddleware);
 
 // RUTAS
 app.use('/', mainRoutes)

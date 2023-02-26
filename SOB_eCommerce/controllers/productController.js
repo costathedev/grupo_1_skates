@@ -78,28 +78,48 @@ const productController = {
         // return res.render('products/searchedProducts', {category, products: searchedProducts, userLogged: req.session.userLogged});
 
 
-
-
-        db.Product.findAll(
+        db.Category.findOne(
             {
-                include: [{
-                    model: db.Category,
-                    as: 'Category'
-                }],
-                // include: [{association: 'Category'}],
-                where: {
-                    '$Category.name$': { [Op.Like]: categoryParam },
-                },
-
+                where: {name: categoryParam}
             }
-        ).then(productsHome => {
-            return res.render('products/searchedProducts', { category, products: searchedProducts, userLogged: req.session.userLogged });
+        ).then( cat => {
 
-        })
-            .catch(err => {
-                console.log('Dio error al buscar los productos de la categoría ' + err);
-                res.send(err);
+            db.Category.findAll( {where: { parent_category_id: cat.id }})
+            .then( lstCatHijas => {
+                let arrCatIds = [];
+                arrCatIds.push(cat.id);
+                lstCatHijas.every( c => arrCatIds.push(c.id));
+
+
+                db.Product.findAll(
+                    {
+                        include: [{association: 'Category'}],
+                        where: {
+                            category_id: {[Op.in]: arrCatIds},
+                        },
+                    }
+                ).then(searchedProducts => {
+                    return res.render('products/searchedProducts', { category: cat.name, products: searchedProducts, userLogged: req.session.userLogged });
+       
+                })
+                    .catch(err => {
+                        console.log('Dio error al buscar los productos de la categoría ' + err);
+                        res.send(err);
+                })
+
+
             })
+            .catch( err => {
+                console.log('Dio error al buscar las categorías hijas: ' + err);
+            })
+
+
+
+            
+        })
+        .catch( err => {
+            console.log('No se pudo filtrar por categoría. Error: ' + err);
+        })
 
     },
 
