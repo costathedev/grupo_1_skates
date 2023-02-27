@@ -80,11 +80,11 @@ const productController = {
 
         db.Category.findOne(
             {
-                where: {name: categoryParam}
+                where: {name: categoryParam, deleted_at: null}
             }
         ).then( cat => {
 
-            db.Category.findAll( {where: { parent_category_id: cat.id }})
+            db.Category.findAll( {where: { parent_category_id: cat.id, deleted_at: null }})
             .then( lstCatHijas => {
                 let arrCatIds = [];
                 arrCatIds.push(cat.id);
@@ -96,6 +96,7 @@ const productController = {
                         include: [{association: 'Category'}],
                         where: {
                             category_id: {[Op.in]: arrCatIds},
+                            deleted_at: null
                         },
                     }
                 ).then(searchedProducts => {
@@ -141,6 +142,7 @@ const productController = {
                 // include: [{association: 'categories'}],
                 where: {
                     [Op.or]: [{ name: { [Op.like]: '%' + search + '%' } }, { description: { [Op.like]: '%' + search + '%' } }],
+                    deleted_at: null
                 }
             }
         ).then(searchedProducts => {
@@ -194,18 +196,31 @@ const productController = {
         let cartProducts = [];
         if (req.session.cartProducts) {
             console.log('Hay productos en session: ' + req.session.cartProducts);
-            loadProducts();
-            for (let i = 0; i < req.session.cartProducts.length; i++) {
-                console.log('Producto Id: ' + req.session.cartProducts[i]);
-                let product = products.find(p => p.id == req.session.cartProducts[i]);
-                if (product) {
-                    console.log('Encontro Producto Id: ' + product.id + ' ' + product.name);
-                    cartProducts.push(product);
+            // loadProducts();
+            db.Product.findAll({
+                where: {
+                    id: {[Op.in]: req.session.cartProducts}
                 }
-            }
+            })
+            .then( products => {
+                cartProducts = products;
+            return res.render('products/carrodecompras', { products: cartProducts, userLogged: req.session.userLogged })
+
+            })
+            .catch(err => console.log('No se pudieron mostrar los productos del carrito: ' + err))
+
+            
+            // for (let i = 0; i < req.session.cartProducts.length; i++) {
+            //     console.log('Producto Id: ' + req.session.cartProducts[i]);
+            //     let product = products.find(p => p.id == req.session.cartProducts[i]);
+            //     if (product) {
+            //         console.log('Encontro Producto Id: ' + product.id + ' ' + product.name);
+            //         cartProducts.push(product);
+            //     }
+            // }
         }
-        console.log('Se van a mostrar en el carrito: ' + cartProducts);
-        return res.render('products/carrodecompras', { products: cartProducts, userLogged: req.session.userLogged })
+        // console.log('Se van a mostrar en el carrito: ' + cartProducts);
+        // return res.render('products/carrodecompras', { products: cartProducts, userLogged: req.session.userLogged })
     }),
 
 
