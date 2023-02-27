@@ -31,7 +31,7 @@ window.onload = function () {
        
         let password = document.getElementById("password");
        
-        let confirmPassword = document.getElementById("confirm_password");
+        let confirmPassword = document.getElementById("password_repeated");
        
         let imagen = document.getElementById("avatar");
        
