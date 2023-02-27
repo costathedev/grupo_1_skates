@@ -167,6 +167,8 @@ const userController = {
 
         //En esta variable guardo lo enviado desde la ruta, con respecto a los errores encontrados en la carga de los datos por parte del usuario
         let errors = validationResult(req);
+        console.log('BODYYYYYYYYYYYYYYYY');
+        console.log(req.body);
         console.log('ERRORES DE VALIDACIONESSSSSSSSSSSSSSSSSSSSSS');
         console.log(errors);
         //return res.send(errors); ???
@@ -174,7 +176,7 @@ const userController = {
         //Aquí determino si hay ó no errores encontrados
         if (!errors.isEmpty()) {
             return res.render('users/register', { //path.resolve(__dirname, '../views/users/register'), {
-                errors: errors.errors, old: req.body
+                errors: errors.mapped(), old: req.body
             });
         }
 

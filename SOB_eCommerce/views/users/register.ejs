@@ -21,6 +21,7 @@
 
             <main>
 
+
                 <div>
                     <ul id="errores"> </ul>
                 </div>                    
@@ -51,20 +52,42 @@
                         <h1>Creá tu cuenta</h1>
                     <% } %>
                     
+                 
+                    <input type="text" class="reg-form-item" name="firstName" id="firstName" placeholder="Nombre" value = "<%= (locals.user && user.firstName) || (locals.old && old.firstName) %>" <% if (locals && locals.readOnly) {%> readonly <% } %>   >
+                    <% if(locals.errors && errors.firstName) {%>
+                        <p class="feedback"><%= errors.firstName.msg %> </p>
+                    <% }%>
 
-                    <input type="text" class="reg-form-item" name="firstName" id="firstName" placeholder="Nombre" value = "<%= locals.user && user.firstName %>" <% if (locals && locals.readOnly) {%> readonly <% } %>   >
-                    <input type="text" class="reg-form-item" name="lastName" placeholder="Apellido" value = "<%= locals.user && user.lastName %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required >
-                    <input type="email" class="reg-form-item" name="email" placeholder="E-Mail"  value = "<%= locals.user && user.email %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required>
+                    <input type="text" class="reg-form-item" name="lastName" id="lastName" placeholder="Apellido" value = "<%= (locals.user && user.lastName) || locals.old && old.lastName %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  >
+                    <% if(locals.errors && errors.lastName) {%>
+                        <p class="feedback"><%= errors.lastName.msg %> </p>
+                    <% }%>
+                    
+                    <input type="email" class="reg-form-item" name="email" id="email" placeholder="E-Mail"  value = "<%= (locals.user && user.email) || (locals.old && old.email) %>" <% if (locals && locals.readOnly) {%> readonly <% } %> >
+                    <% if(locals.errors && errors.email) {%>
+                        <p class="feedback"><%= errors.email.msg %> </p>
+                    <% }%>
+                    
                     <label class="reg-label reg-form-item" for="birthDate" name="birthDate1">Fecha de nacimiento</label>
                     <input type="date" class="reg-form-item" name="birthDate" id="birthDate" placeholder=""
-                            value = "<%= locals.user && user.birthDate %>"  required>
-                    <input type="text" class="reg-form-item" name="address" placeholder="domicilio"  value = "<%= locals.user && user.address %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  required>
+                            value = "<%= (locals.user && user.birthDate) || (locals.old && old.birthDate) %>" >
+                    <% if(locals.errors && errors.birthDate) {%>
+                        <p class="feedback"><%= errors.birthDate.msg %> </p>
+                    <% }%>
                     
+                    <input type="text" class="reg-form-item" name="address" id="address" placeholder="domicilio"  value = "<%= (locals.user && user.address) || (locals.old && old.address) %>" <% if (locals && locals.readOnly) {%> readonly <% } %> >
+                    <% if(locals.errors && errors.address) {%>
+                        <p class="feedback"><%= errors.address.msg %> </p>
+                    <% }%>
+
                     <label for="avatar" class="reg-label reg-form-item">Avatar</label>
                     <% if (locals.user && user.avatar) { %> 
                         <img class="profile-img" name="imgprofile" src="/img/users_avatars/<%= user.avatar %>">
                     <% } %>
-                    <input type="file" id="avatar" name="avatar" class="reg-form-item"><br>
+                    <input type="file" id="avatar" name="avatar" id="avatar" class="reg-form-item"><br>
+                    <% if(locals.errors && errors.avatar) {%>
+                        <p class="feedback"><%= errors.avatar.msg %> </p>
+                    <% }%>
 						
 
                     <% if (!locals.readOnly) { %>
@@ -73,8 +96,8 @@
                         <% if (locals && locals.user) { %>
                             <p>(Dejar vacío para no modificar)</p>
                         <% }  %>
-                        <input type="password" class="reg-form-item" name="password" placeholder="Contraseña" <% if (!locals.user) {%> required <% } %>>
-                        <input type="password" class="reg-form-item" name="password_repeated"
+                        <input type="password" class="reg-form-item" name="password" id="password" placeholder="Contraseña" <% if (!locals.user) {%> required <% } %>>
+                        <input type="password" class="reg-form-item" name="password_repeated" id="password_repeated"
                         placeholder="repetir contraseña" <% if (!locals.user) {%> required <% } %>>
 
                         <button type="submit" class="reg-form-item btn-submit">Enviar</button>                      

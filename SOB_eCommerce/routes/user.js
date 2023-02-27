@@ -7,6 +7,8 @@ const mime = require('mime');
 const { body } = require ('express-validator')
 const { check } = require('express-validator');
 
+const userValidations = require('../middlewares/userValidations');
+
 
 
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
@@ -18,29 +20,29 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 
 
 //validaciones
-// Definir la expresión regular para validar la contraseña
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/;
+// // Definir la expresión regular para validar la contraseña
+// const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/;
 
 
 
 // .isLength({ min: 2 })
-const validateUserForm = [
-    body('firstName').notEmpty().withMessage('Debes completar el campo de nombre'),
-    body('lastName').notEmpty().isLength({ min: 2 }).withMessage('Debes completar el campo de descripción'),
-    body('email').notEmpty().isEmail().withMessage('Debes ingresar un email'),
-    body('birthDate1').notEmpty().withMessage('Debes ingresar una fecha'),
-    body('password').notEmpty().isLength({min: 8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail().matches(passwordRegex).withMessage('La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y un caracter especial. Debe tener al menos 8 caracteres.')
-    // body('image').custom((value, { req }) => {
-    //   // Obtener el tipo MIME de la imagen
-    //   const mimeType = mime.getType(value);
+// const validateUserForm = [
+//     body('firstName').notEmpty().withMessage('Debes completar el campo de nombre'),
+//     body('lastName').notEmpty().isLength({ min: 2 }).withMessage('Debes completar el campo de apellido'),
+//     body('email').notEmpty().isEmail().withMessage('Debes ingresar un email'),
+//     body('birthDate').notEmpty().withMessage('Debes ingresar una fecha'),
+//     body('password').notEmpty().isLength({min: 8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail().matches(passwordRegex).withMessage('La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y un caracter especial. Debe tener al menos 8 caracteres.')
+//     // body('image').custom((value, { req }) => {
+//     //   // Obtener el tipo MIME de la imagen
+//     //   const mimeType = mime.getType(value);
 
-    //   // Validar que el tipo MIME sea de los formatos permitidos
-    //   if (mimeType === 'image/jpeg' || mimeType === 'image/png' || mimeType === 'image/gif') {
-    //       return true;
-    //   }
-    //   throw new Error('La imagen debe ser de los formatos JPG, JPEG, PNG o GIF.');
-    // })
-  ];
+//     //   // Validar que el tipo MIME sea de los formatos permitidos
+//     //   if (mimeType === 'image/jpeg' || mimeType === 'image/png' || mimeType === 'image/gif') {
+//     //       return true;
+//     //   }
+//     //   throw new Error('La imagen debe ser de los formatos JPG, JPEG, PNG o GIF.');
+//     // })
+//   ];
 
 const validateImgUser = [
     check('avatar')
@@ -88,10 +90,10 @@ router.get('/:id/edit', userController.editUser);
 // Idem
 router.get('/:id/userDetail', userController.userDetail);
 
-router.post('/', validateUserForm, validateImgUser, uploadFile.single('avatar'), userController.saveNewUser);
+router.post('/', userValidations, validateImgUser, uploadFile.single('avatar'), userController.saveNewUser);
 
-//validateImgUser
-router.post('/created', validateUserForm, validateImgUser, userController.saveNewUser);
+//validateImgUser validateUserForm
+router.post('/created', userValidations,validateImgUser, userController.saveNewUser);
 
 router.post('/login', userController.login);
 

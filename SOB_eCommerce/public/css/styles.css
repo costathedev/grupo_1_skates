@@ -59,6 +59,10 @@ a i {
     color: white;
 }
 
+.feedback {
+    color:red
+}
+
 /* -------------- HEADER -------------- */
 header {
     display: flex;
