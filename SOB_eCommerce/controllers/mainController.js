@@ -45,7 +45,7 @@ const mainController = {
             }   
         ).then ( productsHome => {
             console.log('Productos para la HOME:' + productsHome)
-            return res.render('main/index', {products: productsHome, userLogged: req.session.userLogged})
+            return res.render('main/index', {products: productsHome}) //, userLogged: req.session.userLogged})
 
         })
         .catch ( err => {

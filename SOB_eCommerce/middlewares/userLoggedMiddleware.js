@@ -1,14 +1,15 @@
-const User = require('../data/users');
+// const User = require('../data/users');
 const path = require('path');
 const fs = require('fs');
 const rutaUsersJson = path.resolve('./data/users.json');
+const db = require('../database/models');
 
-let users = [];
-
-function loadUsers() {
-    let usersFile = fs.readFileSync(rutaUsersJson, 'utf-8');
-    users = JSON.parse(usersFile);
-} 
+// Ya no se usa el Json de Usuarios:
+// let users = [];
+// function loadUsers() {
+//     let usersFile = fs.readFileSync(rutaUsersJson, 'utf-8');
+//     users = JSON.parse(usersFile);
+// } 
 
 function userLoggedMiddleware(req, res, next) {
     // res.local.isLogged = false;
@@ -17,36 +18,24 @@ function userLoggedMiddleware(req, res, next) {
     /* Inicia acá */
     let emailInCookie = "";
     emailInCookie = req.cookies.email;
-    let userFromCookie; //= User.findByField('email', emailInCookie);
+    //let userFromCookie; //= User.findByField('email', emailInCookie);
 
     if (emailInCookie) {
-        loadUsers();
-        userFromCookie = users.find( u => u.email.toLowerCase() == emailInCookie.toLowerCase() );
-        // if (emailInCookie == "carolinabubenik@gmail.com") {
-        //     userFromCookie = {
-        //         firstName: "Carolina",
-        //         lastName: "Admin",
-        //         roles: ['ADMIN'],
-        //     }
-        // }
-        // else {
-        //     userFromCookie = {
-        //         firstName: "Usuario",
-        //         lastName: "Comun",
-        //         roles: [],
-        //     }
-        // }
+        // loadUsers();
+        // userFromCookie = users.find( u => u.email.toLowerCase() == emailInCookie.toLowerCase() );
+        db.User.findOne( {where: {email: emailInCookie}})
+        .then(userFromCookie => {
+            console.log('UserFromCookie: ' + userFromCookie);
 
-        console.log('UserFromCookie: ' + userFromCookie);
-
-        if (userFromCookie){
-            req.session.userLogged = userFromCookie;
-        }
-        /* Y llega hasta acá */
-
+                req.session.userLogged = userFromCookie;
+            /* Y llega hasta acá */
+        })
+        .catch(err => {
+            console.log('Error al levantar usuario logueado de la cookie: ' + err)
+        })
     }
     
-
+    // Preguntar si el usuario está logueado. Si está, se le permite continuar. Si no, se lo manda al login.
     if (!req.session.userLogged) {
         return res.redirect('/user/login');
     }

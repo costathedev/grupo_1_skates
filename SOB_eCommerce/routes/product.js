@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { body } = require ('express-validator')
+const { body } = require ('express-validator');
+const { check } = require('express-validator');
 
 const productController = require('../controllers/productController');
 const multer = require('multer');
@@ -16,11 +17,23 @@ const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
 
 //validaciones
 const validateCreateForm = [
-    body('name').notEmpty().withMessage('Debes completar el campo de nombre'),
-    body('description').notEmpty().withMessage('Debes completar el campo de descripción'),
-    body('myfile').notEmpty().withMessage('Debes cargar una imagen'),
-    body('price').notEmpty().withMessage('Debes completar el campo de precio'),
-]
+    body('name').notEmpty().isLength({ min: 5 }).withMessage('Debes completar el campo de nombre'),
+    body('description').notEmpty().isLength({ min: 20 }).withMessage('Debes completar el campo de descripción'),
+    body('price').notEmpty().withMessage('Debes completar el campo de precio')
+];
+
+const validateImgProduct = [
+    check('image')
+      .custom((value, { req }) => {
+        if (!req.file || !['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype)) {
+          throw new Error('El archivo debe ser un JPEG, JPG, PNG o GIF');
+        }
+        return true;
+      })
+  ];
+
+
+
 
 const storage = multer.diskStorage ( {
     destination: function(req, file, cb) {
