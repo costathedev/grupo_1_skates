@@ -34,7 +34,7 @@
                 name="name"
                 id="name"
                 placeholder="Nombre del producto"
-                value= "<%= locals.old && old.name ? old.name : '' %>"
+                value= "<%= (locals.product && product.name) || (locals.old && old.name) %>"
                 
               />
               <% if(locals.errors && errors.name) {%>
@@ -45,7 +45,7 @@
               <!-- "<%= locals.product && product.name %>" -->
 
 			  <label for="description" class="altaProducto-label altaProducto-item">Descripción</label>
-			  <input type="text" class="altaProducto-item" name="description" id="description" placeholder="Descripción del producto" value = "<%= locals.old && old.description ? old.description : '' %>" >
+			  <input type="text" class="altaProducto-item" name="description" id="description" placeholder="Descripción del producto" value = "<%= (locals.product && product.description) || (locals.old && old.description) %>" >
 			  <% if(locals.errors && errors.description) {%>
             <p class="reg-error"><%= errors.description.msg %> </p>
         <% }%>
@@ -53,7 +53,7 @@
         <!--"<%= locals.product && product.description %>"-->
 		  
 			  <label for="myfile" class="altaProducto-label altaProducto-item">Cargar imagen</label>
-			  <input type="file" id="myfile" name="image" id="image" class="altaProducto-item" value = "<%= locals.product && product.image %>"  ><br>
+			  <input type="file" id="myfile" name="image" id="image" class="altaProducto-item" value = "<%= (locals.product && product.image) || (locals.old && old.image) %>"  ><br>
 			  <% if(locals.errors && errors.image) {%>
             <p class="reg-error"><%= errors.image.msg %> </p>
         <% }%>
@@ -80,13 +80,13 @@
 		  
 		  
 			  <label for="color" class="altaProducto-label altaProducto-item">Color</label>
-			  <input type="text" class="altaProducto-item" name="color" id="color" placeholder="Color del producto" value = "<%= locals.product && product.color %>"  >
+			  <input type="text" class="altaProducto-item" name="color" id="color" placeholder="Color del producto" value = "<%= (locals.product && product.color) || (locals.old && old.color) %>"  >
         <% if(locals.errors && errors.color) {%>
             <p class="reg-error"><%= errors.color.msg %> </p>
         <% }%>
 
 			  <label for="price" class="altaProducto-label altaProducto-item">Precio</label>
-			  <input type="text" class="altaProducto-item" name="price" id="price" placeholder="Precio del producto" value = "<%= locals.product && product.price %>"  >
+			  <input type="text" class="altaProducto-item" name="price" id="price" placeholder="Precio del producto" value = "<%= (locals.product && product.price) || (locals.old && old.price) %>"  >
         <% if(locals.errors && errors.price) {%>
             <p class="reg-error"><%= errors.price.msg %> </p>
         <% }%>
