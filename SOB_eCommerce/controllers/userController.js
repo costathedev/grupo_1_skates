@@ -162,10 +162,7 @@ const userController = {
 
     saveNewUser: function (req, res) {
         console.log('saveNewUser. URL:', req.url);
-
-        console.log('REQUEST :::::::::::::::::::::::::::::::::::::::::::::::::::');
-        console.log(req);
-
+        
         // desde aca
 
         //En esta variable guardo lo enviado desde la ruta, con respecto a los errores encontrados en la carga de los datos por parte del usuario
@@ -281,6 +278,36 @@ const userController = {
         return res.redirect('/user');
 
     },
+
+
+    list: (req, res) => {
+        db.User.findAll(
+            {
+                // include: [{ association: 'roles' }],
+                where:{
+                    deleted_at: null,
+                }         
+            }
+        ).then(users => {
+            return res.status(200).json({
+                total: users.length,
+                data: users,
+                status: 200,
+            });
+        })
+        .catch(err => { console.log('Errores al buscar usuarios: ' + err)})
+    },
+
+    show: (req, res) => {
+        db.User.findByPk(req.params.id)
+        .then(user => {
+            return res.status(200).json({
+                data: user,
+                status: 200,
+            });
+        })
+        .catch(err => { console.log('Errores al buscar el usuario: ' + err)})
+    }
 
 
 
