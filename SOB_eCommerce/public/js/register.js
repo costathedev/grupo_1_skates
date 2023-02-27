@@ -176,11 +176,11 @@ window.onload = function () {
          
             evento.preventDefault();
         
-            let ulErrores = document.querySelector(".errores");
-         
+            let ulErrores = document.getElementById("errores");
+
             ulErrores.innerHTML = "";
          
-            ulErrores.classList.add("alert-warning");
+            ulErrores.classList.add("reg-error");
          
             for (let i = 0; i < errores.length; i++) {
          

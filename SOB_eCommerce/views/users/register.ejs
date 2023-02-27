@@ -20,11 +20,7 @@
             <!-- ***** Esta parte se DEBE EDITAR ***** -->
 
             <main>
-
-
-                <div>
-                    <ul id="errores"> </ul>
-                </div>                    
+               
 
                 <% if (locals && locals.user && !locals.readOnly) { %>
                     <!-- Si hay un usuario, se hace PUT: -->
@@ -53,31 +49,34 @@
                     <% } %>
                     
                  
+                    <ul id="errores"> </ul>
+                       
+
                     <input type="text" class="reg-form-item" name="firstName" id="firstName" placeholder="Nombre" value = "<%= (locals.user && user.firstName) || (locals.old && old.firstName) %>" <% if (locals && locals.readOnly) {%> readonly <% } %>   >
                     <% if(locals.errors && errors.firstName) {%>
-                        <p class="feedback"><%= errors.firstName.msg %> </p>
+                        <p class="reg-error"><%= errors.firstName.msg %> </p>
                     <% }%>
 
                     <input type="text" class="reg-form-item" name="lastName" id="lastName" placeholder="Apellido" value = "<%= (locals.user && user.lastName) || locals.old && old.lastName %>" <% if (locals && locals.readOnly) {%> readonly <% } %>  >
                     <% if(locals.errors && errors.lastName) {%>
-                        <p class="feedback"><%= errors.lastName.msg %> </p>
+                        <p class="reg-error"><%= errors.lastName.msg %> </p>
                     <% }%>
                     
                     <input type="email" class="reg-form-item" name="email" id="email" placeholder="E-Mail"  value = "<%= (locals.user && user.email) || (locals.old && old.email) %>" <% if (locals && locals.readOnly) {%> readonly <% } %> >
                     <% if(locals.errors && errors.email) {%>
-                        <p class="feedback"><%= errors.email.msg %> </p>
+                        <p class="reg-error"><%= errors.email.msg %> </p>
                     <% }%>
                     
                     <label class="reg-label reg-form-item" for="birthDate" name="birthDate1">Fecha de nacimiento</label>
                     <input type="date" class="reg-form-item" name="birthDate" id="birthDate" placeholder=""
                             value = "<%= (locals.user && user.birthDate) || (locals.old && old.birthDate) %>" >
                     <% if(locals.errors && errors.birthDate) {%>
-                        <p class="feedback"><%= errors.birthDate.msg %> </p>
+                        <p class="reg-error"><%= errors.birthDate.msg %> </p>
                     <% }%>
                     
                     <input type="text" class="reg-form-item" name="address" id="address" placeholder="domicilio"  value = "<%= (locals.user && user.address) || (locals.old && old.address) %>" <% if (locals && locals.readOnly) {%> readonly <% } %> >
                     <% if(locals.errors && errors.address) {%>
-                        <p class="feedback"><%= errors.address.msg %> </p>
+                        <p class="reg-error"><%= errors.address.msg %> </p>
                     <% }%>
 
                     <label for="avatar" class="reg-label reg-form-item">Avatar</label>
@@ -86,7 +85,7 @@
                     <% } %>
                     <input type="file" id="avatar" name="avatar" id="avatar" class="reg-form-item"><br>
                     <% if(locals.errors && errors.avatar) {%>
-                        <p class="feedback"><%= errors.avatar.msg %> </p>
+                        <p class="reg-error"><%= errors.avatar.msg %> </p>
                     <% }%>
 						
 
