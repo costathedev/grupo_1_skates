@@ -2,8 +2,8 @@ const {body, check} = require('express-validator');
 
 //validaciones
 const validations = [
-    body('name').notEmpty().isLength({ min: 5 }).withMessage('Debes completar el campo de nombre'),
-    body('description').notEmpty().isLength({ min: 20 }).withMessage('Debes completar el campo de descripción'),
+    body('name').notEmpty().withMessage('Debes completar el campo de nombre').bail().isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
+    body('description').notEmpty().withMessage('Debes completar el campo de descripción').bail().isLength({ min: 20 }).withMessage('La descripción debe tener al menos 20 caracteres'),
     body('price').notEmpty().withMessage('Debes completar el campo de precio'),
     check('image')
       .custom((value, { req }) => {
