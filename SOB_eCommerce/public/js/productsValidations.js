@@ -19,7 +19,7 @@ window.addEventListener('load',function(){
         let descripcion = document.getElementById("description");   
         let imagen = document.getElementById("myfile");
         let precio = document.getElementById("price");
-        let talle = document.getElementById("size");
+       
 
         let errores = [];
 
@@ -87,28 +87,8 @@ window.addEventListener('load',function(){
                 precio.classList.add("is-valid");
     }
 
-                 //Validamos talle:
-
-     
-                 console.log(talle.value);
-     
-                      
-                 if (talle.value == "") {
-                        
-                    errores.push("No puede dejar vacío el campo del talle.");
-                         
-                    talle.classList.add("is-invalid");
-                           
-                } else if (talle.value == "#") {
-                               
-                    errores.push("Introduzca un talle valido");
-                                  
-                } else {
-                                    
-                    talle.classList.remove("is-invalid");
-                                         
-                    talle.classList.add("is-valid");
-     }
+               
+             
 
         // Validacion imagen de producto
   
