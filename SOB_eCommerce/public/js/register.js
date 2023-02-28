@@ -153,8 +153,7 @@ window.onload = function () {
      
         } else {
        
-            confirmPassword.classList.remove("is-invalid");
-       
+            confirmPassword.classList.remove("is-invalid");       
             confirmPassword.classList.add("is-valid");
         }
   

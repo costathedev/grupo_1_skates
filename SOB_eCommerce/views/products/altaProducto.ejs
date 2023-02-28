@@ -22,7 +22,9 @@
 				
 				<form action="/product" method = "POST" class="altaProducto-form" enctype="multipart/form-data">
 				
-          <ul id="errores"></ul>
+          <div>
+            <ul id="errores"> </ul>
+          </div>
         
           <h1 class="altaProducto-h1">Alta de producto</h1>	
 			 <% } %> 
@@ -56,10 +58,10 @@
         <!--"<%= locals.product && product.description %>"-->
 		  
 			  <label for="myfile" class="altaProducto-label altaProducto-item">Cargar imagen</label>
-			  <input type="file" id="myfile" name="image" id="image" class="altaProducto-item" value = "<%= locals.product && product.image %>" required><br>
+			  <input type="file" id="myfile" name="image" id="image" class="altaProducto-item" value = "<%= locals.product && product.image %>"><br>
 			  
 			  <label class="altaProducto-label altaProducto-item" for="category">Categoría</label>
-			  <select name="category" id="category_id" class="altaProducto-item" placeholder="Seleccione una categoría"  required>
+			  <select name="category" id="category_id" class="altaProducto-item" placeholder="Seleccione una categoría">
 				  <option value="1"  id="category_id" <% locals.producto && producto.category == '1' ? 'selected'  : '' %> >1</option>
 				  <option value="2"  id="category_id" <% locals.producto && producto.category == '2' ? 'selected'  : '' %> >2</option>
 				  <option value="3"  id="category_id" <% locals.producto && producto.category == '3' ? 'selected'  : '' %> >3</option>
@@ -69,7 +71,7 @@
 			  
 
 			  <label class="altaProducto-label altaProducto-item" for="size">Talle</label>
-			  <select name="size" id="size" class="altaProducto-item" placeholder="Seleccione un talle" required>
+			  <select name="size" id="size" class="altaProducto-item" placeholder="Seleccione un talle">
 				  <option value="1" <% locals.size && producto.size == '1' ? 'selected'  : '' %> > XS</option>
 				  <option value="2" <% locals.size && producto.size == '2' ? 'selected'  : '' %> > S</option>
 				  <option value="3" <% locals.size && producto.size == '3' ? 'selected'  : '' %> > M</option>
@@ -80,10 +82,10 @@
 		  
 		  
 			  <label for="color" class="altaProducto-label altaProducto-item">Color</label>
-			  <input type="text" class="altaProducto-item" name="color" id="color" placeholder="Color del producto" value = "<%= locals.product && product.color %>" required>
+			  <input type="text" class="altaProducto-item" name="color" id="color" placeholder="Color del producto" value = "<%= locals.product && product.color %>">
 		  
 			  <label for="price" class="altaProducto-label altaProducto-item">Precio</label>
-			  <input type="text" class="altaProducto-item" name="price" id="price" placeholder="Precio del producto" value = "<%= locals.product && product.price %>" required>
+			  <input type="text" class="altaProducto-item" name="price" id="price" placeholder="Precio del producto" value = "<%= locals.product && product.price %>">
 
 
               <button
@@ -111,5 +113,6 @@
 
       <!-- No tocar hasta acá -->
     </div>
+    <script src="/js/productsValidations.js"></script>
   </body>
 </html>
