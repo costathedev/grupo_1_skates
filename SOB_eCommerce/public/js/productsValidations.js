@@ -109,6 +109,7 @@ window.addEventListener('load',function(){
                 ulErrores.innerHTML += `<li> ${errores[i]} </li> `
               }
               errores = [];
+              
           }else{
                 return true;
           } 

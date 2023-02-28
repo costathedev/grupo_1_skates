@@ -1,25 +1,21 @@
-const { localsName } = require("ejs");
+// const { localsName } = require("ejs");
 
-window.onload = function () {
+// window.onload = function () {
     
     
-
+window.addEventListener('load',function(){
+ 
     // capturo el form 
 
     let form = document.querySelector(".reg-form");
   
     form.addEventListener("submit", (evento) => {
 
-      if (!validaciones(evento)) {
-      
-        evento.preventDefault();
-      
-    } else {
-    
-        form.submit();
-    
-    }
-
+        if(!validaciones(evento)){
+            evento.preventDefault();
+        }else{
+            formulario.submit();
+        } 
 
       // funciones validar
   
@@ -173,25 +169,24 @@ window.onload = function () {
   
         // errores enviados al user
   
-        if (errores.length > 0) {
+        //Aquí enviamos los errores al usuario
+        let ulErrores = document.getElementById('errores');
+        ulErrores.classList.add('alert-danger')
+        if(errores.length > 0){
          
             evento.preventDefault();
-        
-            let ulErrores = document.getElementById("errores");
-
             ulErrores.innerHTML = "";
-         
-            ulErrores.classList.add("reg-error");
-         
-            for (let i = 0; i < errores.length; i++) {
-         
-                ulErrores.innerHTML += `<li>${errores[i]} </li>`;
-          }
+            for (let i = 0 ; i < errores.length; i++){
+              ulErrores.innerHTML += `<li> ${errores[i]} </li> `
+            }
+            errores = [];
+
         } else {
-        
-            form.submit();
+            return true;
+    
+            // form.submit();
         }
     
     }
     });
-  };
+  })

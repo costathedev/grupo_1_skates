@@ -20,7 +20,8 @@
             <!-- ***** Esta parte se DEBE EDITAR ***** -->
 
             <main>
-               
+                
+                   
 
                 <% if (locals && locals.user && !locals.readOnly) { %>
                     <!-- Si hay un usuario, se hace PUT: -->
@@ -48,9 +49,11 @@
                         <h1>Creá tu cuenta</h1>
                     <% } %>
                     
-                 
-                    <ul id="errores"> </ul>
-                       
+                    
+                    <div>
+                        <ul id="errores"> </ul>
+                    </div>
+                  
 
                     <input type="text" class="reg-form-item" name="firstName" id="firstName" placeholder="Nombre" value = "<%= (locals.user && user.firstName) || (locals.old && old.firstName) %>" <% if (locals && locals.readOnly) {%> readonly <% } %>   >
                     <% if(locals.errors && errors.firstName) {%>
@@ -95,12 +98,12 @@
                         <% if (locals && locals.user) { %>
                             <p>(Dejar vacío para no modificar)</p>
                         <% }  %>
-                        <input type="password" class="reg-form-item" name="password" id="password" placeholder="Contraseña" <% if (!locals.user) {%> required <% } %>>
+                        <input type="password" class="reg-form-item" name="password" id="password" placeholder="Contraseña" >
                         <% if(locals.errors && errors.password) {%>
                             <p class="reg-error"><%= errors.password.msg %> </p>
                         <% }%>
                         <input type="password" class="reg-form-item" name="password_repeated" id="password_repeated"
-                        placeholder="repetir contraseña" <% if (!locals.user) {%> required <% } %>>
+                        placeholder="repetir contraseña" >
 
                         <button type="submit" class="reg-form-item btn-submit">Enviar</button>                      
                         <button type="reset" class="reg-form-item btn-reset">Limpiar</button>

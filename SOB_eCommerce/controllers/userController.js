@@ -128,7 +128,7 @@ const userController = {
 
     profile: function (req, res) {
         console.log('index. URL:', req.url);
-        return res.render('users/profile', { user: req.session.userLogged })// , userLogged: req.session.userLogged})
+        return res.render('users/profile', { user: req.session.userLogged , userLogged: req.session.userLogged})
     },
 
     userDetail: function (req, res) {
