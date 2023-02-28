@@ -54,11 +54,23 @@ const userController = {
                 if (bcrypt.compareSync(req.body.password, user.password)) {
                     accesoOk = true;
                     delete user.password;  // no me toma! sigue estando el password
-                    req.session.userLogged = user;
+                    // req.session.userLogged = user;
+                    // asignamos propiedad por propiedad para evitar asignar password:
+                    req.session.userLogged = {
+                        id: user.id,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        email: user.email,
+                        address: user.address,
+                        roles: user.roles,
+                        birthDate: user.birthDate,
+                        phone: user.phone,
+                        avatar: user.avatar
+                    }
                     req.session.cartProducts = [];
 
-                    console.log('EStas loguado: ******************')
-                    console.log(req.session)
+                    console.log('Estas loguado: ******************')
+                    // console.log(req.session)
 
                     //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 5 (decia 2) minutos.
                     if (req.body.remember_user) {
