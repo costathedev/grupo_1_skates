@@ -12,6 +12,7 @@ window.addEventListener('load',function(){
     //Capturar el formulario 
     let formulario = document.querySelector('.altaProducto-form');
     //console.log(formulario.elements.email.value);
+    
     formulario.addEventListener('submit',function(evento){
         if(!validaciones(evento)){
             evento.preventDefault();
