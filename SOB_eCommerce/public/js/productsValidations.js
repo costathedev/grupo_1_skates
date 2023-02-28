@@ -18,6 +18,9 @@ window.addEventListener('load',function(){
         let nombreProducto = document.getElementById("name");   
         let descripcion = document.getElementById("description");   
         let imagen = document.getElementById("myfile");
+        let precio = document.getElementById("price");
+        let talle = document.getElementById("size");
+        let color = document.getElementById("color");
 
         let errores = [];
 
@@ -61,6 +64,75 @@ window.addEventListener('load',function(){
             errores.push('Debe ingresar una descripcion válida mayor a 20 caracteres');
             descripcion.classList.add('is-invalid');
         }
+
+         //valido precio
+
+          let regPrice = /^[0-9]+(\.[0-9]+)?$/;
+
+              if (precio.value == "") {
+              
+                errores.push("El campo precio no puede estar vacio");
+                
+                precio.classList.add("is-invalid");
+                
+            } else if (!regPrice.test(precio.value)) {
+               
+                errores.push("El campo precio solo admite numeros");
+                
+                precio.classList.add("is-invalid");
+                    
+            } else {
+                     
+                precio.classList.remove("is-invalid");
+                   
+                precio.classList.add("is-valid");
+    }
+
+               
+                // valido color
+
+
+                console.log(color.value);
+
+                 if (color.value == "") {
+                 
+                    errores.push("El campo de color no puede estar vacío");
+                    
+                    color.classList.add("is-invalid");
+                      
+                } else if (modelo.value == "#") {
+                        
+                    errores.push("Seleccione un color");
+                           
+                } else {
+                            
+                    color.classList.remove("is-invalid");
+                              
+                    color.classList.add("is-valid");
+      }
+
+                 //Validamos talle:
+
+     
+                 console.log(talle.value);
+     
+                      
+                 if (talle.value == "") {
+                        
+                    errores.push("No puede dejar vacío el campo del talle.");
+                         
+                    talle.classList.add("is-invalid");
+                           
+                } else if (talle.value == "#") {
+                               
+                    errores.push("Introduzca un talle valido");
+                                  
+                } else {
+                                    
+                    talle.classList.remove("is-invalid");
+                                         
+                    talle.classList.add("is-valid");
+     }
 
         // Validacion imagen de producto
   
