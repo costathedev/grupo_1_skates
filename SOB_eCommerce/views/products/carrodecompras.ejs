@@ -44,7 +44,7 @@
 
 				<div class="Cart-Items">
 					<a href="/product/<%= product.id %>/productDetail" class="image-box">
-						<img src="/img/<%= product.image %>" style={{ height="120px" }} />
+						<img src="/img/products/<%= product.image %>" style={{ height="120px" }} />
 					</a>
 					<div class="about">
 						<h1 class="title"><%= product.name %></h1>
@@ -81,7 +81,7 @@
    	 		<div class="Subtotal">Total</div>
    	 		<div class="items"> <%= products.length %> articulos</div>
    	 	</div>
-			<% { let total = 0; products.forEach((product) => total += product.price); %>
+			<% { let total = 0; products.forEach((product) => total += Number(product.price)); %>
    	 	<div class="total-amount">$<%= total %></div>
 		<% }%>
    	 </div>
