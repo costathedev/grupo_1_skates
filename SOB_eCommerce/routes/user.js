@@ -4,8 +4,6 @@ const userController = require ('../controllers/userController');
 const multer = require('multer');
 const mime = require('mime');
 
-const { body } = require ('express-validator')
-const { check } = require('express-validator');
 
 const userValidations = require('../middlewares/userValidations');
 
@@ -44,15 +42,15 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 //     // })
 //   ];
 
-const validateImgUser = [
-    check('avatar')
-      .custom((value, { req }) => {
+/*const validateImgUser = [
+ check('avatar')
+  .custom((value, { req }) => {
         if (!req.file || !['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype)) {
           throw new Error('El archivo debe ser un JPEG, JPG, PNG o GIF');
         }
         return true;
       })
-  ];
+ // ]; */
 
 
 
@@ -90,10 +88,10 @@ router.get('/:id/edit', userController.editUser);
 // Idem
 router.get('/:id/userDetail', userController.userDetail);
 
-router.post('/', userValidations, validateImgUser, uploadFile.single('avatar'), userController.saveNewUser);
+router.post('/', uploadFile.single('avatar'), userValidations, userController.saveNewUser);
 
 //validateImgUser validateUserForm
-router.post('/created', userValidations,validateImgUser, userController.saveNewUser);
+router.post('/created', userValidations, userController.saveNewUser);
 
 router.post('/login', userController.login);
 
