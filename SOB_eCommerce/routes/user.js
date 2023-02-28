@@ -91,13 +91,13 @@ router.get('/:id/userDetail', userController.userDetail);
 router.post('/', uploadFile.single('avatar'), userValidations, userController.saveNewUser);
 
 //validateImgUser validateUserForm
-router.post('/created', userValidations, userController.saveNewUser);
+router.post('/created', uploadFile.single('avatar'), userValidations, userController.saveNewUser);
 
 router.post('/login', userController.login);
 
 router.post('/logout',  userController.logOut)
 
-router.put('/:id', uploadFile.single('avatar') ,userController.saveEditedUser);
+router.put('/:id', uploadFile.single('avatar'),userValidations ,userController.saveEditedUser);
 
 router.delete('/:id', userController.deleteUser);
 

@@ -208,7 +208,8 @@ const userController = {
 
                 console.log('Guardó el usuario en la BD');
 
-                if (req.backToList) {
+                
+                if (req.backToList ) {
                     return // no se cambia el usuario logueado, se redirecciona al listado
                     return res.redirect('/user');
                 }
