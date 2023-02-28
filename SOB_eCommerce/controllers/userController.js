@@ -72,9 +72,9 @@ const userController = {
                     console.log('Estas loguado: ******************')
                     // console.log(req.session)
 
-                    //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 5 (decia 2) minutos.
+                    //Si el usuario se loguea correctamente, seteo la cookie para recordar al usuario por 9 (decia 2) minutos.
                     if (req.body.remember_user) {
-                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 6) * 5 });
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 6) * 9 });
                     }
 
                     return res.redirect('/');
