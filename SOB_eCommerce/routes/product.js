@@ -6,6 +6,8 @@ const { check } = require('express-validator');
 const productController = require('../controllers/productController');
 const multer = require('multer');
 
+const productValidations = require('../middlewares/productValidations');
+
 
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
@@ -15,22 +17,22 @@ const userAdminMiddleware = require('../middlewares/userAdminMiddleware');
 // ctrl+click sobre una función => Te redirecciona a la función seleccionada
 
 
-//validaciones
-const validateCreateForm = [
-    body('name').notEmpty().isLength({ min: 5 }).withMessage('Debes completar el campo de nombre'),
-    body('description').notEmpty().isLength({ min: 20 }).withMessage('Debes completar el campo de descripción'),
-    body('price').notEmpty().withMessage('Debes completar el campo de precio')
-];
+// //validaciones
+// const validateCreateForm = [
+//     body('name').notEmpty().isLength({ min: 5 }).withMessage('Debes completar el campo de nombre'),
+//     body('description').notEmpty().isLength({ min: 20 }).withMessage('Debes completar el campo de descripción'),
+//     body('price').notEmpty().withMessage('Debes completar el campo de precio')
+// ];
 
-const validateImgProduct = [
-    check('image')
-      .custom((value, { req }) => {
-        if (!req.file || !['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype)) {
-          throw new Error('El archivo debe ser un JPEG, JPG, PNG o GIF');
-        }
-        return true;
-      })
-  ];
+// const validateImgProduct = [
+//     check('image')
+//       .custom((value, { req }) => {
+//         if (!req.file || !['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype)) {
+//           throw new Error('El archivo debe ser un JPEG, JPG, PNG o GIF');
+//         }
+//         return true;
+//       })
+//   ];
 
 
 
@@ -68,10 +70,10 @@ router.get('/:id/productDetail', productController.productDetail);
 // identificar el id recibido en req.params, buscar en el JSON de productos el que coincida con el ID.
 // renderizar la vista de producto enviando como dato el producto 
 
-router.post('/', validateCreateForm,uploadFile.single('image'), productController.saveNewProduct);
+router.post('/', productValidations, uploadFile.single('image'), productController.saveNewProduct);
 //Obtener los datos del body, volcarlo en un nuevo objeto producto, agregarlo al array y volver a escribirlo al JSON
 
-router.put('/:id', uploadFile.single('image'), productController.saveEditedProduct);
+router.put('/:id', productValidations, uploadFile.single('image'), productController.saveEditedProduct);
 //Obtener los datos del JSON, volcarlo en un nuevo objeto producto, agregarlo al array y volver a escribirlo al JSON
 // ..
 router.delete('/:id', productController.deleteProduct);

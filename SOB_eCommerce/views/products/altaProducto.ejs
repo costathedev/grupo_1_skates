@@ -28,11 +28,7 @@
 			 <% } %> 
           
        <!-- Para enviar errores a la vista desde el formulario -->
-              <% if (locals.errors){
-                errors.forEach(error => { %>
-                <p class="altaProducto-label"><%= error.msg %></p>
-              <% })
-              } %>
+
 
               <label for="name" class="altaProducto-label altaProducto-item"  >Nombre del producto</label>
               <input
@@ -41,23 +37,29 @@
                 name="name"
                 id="name"
                 placeholder="Nombre del producto"
-                value= "<%= locals.old && old.name ? old.name : '' %>"
+                value= "<%= (locals.product && product.name) || (locals.old && old.name) %>"
                 
               />
+              <% if(locals.errors && errors.name) {%>
+                  <p class="reg-error"><%= errors.name.msg %> </p>
+              <% }%>
                 
               <!-- lo que estaba antes en el value de nombre producto -->
               <!-- "<%= locals.product && product.name %>" -->
 
 			  <label for="description" class="altaProducto-label altaProducto-item">Descripción</label>
-			  <input type="text" class="altaProducto-item" name="description" id="description" placeholder="Descripción del producto" value = "<%= locals.old && old.description ? old.description : '' %>" >
-			  
+			  <input type="text" class="altaProducto-item" name="description" id="description" placeholder="Descripción del producto" value = "<%= (locals.product && product.description) || (locals.old && old.description) %>" >
+			  <% if(locals.errors && errors.description) {%>
+            <p class="reg-error"><%= errors.description.msg %> </p>
+        <% }%>
+
         <!--"<%= locals.product && product.description %>"-->
 		  
 			  <label for="myfile" class="altaProducto-label altaProducto-item">Cargar imagen</label>
-			  <input type="file" id="myfile" name="image" id="image" class="altaProducto-item" value = "<%= locals.product && product.image %>"><br>
+			  <input type="file" id="myfile" name="image" id="image" class="altaProducto-item" value = "<%= locals.product && product.image %>" required><br>
 			  
 			  <label class="altaProducto-label altaProducto-item" for="category">Categoría</label>
-			  <select name="category" id="category_id" class="altaProducto-item" placeholder="Seleccione una categoría">
+			  <select name="category" id="category_id" class="altaProducto-item" placeholder="Seleccione una categoría"  required>
 				  <option value="1"  id="category_id" <% locals.producto && producto.category == '1' ? 'selected'  : '' %> >1</option>
 				  <option value="2"  id="category_id" <% locals.producto && producto.category == '2' ? 'selected'  : '' %> >2</option>
 				  <option value="3"  id="category_id" <% locals.producto && producto.category == '3' ? 'selected'  : '' %> >3</option>
@@ -67,7 +69,7 @@
 			  
 
 			  <label class="altaProducto-label altaProducto-item" for="size">Talle</label>
-			  <select name="size" id="size" class="altaProducto-item" placeholder="Seleccione un talle">
+			  <select name="size" id="size" class="altaProducto-item" placeholder="Seleccione un talle" required>
 				  <option value="1" <% locals.size && producto.size == '1' ? 'selected'  : '' %> > XS</option>
 				  <option value="2" <% locals.size && producto.size == '2' ? 'selected'  : '' %> > S</option>
 				  <option value="3" <% locals.size && producto.size == '3' ? 'selected'  : '' %> > M</option>
@@ -78,10 +80,10 @@
 		  
 		  
 			  <label for="color" class="altaProducto-label altaProducto-item">Color</label>
-			  <input type="text" class="altaProducto-item" name="color" id="color" placeholder="Color del producto" value = "<%= locals.product && product.color %>">
+			  <input type="text" class="altaProducto-item" name="color" id="color" placeholder="Color del producto" value = "<%= locals.product && product.color %>" required>
 		  
 			  <label for="price" class="altaProducto-label altaProducto-item">Precio</label>
-			  <input type="text" class="altaProducto-item" name="price" id="price" placeholder="Precio del producto" value = "<%= locals.product && product.price %>">
+			  <input type="text" class="altaProducto-item" name="price" id="price" placeholder="Precio del producto" value = "<%= locals.product && product.price %>" required>
 
 
               <button
