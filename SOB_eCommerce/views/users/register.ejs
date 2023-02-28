@@ -96,6 +96,9 @@
                             <p>(Dejar vacío para no modificar)</p>
                         <% }  %>
                         <input type="password" class="reg-form-item" name="password" id="password" placeholder="Contraseña" <% if (!locals.user) {%> required <% } %>>
+                        <% if(locals.errors && errors.password) {%>
+                            <p class="reg-error"><%= errors.password.msg %> </p>
+                        <% }%>
                         <input type="password" class="reg-form-item" name="password_repeated" id="password_repeated"
                         placeholder="repetir contraseña" <% if (!locals.user) {%> required <% } %>>
 

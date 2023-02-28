@@ -1,3 +1,5 @@
+const { localsName } = require("ejs");
+
 window.onload = function () {
     
     
@@ -161,7 +163,7 @@ window.onload = function () {
   
         var isValidImg = /[\/.](gif|jpg|jpeg|tiff|png)$/i.test(imagen.value);
        
-        if (!isValidImg) {
+        if (!isValidImg && !locals.readOnly) {
        
             errores.push(
         

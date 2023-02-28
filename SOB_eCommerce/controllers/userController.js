@@ -179,11 +179,7 @@ const userController = {
 
         //En esta variable guardo lo enviado desde la ruta, con respecto a los errores encontrados en la carga de los datos por parte del usuario
         let errors = validationResult(req);
-        console.log('BODYYYYYYYYYYYYYYYY');
-        console.log(req.body);
-        console.log('ERRORES DE VALIDACIONESSSSSSSSSSSSSSSSSSSSSS');
-        console.log(errors);
-        //return res.send(errors); ???
+
 
         //Aquí determino si hay ó no errores encontrados
         if (!errors.isEmpty()) {
@@ -241,6 +237,15 @@ const userController = {
 
         let newPass = req.body.password ? bcrypt.hashSync(req.body.password, 10) : '';
 
+        let errors = validationResult(req);
+
+         //Aquí determino si hay ó no errores encontrados
+         if (!errors.isEmpty()) {
+            return res.render('users/register', { //path.resolve(__dirname, '../views/users/register'), {
+                errors: errors.mapped(), old: req.body
+            });
+        }
+
 
         db.User.update({
             firstName: req.body.firstName,
@@ -248,7 +253,6 @@ const userController = {
             email: req.body.email,
             address: req.body.address,
             birth_date: req.body.birthDate,
-            firstName: req.body.firstName,
             // avatar: req.file ? req.file : (avatar ?avatar : 'default.png'),
             // password: newPass ? newPass : password,
         },
