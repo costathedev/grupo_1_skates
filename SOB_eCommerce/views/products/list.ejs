@@ -41,7 +41,7 @@
                         <form class="product-list-container" action="/product/<%= product.id %>?_method=DELETE" method="POST">
                             <span class="product-list-item"><%= product.name %></span>    
                             <span class="product-list-item"><%= product.model %></span>    
-                            <span class="product-list-item"><%= product.category %></span>    
+                            <span class="product-list-item"><%= product.Category.name %></span>    
                             <span class="product-list-item"><%= product.description %></span>    
                             <!-- <span class="product-list-item"><%= product.image%></span>     -->
                             <img class="product-list-item" src="/img/products/<%= product.image%>" alt="Imagen"></span>    

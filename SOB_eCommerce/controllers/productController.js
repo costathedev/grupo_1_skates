@@ -174,6 +174,8 @@ const productController = {
         }).then(product => {
             console.log('Encontro el product');
             if (product != undefined && product.id > 0) {
+                console.log('EDITA PRODUCTO')
+                console.log(product.category_id)
                 return res.render('products/altaProducto', { product, userLogged: req.session.userLogged })
             }
             else {
@@ -382,7 +384,7 @@ const productController = {
 
         // return res.redirect('/product');
 
-        db.Product.update({ deleted_at: new Date() }, {
+        db.Product.destroy({
             where: { id: req.params.id }
         })
             .then(product => {

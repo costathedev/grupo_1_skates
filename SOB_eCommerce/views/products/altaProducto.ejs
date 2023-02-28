@@ -49,6 +49,9 @@
               <!-- lo que estaba antes en el value de nombre producto -->
               <!-- "<%= locals.product && product.name %>" -->
 
+        <label for="model" class="altaProducto-label altaProducto-item">Modelo</label>
+        <input type="text" class="altaProducto-item" name="model" id="model" placeholder="Modelo del producto" value = "<%= (locals.product && product.model) || (locals.old && old.model) %>" >
+        
 			  <label for="description" class="altaProducto-label altaProducto-item">Descripción</label>
 			  <input type="text" class="altaProducto-item" name="description" id="description" placeholder="Descripción del producto" value = "<%= (locals.product && product.description) || (locals.old && old.description) %>" >
 			  <% if(locals.errors && errors.description) {%>
@@ -60,30 +63,30 @@
 			  <label for="myfile" class="altaProducto-label altaProducto-item">Cargar imagen</label>
 			  <input type="file" id="myfile" name="image" id="image" class="altaProducto-item" value = "<%= locals.product && product.image %>"><br>
 			  
-			  <label class="altaProducto-label altaProducto-item" for="category">Categoría</label>
-			  <select name="category" id="category_id" class="altaProducto-item" placeholder="Seleccione una categoría">
-				  <option value="1"  id="category_id" <% locals.producto && producto.category == '1' ? 'selected'  : '' %> >1</option>
-				  <option value="2"  id="category_id" <% locals.producto && producto.category == '2' ? 'selected'  : '' %> >2</option>
-				  <option value="3"  id="category_id" <% locals.producto && producto.category == '3' ? 'selected'  : '' %> >3</option>
-				  <option value="4"  id="category_id" <% locals.producto && producto.category == '4' ? 'selected'  : '' %> >4</option>
+			  <label class="altaProducto-label altaProducto-item" for="category_id">Categoría</label>
+			  <select name="category_id" id="category_id" class="altaProducto-item" placeholder="Seleccione una categoría">
+				  <option value="1"  id="category_id" <% if (locals.product && locals.product.category_id == 1) {  %> selected <% }  %> >Buzos</option>
+				  <option value="2"  id="category_id" <% if (locals.product && locals.product.category_id == 2) {  %> selected <% }  %> >Remeras</option>
+				  <option value="3"  id="category_id" <% if (locals.product && locals.product.category_id == 3) {  %> selected <% }  %> >Skates</option>
 			  </select>
 
 			  
 
 			  <label class="altaProducto-label altaProducto-item" for="size">Talle</label>
 			  <select name="size" id="size" class="altaProducto-item" placeholder="Seleccione un talle">
-				  <option value="1" <% locals.size && producto.size == '1' ? 'selected'  : '' %> > XS</option>
-				  <option value="2" <% locals.size && producto.size == '2' ? 'selected'  : '' %> > S</option>
-				  <option value="3" <% locals.size && producto.size == '3' ? 'selected'  : '' %> > M</option>
-				  <option value="4" <% locals.size && producto.size == '4' ? 'selected'  : '' %> > L</option>
+				  <option value="1" <% locals.size && product.size == '1' ? 'selected'  : '' %> > XS</option>
+				  <option value="2" <% locals.size && product.size == '2' ? 'selected'  : '' %> > S</option>
+				  <option value="3" <% locals.size && product.size == '3' ? 'selected'  : '' %> > M</option>
+				  <option value="4" <% locals.size && product.size == '4' ? 'selected'  : '' %> > L</option>
 			  </select>
 
 
 		  
-		  
+<!-- 		  
 			  <label for="color" class="altaProducto-label altaProducto-item">Color</label>
 			  <input type="text" class="altaProducto-item" name="color" id="color" placeholder="Color del producto" value = "<%= locals.product && product.color %>">
-		  
+		   -->
+
 			  <label for="price" class="altaProducto-label altaProducto-item">Precio</label>
 			  <input type="text" class="altaProducto-item" name="price" id="price" placeholder="Precio del producto" value = "<%= locals.product && product.price %>">
 

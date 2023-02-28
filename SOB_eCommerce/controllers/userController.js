@@ -282,14 +282,17 @@ const userController = {
         // loadUsers();
         // users = users.filter( user => user.id != id);
 
-        db.User.update({ deleted_at: new Date() }, {
+        db.User.destroy({
             where: { id: req.params.id }
         })
+        .then(() =>{
+            return res.redirect('/user');
+        })
+        .catch( err => console.log(err))
 
         // BORRAR
         // writeUsers();
 
-        return res.redirect('/user');
 
     },
 
