@@ -70,8 +70,7 @@ const uploadFile = multer({storage});
 
 router.get('/', userLoggedMiddleware, userAdminMiddleware, userController.index);
 
-router.get('/list', userController.list);
-router.get('/:id/show', userController.show);
+
 
 router.get('/profile', userLoggedMiddleware, userController.profile);
 

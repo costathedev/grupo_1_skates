@@ -9,6 +9,11 @@ const cookies = require('cookie-parser'); //cookies: todo aquello que se guarda 
 const userRoutes = require('./routes/user')
 const productRoutes = require('./routes/product')
 const mainRoutes = require('./routes/main')
+//Rutas de APIs
+const apiUserRoutes = require('./routes/api/user');
+const apiProductRoutes = require('./routes/api/product');
+const apiCategoryRoutes = require('./routes/api/category');
+
 
 // Required nuestros
 // const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
@@ -52,6 +57,11 @@ app.use(categoriesListMiddleware);
 app.use('/', mainRoutes)
 app.use('/user', userRoutes);
 app.use('/product', productRoutes);
+// Rutas de APIs
+app.use('/api/user', apiUserRoutes);
+app.use('/api/product', apiProductRoutes);
+app.use('/api/category', apiCategoryRoutes);
+
 
 // ERROR 404 al no ingresar a una url existente
 // Se define luego de todas las demás rutas

@@ -3,24 +3,24 @@ const db = require('../database/models');
 const { Association } = require('sequelize');
 const Op = db.Sequelize.Op;
 
-const productAPIController = {
+const categoryAPIController = {
 
     list: (req, res) => {
-        db.Product.findAll(
+        db.Category.findAll(
             {
                 // include: [{ association: 'roles' }],
                 where:{
                     deleted_at: null,
                 }         
             }
-        ).then(products => {
+        ).then(categories => {
             return res.status(200).json({
-                total: products.length,
-                data: products,
+                total: categories.length,
+                data: categories,
                 status: 200,
             });
         })
-        .catch(err => { console.log('Errores al buscar productos: ' + err)})
+        .catch(err => { console.log('Errores al buscar categorías: ' + err)})
     },
 
     show: (req, res) => {
@@ -31,11 +31,11 @@ const productAPIController = {
                 status: 200,
             });
         })
-        .catch(err => { console.log('Errores al buscar el producto: ' + err)})
+        .catch(err => { console.log('Errores al buscar la categoría: ' + err)})
     }
 
 
 
 }
 
-module.exports = productAPIController;
+module.exports = categoryAPIController;
