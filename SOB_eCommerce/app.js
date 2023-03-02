@@ -10,9 +10,9 @@ const userRoutes = require('./routes/user')
 const productRoutes = require('./routes/product')
 const mainRoutes = require('./routes/main')
 //Rutas de APIs
-const apiUserRoutes = require('./routes/api/user');
-const apiProductRoutes = require('./routes/api/product');
-const apiCategoryRoutes = require('./routes/api/category');
+const apiUserRoutes = require('./routes/api/userAPIRoutes');
+const apiProductRoutes = require('./routes/api/productAPIRoutes');
+const apiCategoryRoutes = require('./routes/api/categoryAPIRoutes');
 
 
 // Required nuestros
