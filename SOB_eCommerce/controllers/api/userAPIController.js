@@ -1,5 +1,5 @@
 const e = require('express');
-const db = require('../database/models');
+const db = require('../../database/models');
 const { Association } = require('sequelize');
 const Op = db.Sequelize.Op;
 
