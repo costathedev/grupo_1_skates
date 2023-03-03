@@ -1,10 +1,10 @@
 import React from 'react';
 import image from '../assets/images/logo-DH.png';
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './GenresInDb';
-import LastMovieInDb from './LastMovieInDb';
-import ContentRowMovies from './ContentRowMovies';
-import SearchMovies from './SearchMovies';
+import GenresInDb from './ProductsInDb';
+import LastMovieInDb from './LastProductInDb';
+import ContentRowMovies from './ContentRowProducts';
+import SearchMovies from './SearchProducts';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 
