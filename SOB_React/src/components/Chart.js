@@ -48,7 +48,6 @@ class Chart extends Component{
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Modelo</th>
-                                    <th>Categoría</th>
                                     <th>Descripción</th>
                                     <th>Precio</th>
                                 </tr>

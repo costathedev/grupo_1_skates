@@ -16,6 +16,8 @@ class LastProductInDb extends Component{
           return respuesta.json()
         })
         .then(oneProduct => {
+
+          console.log('PRODUCTO - IMG: ' + oneProduct.data.image + ' id: ' + oneProduct.data.id)
           this.setState({ product: oneProduct.data })
 
 
@@ -34,7 +36,8 @@ class LastProductInDb extends Component{
                     <ProductDetail  
                         name={this.state.product.name}
                         description={this.state.product.description}
-                        price={this.state.product.price} />
+                        price={this.state.product.price} 
+                        img_src={this.state.product.image}/>
                 </div>
             </div>
         )

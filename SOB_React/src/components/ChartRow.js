@@ -6,7 +6,6 @@ function ChartRow(props){
                 <tr>
                     <td>{props.name}</td>
                     <td>{props.model}</td>
-                    <td>{props.Category.description}</td>
                     {/* <td>
                         <ul>
                             {props.Categories.map( (category,i) => 

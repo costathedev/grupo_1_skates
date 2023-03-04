@@ -55,8 +55,8 @@ const productAPIController = {
         
         fs.stat(imagePath, (error, stats) => {
             if (error) {
-            //   console.error('Error al obtener el tamaño de la imagen:', error);
-            //   return res.status(500).end();
+              console.error('Error al obtener el tamaño de la imagen:', error);
+              return res.status(500).end();
             }
 
             // Configurar la respuesta HTTP
