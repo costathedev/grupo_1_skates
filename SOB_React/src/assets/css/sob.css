@@ -43,6 +43,11 @@
     background-color: #12b43b;
     border-width: 0px;
   }
+
+  .sob-btn:hover {
+    background-color: #23a539;
+  }
+  
   /* -------------- NOT FOUND -------------- */
 .sob-not-found-container {
     padding-top: 40px;
