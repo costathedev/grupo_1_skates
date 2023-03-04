@@ -31,3 +31,23 @@
     flex-grow: 1;
     
   }
+
+  /* -------------- NOT FOUND -------------- */
+.sob-not-found-container {
+    padding-top: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px yellow solid; */
+    
+}
+
+.sob-not-found-img {
+    width: 25%;
+    text-align: center;
+}
+
+.sob-not-found-text {
+    text-align: center;
+}
