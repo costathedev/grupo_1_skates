@@ -7,6 +7,8 @@ import ContentRowProducts from './ContentRowProducts';
 import SearchProducts from './SearchProducts';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
+import ChartTenProds from './ChartTenProds';
+import ChartAllProducts from './ChartAllProducts';
 
 function SideBar(){
     return(
@@ -59,13 +61,21 @@ function SideBar(){
                         <span>Totales</span></Link>
                 </li>
                 
-                {/* <!-- Buscador -->
+                {/* <!-- Últimos 10 Productos --> */}
                 <li className="fondo-verde nav-item nav-link">
-                    <Link className="nav-link letra-sidebar" to="/SearchProducts">
+                    <Link className="nav-link letra-sidebar" to="/ChartTenProds">
                         <i className="fas letra-sidebar fa-search"></i>
-                        <span>Buscar productos</span>
+                        <span>Últimos productos</span>
                     </Link>
-                </li> */}
+                </li>
+
+                {/* <!-- Todos los Productos --> */}
+                <li className="fondo-verde nav-item nav-link">
+                    <Link className="nav-link letra-sidebar" to="/ChartAllProducts">
+                        <i className="fas letra-sidebar fa-search"></i>
+                        <span>Todos los productos</span>
+                    </Link>
+                </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
@@ -103,6 +113,12 @@ function SideBar(){
                 </Route>
                 <Route path="/SearchProducts">
                     <SearchProducts />
+                </Route>
+                <Route path="/ChartTenProds">
+                    <ChartTenProds />
+                </Route>
+                <Route path="/ChartAllProducts">
+                    <ChartAllProducts />
                 </Route>
                 <Route component={NotFound} />
             </Switch>

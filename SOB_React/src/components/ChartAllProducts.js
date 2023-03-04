@@ -20,14 +20,14 @@ import ChartRow from './ChartRow';
 // ]
 
 
-class Chart extends Component{
+class ChartAllProducts extends Component{
     constructor (props) {
         super(props)
         this.state = {products: []};
     }
 
     componentDidMount() {
-        fetch('http://localhost:3050/api/product/lastTen')
+        fetch('http://localhost:3050/api/product')
       .then(respuesta => {
         return respuesta.json()
       })
@@ -43,7 +43,7 @@ class Chart extends Component{
 
             <div className="card shadow mb-4">
                 <div className="card-body">
-                <h3 className='titulo-sidebar'>Últimos 10 productos</h3>
+                <h3 className='titulo-sidebar'>Todos los productos</h3>
                     <div className="table-responsive">
                         <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                             <thead>
@@ -81,4 +81,4 @@ class Chart extends Component{
     
 }
 
-export default Chart;
+export default ChartAllProducts;
