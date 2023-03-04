@@ -41,7 +41,7 @@ function SideBar(){
                 <li className="fondo-verde nav-item">
                 <Link className="nav-link letra-sidebar" to="/ProductsInDb">
                         <i className="fas letra-sidebar fa-fw fa-folder"></i>
-                        <span>Pages</span>
+                        <span>Categorías</span>
                     </Link>
                 </li>
 
@@ -49,7 +49,7 @@ function SideBar(){
                 <li className="fondo-verde nav-item">
                     <Link className="nav-link letra-sidebar" to="/LastProductInDb">
                         <i className="fas letra-sidebar fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>Último Producto</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
@@ -59,13 +59,13 @@ function SideBar(){
                         <span>Tables</span></Link>
                 </li>
                 
-                {/*<!-- Buscador -->*/}
+                {/* <!-- Buscador -->
                 <li className="fondo-verde nav-item nav-link">
                     <Link className="nav-link letra-sidebar" to="/SearchProducts">
                         <i className="fas letra-sidebar fa-search"></i>
                         <span>Buscar productos</span>
                     </Link>
-                </li>
+                </li> */}
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
