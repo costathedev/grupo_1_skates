@@ -1,24 +1,24 @@
 import React, { Component } from "react";
-import Product from './Product';
+import Category from './Category';
 
-class ProductsInDb extends Component {
+class CategoriesInDb extends Component {
 
   constructor() {
     super();
 
     this.state = {
-      productList: []
+      categoryList: []
     }
   }
 
   componentDidMount() {
 
-    fetch('/api/products')
+    fetch('http://localhost:3050/api/category')
       .then(respuesta => {
         return respuesta.json()
       })
-      .then(products => {
-        this.setState({ productList: products.data })
+      .then(categories => {
+        this.setState({ categoryList: categories.data })
       })
       .catch(error => console.log(error))
   }
@@ -30,13 +30,20 @@ class ProductsInDb extends Component {
         <div className="col-lg-6 mb-4" >
           <div className="card shadow mb-4">
             <div className="card-header py-3">
-              <h5 className="m-0 font-weight-bold text-gray-800">
-                Productos de la Base de Datos
+              <h5 className="m-0 font-weight-bold text-gray-800 titulo-sidebar">
+                Categorías de la Base de Datos
               </h5>
             </div>
             <div className="card-body">
               <div className="row">
-                <div className="col-lg-6 mb-4">
+
+                { this.state.categoryList.map( cat => 
+                <Category name={cat.name}/>
+                  
+                  )}
+
+
+                {/* <div className="col-lg-6 mb-4">
                   <div className="card bg-dark text-white shadow">
                     <div className="card-body">Acción</div>
                   </div>
@@ -85,7 +92,9 @@ class ProductsInDb extends Component {
                   <div className="card bg-dark text-white shadow">
                     <div className="card-body">Musical</div>
                   </div>
-                </div>
+                </div> */}
+
+
               </div>
             </div>
           </div>
@@ -94,8 +103,8 @@ class ProductsInDb extends Component {
         <div className="card-body fondoCaja">
           <div className="row">
 
-            {this.state.productList.map( (product, index) => {
-              return <Product {...product} key={index} />
+            {this.state.categoryList.map( (product, index) => {
+              return <Category {...product} key={index} />
             })}
 
           </div>
@@ -109,4 +118,4 @@ class ProductsInDb extends Component {
 
 }
 
-export default ProductsInDb;
+export default CategoriesInDb;
