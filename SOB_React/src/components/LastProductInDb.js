@@ -31,7 +31,7 @@ class LastProductInDb extends Component{
                     <div className="card-header py-3">
                         <h5 className="m-0 font-weight-bold text-gray-800">Último producto agregado</h5>
                     </div>
-                    <ProductDetail img_src={this.state.product.image} 
+                    <ProductDetail  
                         name={this.state.product.name}
                         description={this.state.product.description}
                         price={this.state.product.price} />

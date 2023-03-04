@@ -8,7 +8,7 @@ const productAPIController = {
     list: (req, res) => {
         db.Product.findAll(
             {
-                // include: [{ association: 'roles' }],
+                include: [{ association: 'Category' }],
                 where:{
                     deleted_at: null,
                 }         

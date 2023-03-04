@@ -5,10 +5,11 @@ import React, {Component} from 'react';
 class ProductDetail extends Component  {
     constructor(props) {
         super(props);
-        this.state = {name: props.name, description: props.description, price: props.price,img_src: props.img_src, image: null};
+        this.state = {image: null};
     }
 
-    // componentDidMount(){
+    componentDidMount(){
+
 
             // // Obtener la imagen de la API
             // fetch('http://localhost:3050/api/product/' + this.state.img_src + 'image')
@@ -30,17 +31,17 @@ class ProductDetail extends Component  {
             // console.error('Error al obtener la imagen:', error);
             // }); 
 
-    // }
+    }
     
     render() {
        return (
         <div className="card-body">
-            <h3>{this.state.name}</h3>
+            <h3>{this.props.name}</h3>
             <div className="text-center">
-                <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src='/logo512.png' style={{width: 40 +'rem'}}  alt={this.state.name}/>
+                <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src='/logo512.png' style={{width: 40 +'rem'}}  alt={this.props.name}/>
             </div>
-            <strong>${this.state.price}</strong>
-            <p>{this.state.description}</p>
+            <p class='sob-price'>${this.props.price}</p>
+            <p>{this.props.description}</p>
             <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>
         </div>
     ) 
