@@ -1,5 +1,6 @@
 // Require de Modulos externos 
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
@@ -28,6 +29,8 @@ const url = 'http://localhost'; // Url a utilizar para el servidor web.
 
 // Aclaramos a Express cual es el motor de plantillas que vamos a usar, 
 app.set('view engine', 'ejs');
+
+app.use(cors());
 
 // Definir como públicos los recursos.
 app.use(express.static(path.resolve('./public')));

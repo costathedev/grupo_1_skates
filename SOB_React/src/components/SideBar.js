@@ -1,10 +1,10 @@
 import React from 'react';
-import image from '../assets/images/logo-DH.png';
+import image from '../assets/images/Logo 1920.png';
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './ProductsInDb';
-import LastMovieInDb from './LastProductInDb';
-import ContentRowMovies from './ContentRowProducts';
-import SearchMovies from './SearchProducts';
+import ProductsInDb from './ProductsInDb';
+import LastProductInDb from './LastProductInDb';
+import ContentRowProducts from './ContentRowProducts';
+import SearchProducts from './SearchProducts';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 
@@ -12,12 +12,12 @@ function SideBar(){
     return(
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
-            <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul className="navbar-nav fondo-verde bg-gradient-secondary  sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
-                <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <a className="fondo-verde sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div className="sidebar-brand-icon">
-                        <img className="w-100" src={image} alt="Digital House"/>
+                        <img className="w-100" src={image} alt="Saints of Bath"/>
                     </div>
                 </a>
 
@@ -25,45 +25,45 @@ function SideBar(){
                 <hr className="sidebar-divider my-0"/>
 
                 {/*<!-- Nav Item - Dashboard -->*/}
-                <li className="nav-item active">
+                <li className="fondo-verde nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></Link>
+                        <span>Dashboard - Saints of Bath</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
-                <hr className="sidebar-divider"/>
+                <hr className="borde-verde sidebar-divider"/>
 
                 {/*<!-- Heading -->*/}
-                <div className="sidebar-heading">Actions</div>
+                <div className="fondo-verde sidebar-heading">Actions</div>
 
                 {/*<!-- Nav Item - Pages -->*/}
-                <li className="nav-item">
-                <Link className="nav-link" to="/GenresInDb">
+                <li className="fondo-verde nav-item">
+                <Link className="nav-link" to="/ProductsInDb">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Pages</span>
                     </Link>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
-                <li className="nav-item">
-                    <Link className="nav-link" to="/LastMovieInDb">
+                <li className="fondo-verde nav-item">
+                    <Link className="nav-link" to="/LastProductInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span>Charts</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
-                <li className="nav-item nav-link">
-                <Link className="nav-link" to="/ContentRowMovies">
+                <li className="fondo-verde nav-item nav-link">
+                <Link className="nav-link" to="/ContentRowProducts">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Tables</span></Link>
                 </li>
                 
                 {/*<!-- Buscador -->*/}
-                <li className="nav-item nav-link">
-                    <Link className="nav-link" to="/SearchMovies">
+                <li className="fondo-verde nav-item nav-link">
+                    <Link className="nav-link" to="/SearchProducts">
                         <i className="fas fa-search"></i>
-                        <span>Search a movie</span>
+                        <span>Buscar productos</span>
                     </Link>
                 </li>
 
@@ -92,17 +92,17 @@ function SideBar(){
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
-                <Route path="/GenresInDb">
-                    <GenresInDb />
+                <Route path="/ProductsInDb">
+                    <ProductsInDb />
                 </Route>
-                <Route path="/LastMovieInDb">
-                    <LastMovieInDb />
+                <Route path="/LastProductInDb">
+                    <LastProductInDb />
                 </Route>
-                <Route path="/ContentRowMovies">
-                    <ContentRowMovies />
+                <Route path="/ContentRowProducts">
+                    <ContentRowProducts />
                 </Route>
-                <Route path="/SearchMovies">
-                    <SearchMovies />
+                <Route path="/SearchProducts">
+                    <SearchProducts />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
