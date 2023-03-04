@@ -27,7 +27,7 @@ class Chart extends Component{
     }
 
     componentDidMount() {
-        fetch('http://localhost:3050/api/product')
+        fetch('http://localhost:3050/api/product/lastTen')
       .then(respuesta => {
         return respuesta.json()
       })
@@ -40,8 +40,10 @@ class Chart extends Component{
     render() {
         return (
             /* <!-- DataTales Example --> */
+
             <div className="card shadow mb-4">
                 <div className="card-body">
+                <h3 className='titulo-sidebar'>Últimos 10 productos</h3>
                     <div className="table-responsive">
                         <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                             <thead>

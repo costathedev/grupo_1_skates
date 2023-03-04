@@ -23,6 +23,26 @@ const productAPIController = {
         .catch(err => { console.log('Errores al buscar productos: ' + err)})
     },
 
+    LastTen: (req, res) => {
+        db.Product.findAll(
+            {
+                include: [{ association: 'Category' }],
+                where:{
+                    deleted_at: null,
+                }  ,
+                order: [['id', 'DESC']],
+                limit: 10
+            }
+        ).then(products => {
+            return res.status(200).json({
+                total: products.length,
+                data: products,
+                status: 200,
+            });
+        })
+        .catch(err => { console.log('Errores al buscar productos: ' + err)})
+    },
+
     show: (req, res) => {
         db.Product.findByPk(req.params.id)
         .then(product => {

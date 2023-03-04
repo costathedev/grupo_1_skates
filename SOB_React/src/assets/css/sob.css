@@ -39,6 +39,10 @@
     text-align: center;
   }
 
+  .sob-btn {
+    background-color: #12b43b;
+    border-width: 0px;
+  }
   /* -------------- NOT FOUND -------------- */
 .sob-not-found-container {
     padding-top: 40px;

@@ -56,7 +56,7 @@ function SideBar(){
                 <li className="fondo-verde nav-item nav-link">
                 <Link className="nav-link letra-sidebar" to="/ContentRowProducts">
                         <i className="fas letra-sidebar fa-fw fa-table"></i>
-                        <span>Tables</span></Link>
+                        <span>Totales</span></Link>
                 </li>
                 
                 {/* <!-- Buscador -->

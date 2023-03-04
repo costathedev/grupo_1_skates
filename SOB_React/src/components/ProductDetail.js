@@ -40,7 +40,7 @@ class ProductDetail extends Component  {
             </div>
             <p className='sob-price'>${this.props.price}</p>
             <p>{this.props.description}</p>
-            <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>
+            <a className="btn btn-danger sob-btn" target="_blank" rel="nofollow" href="/">Ver detalle</a>
         </div>
     ) 
     }
