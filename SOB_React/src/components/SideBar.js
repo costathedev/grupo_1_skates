@@ -12,7 +12,7 @@ function SideBar(){
     return(
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
-            <ul className="navbar-nav fondo-verde bg-gradient-secondary  sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul className="navbar-nav fondo-verde bg-gradient-secondary  sidebar  accordion" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="fondo-verde sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -26,9 +26,9 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="fondo-verde nav-item active">
-                    <Link className="nav-link" to="/">
+                    <Link className="nav-link letra-sidebar" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - Saints of Bath</span></Link>
+                        <span>Saints of Bath</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -39,30 +39,30 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="fondo-verde nav-item">
-                <Link className="nav-link" to="/ProductsInDb">
-                        <i className="fas fa-fw fa-folder"></i>
+                <Link className="nav-link letra-sidebar" to="/ProductsInDb">
+                        <i className="fas letra-sidebar fa-fw fa-folder"></i>
                         <span>Pages</span>
                     </Link>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="fondo-verde nav-item">
-                    <Link className="nav-link" to="/LastProductInDb">
-                        <i className="fas fa-fw fa-chart-area"></i>
+                    <Link className="nav-link letra-sidebar" to="/LastProductInDb">
+                        <i className="fas letra-sidebar fa-fw fa-chart-area"></i>
                         <span>Charts</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="fondo-verde nav-item nav-link">
-                <Link className="nav-link" to="/ContentRowProducts">
-                        <i className="fas fa-fw fa-table"></i>
+                <Link className="nav-link letra-sidebar" to="/ContentRowProducts">
+                        <i className="fas letra-sidebar fa-fw fa-table"></i>
                         <span>Tables</span></Link>
                 </li>
                 
                 {/*<!-- Buscador -->*/}
                 <li className="fondo-verde nav-item nav-link">
-                    <Link className="nav-link" to="/SearchProducts">
-                        <i className="fas fa-search"></i>
+                    <Link className="nav-link letra-sidebar" to="/SearchProducts">
+                        <i className="fas letra-sidebar fa-search"></i>
                         <span>Buscar productos</span>
                     </Link>
                 </li>

@@ -1,7 +1,21 @@
 .fondo-verde {
-    background-color: #12b43b!important;
+    /* background-color:  #12b43b!important; */
+    background-color: white;
+    color:black!important
   }
   
   .borde-verde {
     border-color: #12b43b!important;
+    color:black!important;
+    border-width: 4px;
+  }
+
+  .letra-sidebar {
+    color: black!important;
+  }
+
+  .titulo-sidebar {
+    color: #12b43b!important;
+    /* font-size: 8rem;
+    line-height: 1rem; */
   }
